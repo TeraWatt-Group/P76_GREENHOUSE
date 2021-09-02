@@ -1,0 +1,26 @@
+{
+    "name": "terawatt/greenhouse",
+    "type": "project",
+    "description": "GREENHOUSE",
+    "keywords": [
+        "terawatt-group",
+        "laravel"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Terawatt\\Greenhouse\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Zaets",
+            "email": "a.zaets@terawatt-group.com",
+            "homepage": "",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0"
+    }
+}
