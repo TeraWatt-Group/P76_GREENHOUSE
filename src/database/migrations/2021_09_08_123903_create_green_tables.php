@@ -13,8 +13,8 @@ class CreateGreenTables extends Migration
      */
     public function up()
     {
-        Schema::create('personal', function (Blueprint $table) {
-            $table->id('idpersonal');
+        Schema::create('green', function (Blueprint $table) {
+            $table->id('idgreen');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class CreateGreenTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personal');
+        Schema::dropIfExists('green');
     }
 }

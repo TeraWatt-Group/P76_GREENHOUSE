@@ -46,8 +46,6 @@
 <body class="d-flex flex-column h-100">
     @include('green::layouts.header')
 
-    @include('green::layouts.sidebar')
-
     <div id="app">
         <main class="py-4">
             @yield('content')

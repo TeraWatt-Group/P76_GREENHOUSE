@@ -16,7 +16,7 @@
             </ul>
 
             <div class="col-md-3 text-end">
-                {{ APP_VERSION }}
+                {{ config('green.app_version') }}
             </div>
         </header>
       </div>
