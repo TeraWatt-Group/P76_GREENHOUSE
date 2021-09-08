@@ -1,5 +1,9 @@
 <?php
 
-Route::get('greenhouse', function(){
-	echo 'Hello from the calculator package!';
+Route::get('/', function(){
+	return view('green::home');
+})->name('home');
+
+Route::group(['prefix' => 'green', 'as' => 'green.'], function () {
+
 });

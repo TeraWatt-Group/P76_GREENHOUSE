@@ -3,6 +3,7 @@
     "type": "project",
     "description": "GREENHOUSE",
     "keywords": [
+        "terawatt",
         "terawatt-group",
         "laravel"
     ],
@@ -15,12 +16,11 @@
     "authors": [
         {
             "name": "Andrey Zaets",
-            "email": "a.zaets@terawatt-group.com",
-            "homepage": "",
-            "role": "Developer"
+            "email": "a.zaets@terawatt-group.com"
         }
     ],
     "require": {
-        "php": "^7.3|^8.0"
+        "php": "^7.3|^8.0",
+        "laravel/fortify": "^1.8"
     }
 }
