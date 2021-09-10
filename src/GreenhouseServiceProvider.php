@@ -25,17 +25,14 @@ class GreenhouseServiceProvider extends ServiceProvider
     {
         //
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
-
         $this->loadViewsFrom(__DIR__.'/views', 'green');
 
         $this->publishes([
-            __DIR__.'/config/green.php' => config_path('green.php')
-        ], 'green-config');
-
-        $this->publishes([
-            __DIR__.'/database/migrations' => database_path('migrations')
-        ], 'green-migrations');
+            __DIR__.'/config/green.php' => config_path('green.php'),
+            __DIR__.'/database/migrations' => database_path('migrations'),
+            __DIR__.'/views' => resource_path('views/vendor/green'),
+            __DIR__.'/public' => public_path('/'),
+        ], 'terawatt-greenhouse');
     }
 }

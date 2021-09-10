@@ -13,9 +13,25 @@ class CreateGreenTables extends Migration
      */
     public function up()
     {
-        Schema::create('green', function (Blueprint $table) {
-            $table->id('idgreen');
+        Schema::create('product', function (Blueprint $table) {
+            $table->bigIncrements('product_id');
+            $table->string('name', 255);
+            $table->string('sku', 64);
+            $table->date('date_available')->default('0000-00-00');
+            $table->boolean('status')->default(0);
             $table->timestamps();
+        });
+        Schema::create('category', function (Blueprint $table) {
+            $table->bigIncrements('category_id');
+            $table->integer('parent_id')->default(0);
+            $table->timestamps();
+        });
+        Schema::create('category_description', function (Blueprint $table) {
+            $table->unsignedBigInteger('category_id');
+            $table->string('name', 255);
+            $table->text('description');
+
+            $table->foreign('category_id')->references('category_id')->on('category')->onDelete('cascade');
         });
     }
 
@@ -26,6 +42,7 @@ class CreateGreenTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('green');
+        Schema::dropIfExists('product');
+        Schema::dropIfExists('category');
     }
 }

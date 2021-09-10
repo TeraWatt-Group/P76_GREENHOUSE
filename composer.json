@@ -21,6 +21,7 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/fortify": "^1.8"
+        "laravel/fortify": "^1.8",
+        "livewire/livewire": "^2.5"
     }
 }

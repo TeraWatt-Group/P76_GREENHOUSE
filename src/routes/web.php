@@ -1,8 +1,8 @@
 <?php
 
 Route::get('/', function(){
-	return view('home');
-})->name('home');
+	return view('vendor.green.welcome');
+})->name('welcome');
 
 Route::group(['prefix' => 'green', 'as' => 'green.'], function () {
 
