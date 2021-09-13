@@ -1,143 +1,50 @@
-@extends('vendor.green.layouts.app')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
+<head class="h-100">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('title', __('green.'))
-@section('description', __('green.'))
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/img/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-	<!-- Bootstrap core CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>@yield('title')</title>
+    <meta name="keywords" content="best business software, business software, software system">
+    <meta name="description" content="@yield('description')">
 
+    <meta property="og:title" content="@yield('title')">
+    <meta property="og:description" content="@yield('description')">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->full() }}">
+    <meta property="og:image" content="{{ asset('/img/mls_v4_1024x1024.jpg') }}" />
+    <meta property="og:site_name" content="{{ env('APP_NAME') }}">
 
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
-	<style>
-	  body {
-		min-height: 100vh;
-		min-height: -webkit-fill-available;
-	  }
-
-	  html {
-		height: -webkit-fill-available;
-	  }
-
-	  main {
-		display: flex;
-		flex-wrap: nowrap;
-		height: 100vh;
-		height: -webkit-fill-available;
-		max-height: 100vh;
-		overflow-x: auto;
-		overflow-y: hidden;
-	  }
-
-	  .b-example-divider {
-		flex-shrink: 0;
-		width: 1.5rem;
-		height: 100vh;
-		background-color: rgba(0, 0, 0, .1);
-		border: solid rgba(0, 0, 0, .15);
-		border-width: 1px 0;
-		box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-	  }
-
-	  .bi {
-		vertical-align: -.125em;
-		pointer-events: none;
-		fill: currentColor;
-	  }
-
-	  .dropdown-toggle { outline: 0; }
-
-	  .nav-flush .nav-link {
-		border-radius: 0;
-	  }
-
-	  .btn-toggle {
-		display: inline-flex;
-		align-items: center;
-		padding: .25rem .5rem;
-		font-weight: 600;
-		color: rgba(0, 0, 0, .65);
-		background-color: transparent;
-		border: 0;
-	  }
-	  .btn-toggle:hover,
-	  .btn-toggle:focus {
-		color: rgba(0, 0, 0, .85);
-		background-color: #d2f4ea;
-	  }
-
-	  .btn-toggle::before {
-		width: 1.25em;
-		line-height: 0;
-		content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-		transition: transform .35s ease;
-		transform-origin: .5em 50%;
-	  }
-
-	  .btn-toggle[aria-expanded="true"] {
-		color: rgba(0, 0, 0, .85);
-	  }
-	  .btn-toggle[aria-expanded="true"]::before {
-		transform: rotate(90deg);
-	  }
-
-	  .btn-toggle-nav a {
-		display: inline-flex;
-		padding: .1875rem .5rem;
-		margin-top: .125rem;
-		margin-left: 1.25rem;
-		text-decoration: none;
-	  }
-	  .btn-toggle-nav a:hover,
-	  .btn-toggle-nav a:focus {
-		background-color: #d2f4ea;
-	  }
-
-	  .scrollarea {
-		overflow-y: auto;
-	  }
-
-	  .fw-semibold { font-weight: 600; }
-	  .lh-tight { line-height: 1.25; }
-
-
-
-		.outer{
-		  writing-mode: tb-rl;
-		  display: flex;
-		  align-items: center;
-		  justify-content: center;
-		}
-		.inner{
-		  transform: rotate(180deg);
-		  text-align: center;
-		}
-
-		main {
-			width: 100%;
-		    background: url('vendor/green/img/josefin-WS5yjFjycNY-unsplash.jpg') no-repeat center center fixed;
-		    -webkit-background-size: cover;
-		    -moz-background-size: cover;
-		    background-size: cover;
-		    -o-background-size: cover;
-		}
-		.btn:focus {
-		  outline: none;
-		  box-shadow: none;
-		}
-		::-webkit-scrollbar {
-		    width: 10px;
-		}
-		::-webkit-scrollbar-thumb {
-		    background: #888;
-		}
-		::-webkit-scrollbar-thumb:hover {
-		    background: #555;
-		}
-	</style>
-
-
+    <!-- Styles -->
+    <link href="{{ 'css/app.css' }}" rel="stylesheet">
+    <link href="{{ 'css/green.css' }}" rel="stylesheet">
+    @livewireStyles
+</head>
+<body class="h-100">
 		<main>
 			<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 				<div class="offcanvas-header p-3">
@@ -239,66 +146,6 @@
 			</div>
 		</main>
 		<div class="container">
-			<style>
-				.b-example-divider {
-				  height: 3rem;
-				  background-color: rgba(0, 0, 0, .1);
-				  border: solid rgba(0, 0, 0, .15);
-				  border-width: 1px 0;
-				  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-				}
-
-				.bi {
-				  vertical-align: -.125em;
-				  fill: currentColor;
-				}
-
-				.feature-icon {
-				  display: inline-flex;
-				  align-items: center;
-				  justify-content: center;
-				  width: 4rem;
-				  height: 4rem;
-				  margin-bottom: 1rem;
-				  font-size: 2rem;
-				  color: #fff;
-				  border-radius: .75rem;
-				}
-
-				.icon-link {
-				  display: inline-flex;
-				  align-items: center;
-				}
-				.icon-link > .bi {
-				  margin-top: .125rem;
-				  margin-left: .125rem;
-				  transition: transform .25s ease-in-out;
-				  fill: currentColor;
-				}
-				.icon-link:hover > .bi {
-				  transform: translate(.25rem);
-				}
-
-				.icon-square {
-				  display: inline-flex;
-				  align-items: center;
-				  justify-content: center;
-				  width: 3rem;
-				  height: 3rem;
-				  font-size: 1.5rem;
-				  border-radius: .75rem;
-				}
-
-				.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
-				.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
-				.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
-
-				.card-cover {
-				  background-repeat: no-repeat;
-				  background-position: center center;
-				  background-size: cover;
-				}
-			</style>
 			<div class="h-100">
 				<div class="container px-4 py-5" id="custom-cards">
 				    <h2 class="pb-2 border-bottom">News</h2>
@@ -437,6 +284,12 @@
 			</div>
 		</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+	@include('vendor.green.layouts.footer')
 
-@endsection
+    <!-- Scripts -->
+    @livewireScripts
+    <script src="{{ 'js/app.js' }}" defer></script>
+    @stack('scripts')
+    @yield('script')
+</body>
+</html>
