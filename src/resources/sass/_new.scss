@@ -1,0 +1,60 @@
+.arrow-up, .arrow-down, .arrow-left, .arrow-right {
+    display: inline-block;
+    height: 0;
+    width: 0;
+    font-size: 0;
+    line-height: 0;
+}
+.arrow-up {
+    border: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 6px solid #1f2c33;
+}
+.arrow-down {
+    border: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid #1f2c33;
+}
+.arrow-left {
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-right: 6px solid #1f2c33;
+}
+.arrow-right {
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-left: 6px solid #1f2c33;
+}
+
+.w-0 {width:0}
+.w-5 {width:5%}
+.w-10 {width:10%}
+.w-15 {width:15%}
+.w-20 {width:20%}
+.w-25 {width:25%}
+.w-30 {width:30%}
+.w-35 {width:35%}
+.w-40 {width:40%}
+.w-45 {width:45%}
+.w-50 {width:50%}
+.w-55 {width:55%}
+.w-60 {width:60%}
+.w-65 {width:65%}
+.w-70 {width:70%}
+.w-75 {width:75%}
+.w-80 {width:80%}
+.w-85 {width:85%}
+.w-90 {width:90%}
+.w-95 {width:95%}
+.w-100 {width:100vw}
+
+.preloader {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(251, 251, 251, 0.7);
+}
