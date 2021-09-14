@@ -30,10 +30,7 @@ class GreenhouseServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/views', 'green');
 
         $this->publishes([
-            __DIR__.'/config/app.php' => config_path('app.php'),
-            __DIR__.'/config/fortify.php' => config_path('fortify.php'),
             __DIR__.'/config/green.php' => config_path('green.php'),
-            __DIR__.'/config/sanctum.php' => config_path('sanctum.php'),
             __DIR__.'/database/migrations' => database_path('migrations'),
             __DIR__.'/views' => resource_path('views'),
             __DIR__.'/public' => public_path('/'),

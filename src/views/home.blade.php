@@ -1,4 +1,4 @@
-@extends('vendor.green.layouts.app')
+@extends('layouts.app')
 
 @section('title', __('Terawatt'))
 @section('description', __('Terawatt'))

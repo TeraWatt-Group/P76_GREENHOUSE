@@ -400,7 +400,7 @@
 	    </div>
 	</div>
 
-	@include('vendor.green.layouts.footer')
+	@include('layouts.footer')
 
     <!-- Scripts -->
     @livewireScripts
