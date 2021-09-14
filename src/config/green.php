@@ -10,6 +10,8 @@ return [
     |
     */
 
-    'app_version' => '1.0.1',
+    'app_version' => '1.0.6',
+    'app_name' => 'green.',
+    'app_description' => 'Greenhouse',
 
 ];

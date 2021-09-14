@@ -12,7 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('src/resources/js/app.js', 'src/public/js/green.js')
-    .sass('src/resources/sass/app.scss', './../src/public/css/green.css')
+    .sass('src/resources/sass/app.scss', 'src/public/css/green.css')
     .webpackConfig(require('./webpack.config'))
     .options({ processCssUrls: false });
 

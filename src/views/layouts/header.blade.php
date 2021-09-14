@@ -1,6 +1,6 @@
 <header class="d-flex justify-content-between px-3 py-2">
     <div class="col-5">
-        <a class="d-flex fs-5 align-items-center text-dark text-decoration-none pt-2" href="{{ url('/') }}">{{ config('app.name', 'SACCADE') }}</a>
+        <a class="d-flex fs-5 align-items-center text-dark text-decoration-none pt-2" href="{{ url('/') }}">{{ config('green.app_name') }}</a>
     </div>
 
 
