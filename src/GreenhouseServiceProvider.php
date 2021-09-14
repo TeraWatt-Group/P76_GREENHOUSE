@@ -35,7 +35,7 @@ class GreenhouseServiceProvider extends ServiceProvider
             __DIR__.'/config/green.php' => config_path('green.php'),
             __DIR__.'/config/sanctum.php' => config_path('sanctum.php'),
             __DIR__.'/database/migrations' => database_path('migrations'),
-            __DIR__.'/views' => resource_path('views/vendor/green'),
+            __DIR__.'/views' => resource_path('views'),
             __DIR__.'/public' => public_path('/'),
         ], 'terawatt-greenhouse');
     }
