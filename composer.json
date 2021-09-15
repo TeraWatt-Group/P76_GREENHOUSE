@@ -21,11 +21,8 @@
     ],
     "require": {
         "php": "^7.2.5|^8.0",
-        "laravel/sanctum": "^2.11",
-        "livewire/livewire": "^2.5"
-    },
-    "require-dev": {
         "laravel/fortify": "^1.8",
+        "laravel/sanctum": "^2.11",
         "livewire/livewire": "^2.5"
     }
 }

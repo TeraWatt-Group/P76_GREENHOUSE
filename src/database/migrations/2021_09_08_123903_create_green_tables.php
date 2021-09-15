@@ -17,7 +17,7 @@ class CreateGreenTables extends Migration
             $table->bigIncrements('product_id');
             $table->string('name', 255);
             $table->string('sku', 64);
-            $table->date('date_available')->default('0000-00-00');
+            $table->date('date_available');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });
