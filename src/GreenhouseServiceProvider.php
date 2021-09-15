@@ -30,6 +30,7 @@ class GreenhouseServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/views', 'green');
 
         $this->publishes([
+            __DIR__.'/../stubs/FortifyServiceProvider.php' => app_path('Providers/FortifyServiceProvider.php'),
             __DIR__.'/config/green.php' => config_path('green.php'),
             __DIR__.'/database/migrations' => database_path('migrations'),
             __DIR__.'/views' => resource_path('views'),
