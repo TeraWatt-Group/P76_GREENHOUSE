@@ -44,7 +44,7 @@
     @livewireStyles
 </head>
 <body class="h-100">
-		<main>
+		<main class="welcome">
 			<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 				<div class="offcanvas-header p-3">
 					<h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>

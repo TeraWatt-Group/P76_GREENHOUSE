@@ -38,7 +38,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Styles -->
-    <link href="{{{{ mix('css/green.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/green.css') }}" rel="stylesheet">
     <style>
         html,
         body {

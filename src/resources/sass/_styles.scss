@@ -1,4 +1,4 @@
-main {
+.welcome {
     display: flex;
     flex-wrap: nowrap;
     height: 100vh;
@@ -6,7 +6,7 @@ main {
     overflow-x: auto;
     overflow-y: hidden;
 }
-main {
+.welcome {
     width: 100%;
     background: url('../img/josefin-WS5yjFjycNY-unsplash.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;

@@ -70,6 +70,7 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'L' => 
         array (
             'Livewire\\' => 9,
+            'Laravel\\Sanctum\\' => 16,
             'Laravel\\Fortify\\' => 16,
         ),
         'I' => 
@@ -227,6 +228,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         array (
             0 => __DIR__ . '/..' . '/livewire/livewire/src',
         ),
+        'Laravel\\Sanctum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/sanctum/src',
+        ),
         'Laravel\\Fortify\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/fortify/src',
@@ -241,8 +246,8 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/collections',
-            1 => __DIR__ . '/..' . '/illuminate/macroable',
+            0 => __DIR__ . '/..' . '/illuminate/macroable',
+            1 => __DIR__ . '/..' . '/illuminate/collections',
             2 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Filesystem\\' => 
