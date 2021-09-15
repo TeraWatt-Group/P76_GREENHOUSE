@@ -28,6 +28,7 @@ class GreenhouseServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadRoutesFrom(__DIR__.'/routes/api.php');
         $this->loadViewsFrom(__DIR__.'/views', 'green');
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'green');
 
         $this->publishes([
             __DIR__.'/../stubs/FortifyServiceProvider.php' => app_path('Providers/FortifyServiceProvider.php'),

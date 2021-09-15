@@ -40,7 +40,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Styles -->
-    <link href="{{ 'css/app.css' }}" rel="stylesheet">
+    <link href="{{ 'css/green.css' }}" rel="stylesheet">
     @livewireStyles
 </head>
 <body class="d-flex flex-column h-100">
@@ -52,7 +52,7 @@
 
     <!-- Scripts -->
     @livewireScripts
-    <script src="{{ 'js/app.js' }}" defer></script>
+    <script src="{{ 'js/green.js' }}" defer></script>
     @stack('scripts')
     @yield('script')
 </body>
