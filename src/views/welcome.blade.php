@@ -80,36 +80,41 @@
 						</a>
 					</li>
 				</ul>
-				<div class="">
+<!-- 				<div class=""> -->
 					<ul class="nav nav-pills flex-column mt-auto">
 						@if (Route::has('login'))
 							@auth
-								<ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser">
-									<li><h6 class="dropdown-header">{{ __('Signed in as') }}</h6></li>
-									@if (Route::has('admin.index'))
+								<div class="dropdown">
+									<a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+										<span class="avatar avatar-xs avatar-circle bg-primary me-2">
+											<span class="avatar-holder">{{ substr(Auth::user()->name, 0, 2) }}</span>
+										</span>
+										{{ Auth::user()->name }}
+									</a>
+									<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser">
+										<li><h6 class="dropdown-header">{{ __('Signed in as') }}</h6></li>
 										<li>
-											<a class="d-block text-decoration-none text-dark px-3 pb-1" href="{{ route('admin.index') }}"><strong>{{ Auth::user()->fullname }}</strong></a>
+											<a class="d-block text-decoration-none text-dark px-3 pb-1" href="{{ route('home') }}"><strong>{{ Auth::user()->name }}</strong></a>
 										</li>
-									@endif
-									@if (Route::has('user.profile'))
-										<li><hr class="dropdown-divider"></li>
-										<li><a class="dropdown-item" href="{{ route('user.api_tokens') }}">{{ __('API токени') }}</a></li>
-										<li><a class="dropdown-item" href="{{ route('user.profile') }}">{{ __('Налаштування') }}</a></li>
-									@endif
-									<li>
-										<a class="dropdown-item" href="{{ route('logout') }}"
-										   onclick="event.preventDefault();
-														 document.getElementById('logout-form').submit();">
-											{{ __('auth.logout') }}
-										</a>
-									</li>
-
-									<li>
-										<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-											@csrf
-										</form>
-									</li>
-								</ul>
+										@if (Route::has('user.profile'))
+											<li><hr class="dropdown-divider"></li>
+											<li><a class="dropdown-item" href="{{ route('user.api_tokens') }}">{{ __('API токени') }}</a></li>
+											<li><a class="dropdown-item" href="{{ route('user.profile') }}">{{ __('Налаштування') }}</a></li>
+										@endif
+										<li>
+											<a class="dropdown-item" href="{{ route('logout') }}"
+												onclick="event.preventDefault();
+												document.getElementById('logout-form').submit();">
+												{{ __('auth.logout') }}
+											</a>
+										</li>
+										<li>
+											<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+												@csrf
+											</form>
+										</li>
+									</ul>
+								</div>
 							@else
 								<li><a href="{{ route('login') }}" class="nav-link link-dark">Log in</a></li>
 
@@ -119,7 +124,7 @@
 							@endauth
 						@endif
 					</ul>
-				</div>
+				<!-- </div> -->
 				<div class="text-center">
 					<span class="fs-5 fw-bold">0629 410 124</span>
 				</div>
