@@ -28,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Terawatt\\Greenhouse\\GreenhouseServiceProvider",
+                "Terawatt\\Greenhouse\\GreenhouseServiceProvider"
             ]
         }
     }
