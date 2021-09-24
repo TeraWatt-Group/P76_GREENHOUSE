@@ -2,7 +2,7 @@
 
 namespace Terawatt\Greenhouse\Http\Controllers\admin;
 
-// use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;

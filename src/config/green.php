@@ -10,7 +10,6 @@ return [
     |
     */
 
-    'app_version' => '1.0.17',
     'app_name' => 'green.',
     'app_description' => 'Greenhouse',
     'app_admin_prefix' => 'vQ6uNwWT',

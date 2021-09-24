@@ -16,7 +16,7 @@
             </ul>
 
             <div class="col-md-3 text-end">
-                {{ config('green.app_version') }}
+                {{ Greenhouse::getVersion() }}
             </div>
         </header>
       </div>
