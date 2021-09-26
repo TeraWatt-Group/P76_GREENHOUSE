@@ -20,6 +20,7 @@ class GreenhouseServiceProvider extends ServiceProvider
     {
         $loader = AliasLoader::getInstance();
         $loader->alias('Greenhouse', GreenhouseFacade::class);
+
         $this->app->singleton('greenhouse', function () {
             return new Greenhouse();
         });
@@ -55,17 +56,17 @@ class GreenhouseServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadRoutesFrom(__DIR__.'/routes/api.php');
 
-        // Route::group($this->routeConfiguration(), function () {
+        Route::group($this->routeConfiguration(), function () {
             $this->loadRoutesFrom(__DIR__.'/routes/admin.php');
-        // });
+        });
     }
 
-    // protected function routeConfiguration()
-    // {
-    //     return [
-    //         'prefix' => config('green.app_admin_prefix'),
-    //         'middleware' => ['admin'],
-    //         'as' => config('green.app_admin_prefix') . '.'
-    //     ];
-    // }
+    protected function routeConfiguration()
+    {
+        return [
+            'prefix' => config('green.app_admin_prefix'),
+            'middleware' => ['admin'],
+            // 'as' => config('green.app_admin_prefix') . '.'
+        ];
+    }
 }
