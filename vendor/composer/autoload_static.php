@@ -19,9 +19,13 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
+        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
+        '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -35,6 +39,7 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Php81\\' => 23,
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Php73\\' => 23,
             'Symfony\\Polyfill\\Php72\\' => 23,
@@ -50,6 +55,7 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\String\\' => 25,
+            'Symfony\\Component\\Process\\' => 26,
             'Symfony\\Component\\Mime\\' => 23,
             'Symfony\\Component\\HttpKernel\\' => 29,
             'Symfony\\Component\\HttpFoundation\\' => 33,
@@ -57,6 +63,12 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\Console\\' => 26,
+            'Spatie\\Permission\\' => 18,
+        ),
+        'R' => 
+        array (
+            'Ramsey\\Uuid\\' => 12,
+            'Ramsey\\Collection\\' => 18,
         ),
         'P' => 
         array (
@@ -66,6 +78,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
             'Psr\\Container\\' => 14,
             'PragmaRX\\Google2FA\\' => 19,
             'ParagonIE\\ConstantTime\\' => 23,
+        ),
+        'O' => 
+        array (
+            'Opis\\Closure\\' => 13,
         ),
         'L' => 
         array (
@@ -78,10 +94,16 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
             'Illuminate\\Validation\\' => 22,
             'Illuminate\\Translation\\' => 23,
             'Illuminate\\Support\\' => 19,
+            'Illuminate\\Session\\' => 19,
+            'Illuminate\\Queue\\' => 17,
+            'Illuminate\\Pipeline\\' => 20,
+            'Illuminate\\Http\\' => 16,
             'Illuminate\\Filesystem\\' => 22,
             'Illuminate\\Database\\' => 20,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
+            'Illuminate\\Console\\' => 19,
+            'Illuminate\\Auth\\' => 16,
         ),
         'E' => 
         array (
@@ -99,6 +121,7 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         ),
         'B' => 
         array (
+            'Brick\\Math\\' => 11,
             'BaconQrCode\\' => 12,
         ),
     );
@@ -111,6 +134,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'Terawatt\\Greenhouse\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Symfony\\Polyfill\\Php81\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php81',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -172,6 +199,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         array (
             0 => __DIR__ . '/..' . '/symfony/string',
         ),
+        'Symfony\\Component\\Process\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/process',
+        ),
         'Symfony\\Component\\Mime\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/mime',
@@ -200,6 +231,18 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Spatie\\Permission\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-permission/src',
+        ),
+        'Ramsey\\Uuid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ramsey/uuid/src',
+        ),
+        'Ramsey\\Collection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ramsey/collection/src',
+        ),
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
@@ -223,6 +266,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'ParagonIE\\ConstantTime\\' => 
         array (
             0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
+        ),
+        'Opis\\Closure\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/opis/closure/src',
         ),
         'Livewire\\' => 
         array (
@@ -250,6 +297,22 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
             1 => __DIR__ . '/..' . '/illuminate/macroable',
             2 => __DIR__ . '/..' . '/illuminate/support',
         ),
+        'Illuminate\\Session\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/session',
+        ),
+        'Illuminate\\Queue\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/queue',
+        ),
+        'Illuminate\\Pipeline\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/pipeline',
+        ),
+        'Illuminate\\Http\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/http',
+        ),
         'Illuminate\\Filesystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/filesystem',
@@ -265,6 +328,14 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'Illuminate\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/container',
+        ),
+        'Illuminate\\Console\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/console',
+        ),
+        'Illuminate\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/auth',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -286,6 +357,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'Brick\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
         'BaconQrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
@@ -297,6 +372,7 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
+        'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',

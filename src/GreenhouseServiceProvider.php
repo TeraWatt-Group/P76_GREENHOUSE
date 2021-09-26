@@ -5,6 +5,7 @@ namespace Terawatt\Greenhouse;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\Router;
 use Illuminate\Contracts\Http\Kernel;
 use Terawatt\Greenhouse\Http\Middleware\AdminAccessCheck;
 use Terawatt\Greenhouse\Facades\Greenhouse as GreenhouseFacade;
@@ -31,7 +32,7 @@ class GreenhouseServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Router $router)
     {
         //
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
@@ -49,6 +50,7 @@ class GreenhouseServiceProvider extends ServiceProvider
 
         // $kernel = $this->app->make(Kernel::class);
         // $kernel->pushMiddleware(AdminAccessCheck::class);
+        $router->aliasMiddleware('admin', AdminAccessCheck::class);
     }
 
     protected function registerRoutes()
@@ -66,7 +68,6 @@ class GreenhouseServiceProvider extends ServiceProvider
         return [
             'prefix' => config('green.app_admin_prefix'),
             'middleware' => ['admin'],
-            // 'as' => config('green.app_admin_prefix') . '.'
         ];
     }
 }

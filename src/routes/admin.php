@@ -6,10 +6,7 @@
 |--------------------------------------------------------------------------
 */
 
-Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Controllers\\admin\\', 'as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
-// Route::group(['as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
-
-	// $namespacePrefix = '\\'.config('green.controllers.namespace').'\\';
+Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\', 'as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
 	Route::get('/', ['uses' => 'DashboardController@index', 'as' => 'index']);
 
 	// Route::resource('users', Terawatt\Greenhouse\Http\Controllers\admin\UsersController::class);
