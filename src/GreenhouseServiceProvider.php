@@ -25,6 +25,10 @@ class GreenhouseServiceProvider extends ServiceProvider
         $this->app->singleton('greenhouse', function () {
             return new Greenhouse();
         });
+
+        // $this->app->singleton('GreenhouseGuard', function () {
+        //     return config('auth.defaults.guard', 'web');
+        // });
     }
 
     /**
@@ -35,14 +39,14 @@ class GreenhouseServiceProvider extends ServiceProvider
     public function boot(Router $router)
     {
         //
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->registerRoutes();
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadViewsFrom(__DIR__.'/views', 'green');
-        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'green');
 
         $this->publishes([
             __DIR__.'/../stubs/FortifyServiceProvider.php' => app_path('Providers/FortifyServiceProvider.php'),
             __DIR__.'/config/green.php' => config_path('green.php'),
+            __DIR__.'/resources/lang' => resource_path('lang'),
             __DIR__.'/database/migrations' => database_path('migrations'),
             __DIR__.'/views' => resource_path('views'),
             __DIR__.'/public' => public_path('/'),
@@ -50,7 +54,6 @@ class GreenhouseServiceProvider extends ServiceProvider
 
         // $kernel = $this->app->make(Kernel::class);
         // $kernel->pushMiddleware(AdminAccessCheck::class);
-        $router->aliasMiddleware('admin', AdminAccessCheck::class);
     }
 
     protected function registerRoutes()

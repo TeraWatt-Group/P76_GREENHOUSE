@@ -3,6 +3,7 @@
 namespace Terawatt\Greenhouse\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AdminAccessCheck
 {
@@ -15,6 +16,12 @@ class AdminAccessCheck
      */
     public function handle($request, Closure $next)
     {
+        auth()->setDefaultDriver(app('GreenhouseGuard'));
+
+        // if (!Auth::guest()) {
+            // dd(auth()->check());
+        // }
+
         if (auth()->check() && auth()->user()->can('super-admin')) {
             return $next($request);
         }

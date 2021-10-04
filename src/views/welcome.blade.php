@@ -157,7 +157,7 @@
 
 		<div class="d-flex flex-column py-3 px-sm-5 bg-light col-2 col-xs-1 col-sm-6 col-md-6 col-lg-6 offset-6 offset-sm-4 offset-md-4 offset-lg-4">
 			<header class="d-flex flex-wrap justify-content-center justify-content-sm-start py-2 mb-4">
-				<button class="btn link-dark px-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+				<button class="btn link-dark px-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-label="Menu">
 					<svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="height: 25px;"><path fill="currentColor" d="M442 114H6a6 6 0 0 1-6-6V84a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6z" class=""></path></svg>
 				</button>
 			</header>
@@ -166,7 +166,7 @@
 				<div class="h-100 py-5">
 					<h2 class="pb-2 border-bottom">Add borders</h2>
 					<p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-					<button class="btn btn-outline-secondary" type="button">Example button</button>
+					<button class="btn btn-lg btn-success" type="button">{{ __('green.welcome_about') }}</button>
 				</div>
 			</div>
 		</div>
@@ -177,9 +177,9 @@
 
 			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-1.jpg');">
 				  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-					<h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
+					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
 						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -198,9 +198,9 @@
 			  </div>
 
 			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-2.jpg');">
 				  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-					<h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
+					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
 						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -219,9 +219,9 @@
 			  </div>
 
 			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-3.jpg');">
 				  <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-					<h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
+					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
 						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -242,9 +242,9 @@
 
 			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 pb-5">
 			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-1.jpg');">
 				  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-					<h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
+					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
 						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -263,9 +263,9 @@
 			  </div>
 
 			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-2.jpg');">
 				  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-					<h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
+					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
 						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -284,9 +284,9 @@
 			  </div>
 
 			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-3.jpg');">
 				  <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-					<h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
+					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
 						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">

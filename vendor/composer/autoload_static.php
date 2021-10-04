@@ -86,6 +86,7 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'L' => 
         array (
             'Livewire\\' => 9,
+            'Laravel\\SerializableClosure\\' => 28,
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Fortify\\' => 16,
         ),
@@ -274,6 +275,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'Livewire\\' => 
         array (
             0 => __DIR__ . '/..' . '/livewire/livewire/src',
+        ),
+        'Laravel\\SerializableClosure\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/serializable-closure/src',
         ),
         'Laravel\\Sanctum\\' => 
         array (
