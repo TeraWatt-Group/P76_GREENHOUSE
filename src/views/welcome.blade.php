@@ -49,14 +49,14 @@
 	<main class="welcome">
 		<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 			<div class="offcanvas-header p-3">
-				<h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+				<h5 class="offcanvas-title" id="offcanvasExampleLabel">{{ __('green.welcome_menu') }}</h5>
 				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body d-flex flex-column flex-shrink-0">
 				<ul class="nav nav-pills flex-column mb-auto">
 					<li class="nav-item">
 						<a href="#" class="nav-link" aria-current="page">
-							Home
+							{{ __('green.welcome_home') }}
 						</a>
 					</li>
 					<li>
@@ -79,52 +79,39 @@
 							Customers
 						</a>
 					</li>
-				</ul>
-<!-- 				<div class=""> -->
-					<ul class="nav nav-pills flex-column mt-auto">
-						@if (Route::has('login'))
-							@auth
-								<div class="dropdown">
-									<a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
-										<span class="avatar avatar-xs avatar-circle bg-primary me-2">
-											<span class="avatar-holder">{{ substr(Auth::user()->name, 0, 2) }}</span>
-										</span>
-										{{ Auth::user()->name }}
-									</a>
-									<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser">
-										<li><h6 class="dropdown-header">{{ __('Signed in as') }}</h6></li>
-										<li>
-											<a class="d-block text-decoration-none text-dark px-3 pb-1" href="{{ route('home') }}"><strong>{{ Auth::user()->name }}</strong></a>
-										</li>
-										@if (Route::has('user.profile'))
-											<li><hr class="dropdown-divider"></li>
-											<li><a class="dropdown-item" href="{{ route('user.api_tokens') }}">{{ __('API токени') }}</a></li>
-											<li><a class="dropdown-item" href="{{ route('user.profile') }}">{{ __('Налаштування') }}</a></li>
-										@endif
-										<li>
-											<a class="dropdown-item" href="{{ route('logout') }}"
-												onclick="event.preventDefault();
-												document.getElementById('logout-form').submit();">
-												{{ __('auth.logout') }}
-											</a>
-										</li>
-										<li>
-											<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-												@csrf
-											</form>
-										</li>
-									</ul>
-								</div>
-							@else
-								<li><a href="{{ route('login') }}" class="nav-link link-dark">Log in</a></li>
+					<li class="border-top my-3"></li>
+					@if (Route::has('login'))
+						@auth
+							<li>
+								<a class="nav-link link-dark" href="{{ route('home') }}"><strong>{{ Auth::user()->name }}</strong></a>
+							</li>
+							@if (Route::has('user.profile'))
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="nav-link link-dark" href="{{ route('user.api_tokens') }}">{{ __('API токени') }}</a></li>
+								<li><a class="nav-link link-dark" href="{{ route('user.profile') }}">{{ __('Налаштування') }}</a></li>
+							@endif
+							<li>
+								<a class="nav-link link-dark" href="{{ route('logout') }}"
+									onclick="event.preventDefault();
+									document.getElementById('logout-form').submit();">
+									{{ __('auth.logout') }}
+								</a>
+							</li>
+							<li>
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+									@csrf
+								</form>
+							</li>
+						@else
+							<li><a href="{{ route('login') }}" class="nav-link link-dark">{{ __('auth.login') }}</a></li>
 
-								@if (Route::has('register'))
-									<li><a href="{{ route('register') }}" class="nav-link link-dark">Register</a></li>
-								@endif
-							@endauth
-						@endif
-					</ul>
-				<!-- </div> -->
+							@if (Route::has('register'))
+								<li><a href="{{ route('register') }}" class="nav-link link-dark">{{ __('auth.register') }}</a></li>
+							@endif
+						@endauth
+					@endif
+				</ul>
+				<div class="lex-column mt-auto"></div>
 				<div class="text-center">
 					<span class="fs-5 fw-bold">0629 410 124</span>
 				</div>
@@ -163,16 +150,105 @@
 			</header>
 
 			<div class="col-12 d-none d-sm-block">
-				<div class="h-100 py-5">
-					<h2 class="pb-2 border-bottom">Add borders</h2>
-					<p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+				<div class="h-100 py-3">
+					<h2 class="display-6 pb-2 border-bottom">{{ __('green.welcome_header') }}</h2>
+					<p>{{ __('green.welcome_text') }}</p>
 					<button class="btn btn-lg btn-success" type="button">{{ __('green.welcome_about') }}</button>
+
+					<section class="pt-5 pb-5">
+						<div class="d-flex flex-row-reverse">
+							<div>
+								<button class="btn btn-link mb-3 mr-1" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Previous</span>
+								</button>
+								<button class="btn btn-link mb-3 mr-1" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Next</span>
+								 </button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<div class="row">
+												<div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
+													<div class="card text-end">
+													  <img src="img/pawel-czerwinski-QY9LOl9eZ9w-unsplash.jpg" class="card-img" alt="...">
+													  <div class="card-img-overlay">
+														  <h5 class="card-title"></h5>
+													  </div>
+													  <a href="#" class="stretched-link" aria-label="index"></a>
+													</div>
+												</div>
+												<div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
+													<div class="card text-end">
+													  <img src="img/sarah-dorweiler-2s9aHF4eCjI-unsplash.jpg" class="card-img" alt="...">
+													  <div class="card-img-overlay">
+														  <h5 class="card-title"></h5>
+													  </div>
+													  <a href="#" class="stretched-link" aria-label="index"></a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="carousel-item">
+											<div class="row">
+												<div class="col-md-6 mb-2">
+													<div class="card text-end">
+													  <img src="img/sarah-dorweiler-m2J105CzEAU-unsplash.jpg" class="card-img" alt="...">
+													  <div class="card-img-overlay">
+														  <h5 class="card-title"></h5>
+													  </div>
+													  <a href="#" class="stretched-link" aria-label="index"></a>
+													</div>
+												</div>
+												<div class="col-md-6 mb-2">
+													<div class="card text-end">
+													  <img src="img/sarah-dorweiler-2s9aHF4eCjI-unsplash.jpg" class="card-img" alt="...">
+													  <div class="card-img-overlay">
+														  <h5 class="card-title"></h5>
+													  </div>
+													  <a href="#" class="stretched-link" aria-label="index"></a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="carousel-item">
+											<div class="row">
+												<div class="col-md-6 mb-2">
+													<div class="card text-end">
+													  <img src="img/pawel-czerwinski-QY9LOl9eZ9w-unsplash.jpg" class="card-img" alt="...">
+													  <div class="card-img-overlay">
+														  <h5 class="card-title"></h5>
+													  </div>
+													  <a href="#" class="stretched-link" aria-label="index"></a>
+													</div>
+												</div>
+												<div class="col-md-6 mb-2">
+													<div class="card text-end">
+													  <img src="img/sarah-dorweiler-2s9aHF4eCjI-unsplash.jpg" class="card-img" alt="...">
+													  <div class="card-img-overlay">
+														  <h5 class="card-title"></h5>
+													  </div>
+													  <a href="#" class="stretched-link" aria-label="index"></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
 				</div>
 			</div>
 		</div>
 	</main>
 
-		<div class="container px-4 py-5" id="custom-cards">
+		<div class="container px-4 pt-5" id="custom-cards">
 			<h2 class="pb-2 border-bottom">Custom cards</h2>
 
 			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
@@ -306,7 +382,7 @@
 			</div>
 	</div>
 
-	<div class="container px-4 py-5" id="icon-grid">
+	<div class="container px-4 pt-5" id="icon-grid">
 		<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 		  <symbol id="bootstrap" viewBox="0 0 118 94">
 			<title>Bootstrap</title>

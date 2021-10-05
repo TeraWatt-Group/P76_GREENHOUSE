@@ -74,7 +74,7 @@
                     <div class="mb-2 text-success">
                         <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="height: 80px;"><path fill="currentColor" d="M546.2 9.7c-5.6-12.5-21.6-13-28.3-1.2C486.9 62.4 431.4 96 368 96h-80C182 96 96 182 96 288c0 7 .8 13.7 1.5 20.5C161.3 262.8 253.4 224 384 224c8.8 0 16 7.2 16 16s-7.2 16-16 16C132.6 256 26 410.1 2.4 468c-6.6 16.3 1.2 34.9 17.5 41.6 16.4 6.8 35-1.1 41.8-17.3 1.5-3.6 20.9-47.9 71.9-90.6 32.4 43.9 94 85.8 174.9 77.2C465.5 467.5 576 326.7 576 154.3c0-50.2-10.8-102.2-29.8-144.6z" class=""></path></svg>
                     </div>
-                    <h2>{{ __('green::auth.register') }}</h2>
+                    <h2>{{ __('auth.register') }}</h2>
 
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -94,7 +94,7 @@
                         </div>
                         <div class="form-floating">
                             <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autocorrect="off" autofocus="autofocus" placeholder="name@example.com">
-                            <label for="email">{{ __('green::auth.email') }}</label>
+                            <label for="email">{{ __('auth.email') }}</label>
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

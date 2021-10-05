@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'welcome_menu' => 'Menu',
     'welcome_about' => 'About',
 
 ];
