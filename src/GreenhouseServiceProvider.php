@@ -9,7 +9,8 @@ use Illuminate\Routing\Router;
 use Illuminate\Contracts\Http\Kernel;
 use Terawatt\Greenhouse\Http\Middleware\AdminAccessCheck;
 use Terawatt\Greenhouse\Facades\Greenhouse as GreenhouseFacade;
-use Livewire;
+// use Livewire;
+use Illuminate\Database\Query\Builder;
 
 class GreenhouseServiceProvider extends ServiceProvider
 {
@@ -39,6 +40,10 @@ class GreenhouseServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
+        Builder::macro('search', function($field, $string) {
+            return $string ? $this->where($field, 'like', '%' . $string . '%') : $this;
+        });
+
         //
         $this->registerRoutes();
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
