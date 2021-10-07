@@ -35,7 +35,7 @@ class GreenSeeder extends Seeder
 
             Product::insert([
                 [
-                    'image' => '/',
+                    'image' => '/img/product/parsley.jpg',
                     'date_available' => '1990-01-01',
                 ],
                 [

@@ -33,47 +33,12 @@
 </head>
 <body class="d-flex flex-column h-100">
     @include('layouts.header')
+    @include('layouts.admin_offcanvas')
 
     <div id="app">
         <x-banner />
 
         <main class="py-4">
-            <div class="container mb-2">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light rounded px-2">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsAdmin" aria-controls="navbarsAdmin" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-                    <div class="collapse navbar-collapse" id="navbarsAdmin">
-                        <ul class="navbar-nav me-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link text-dark" href="#">{{ __('Головна') }}</span></a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-dark" href="#">{{ __('Користувачі') }}</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-dark" href="#">{{ __('Roles') }}</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-dark" href="#">{{ __('Дозволи') }}</a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link text-dark" href="#">{{ __('Translations') }}</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-dark" href="#">{{ __('Маршрути') }}</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-dark" href="#">{{ __('Settings') }}</span></a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-dark" href="#">{{ __('Логи') }}</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
             @yield('content')
         </main>
     </div>
