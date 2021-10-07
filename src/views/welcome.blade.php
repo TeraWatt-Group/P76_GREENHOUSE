@@ -103,7 +103,28 @@
 							<div class="col-12">
 								<div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
-										<div class="carousel-item active">
+										@if ($product->isNotEmpty())
+											@foreach ($product as $prod)
+												@if ($loop->odd)
+												<div class="carousel-item @if ($loop->first) active @endif">
+													<div class="row">
+												@endif
+													<div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
+														<div class="card text-end">
+														  <img src="{{ $prod->image }}" class="card-img" alt="{{ $prod->name }}">
+														  <div class="card-img-overlay">
+															  <h5 class="card-title"></h5>
+														  </div>
+														  <a href="#" class="stretched-link" aria-label="index"></a>
+														</div>
+													</div>
+												@if ($loop->even)
+													</div>
+												</div>
+												@endif
+											@endforeach
+										@endif
+										<!-- <div class="carousel-item active">
 											<div class="row">
 												<div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
 													<div class="card text-end">
@@ -168,7 +189,7 @@
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>
