@@ -9,9 +9,9 @@
 Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\', 'as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
 	Route::get('/', ['uses' => 'DashboardController@index', 'as' => 'index']);
 
-	Route::resource('product', ProductController::class);
+	Route::resource('users', UsersController::class);
 
-	// Route::resource('users', Terawatt\Greenhouse\Http\Controllers\admin\UsersController::class);
+	Route::resource('product', ProductController::class);
 
 	// Route::post('roles/restore/{id}', [Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'restore'])->name('roles.restore');
 	// Route::delete('roles/forceDelete/{id}', [Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'forceDelete'])->name('roles.forceDelete');

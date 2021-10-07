@@ -9,6 +9,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Contracts\Http\Kernel;
 use Terawatt\Greenhouse\Http\Middleware\AdminAccessCheck;
 use Terawatt\Greenhouse\Facades\Greenhouse as GreenhouseFacade;
+use Livewire;
 
 class GreenhouseServiceProvider extends ServiceProvider
 {
@@ -44,6 +45,8 @@ class GreenhouseServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/views', 'green');
 
         $this->publishes([
+            __DIR__.'/Http/Livewire' => app_path('Http/Livewire'),
+            __DIR__.'/Models' => app_path('Models'),
             __DIR__.'/../stubs/FortifyServiceProvider.php' => app_path('Providers/FortifyServiceProvider.php'),
             __DIR__.'/config/green.php' => config_path('green.php'),
             __DIR__.'/resources/lang' => resource_path('lang'),
@@ -56,7 +59,7 @@ class GreenhouseServiceProvider extends ServiceProvider
         // $kernel = $this->app->make(Kernel::class);
         // $kernel->pushMiddleware(AdminAccessCheck::class);
 
-        // Livewire::component('green::product', SomeComponent::class);
+        // Livewire::component('gerren::admin.users', UserComponent::class);
     }
 
     protected function registerRoutes()

@@ -36,6 +36,9 @@
 					<li>
 						<a class="nav-link link-dark" href="{{ route('home') }}"><strong>{{ Auth::user()->name }}</strong></a>
 					</li>
+					<li>
+						<a class="nav-link link-dark" href="{{ route('admin.index') }}">{{ __('Панель адміністратора') }}</a>
+					</li>
 					@if (Route::has('user.profile'))
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="nav-link link-dark" href="{{ route('user.api_tokens') }}">{{ __('API токени') }}</a></li>
