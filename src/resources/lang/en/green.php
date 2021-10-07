@@ -15,5 +15,10 @@ return [
 
     'welcome_menu' => 'Menu',
     'welcome_about' => 'About',
+    'welcome_product' => 'Products',
+
+    'welcome_header' => 'Теплица для домашнего использования',
+    'welcome_text' => 'Технология для выращивания зелени, овощей в домашних условиях. Свежая, вкусная и полезная продукция круглый год.',
+    'welcome_about' => 'About',
 
 ];

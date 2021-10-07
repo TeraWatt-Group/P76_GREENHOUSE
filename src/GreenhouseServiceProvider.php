@@ -55,6 +55,8 @@ class GreenhouseServiceProvider extends ServiceProvider
 
         // $kernel = $this->app->make(Kernel::class);
         // $kernel->pushMiddleware(AdminAccessCheck::class);
+
+        // Livewire::component('green::product', SomeComponent::class);
     }
 
     protected function registerRoutes()
@@ -71,7 +73,8 @@ class GreenhouseServiceProvider extends ServiceProvider
     {
         return [
             'prefix' => config('green.app_admin_prefix'),
-            'middleware' => ['admin'],
+            // 'middleware' => ['admin'],
+            'middleware' => ['web'],
         ];
     }
 }

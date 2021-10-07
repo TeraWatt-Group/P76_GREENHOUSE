@@ -42,81 +42,12 @@
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 
 	<!-- Styles -->
-	<link href="{{ 'css/green.css' }}" rel="stylesheet">
+	<link href="{{ '/css/green.css' }}" rel="stylesheet">
 	@livewireStyles
 </head>
 <body class="h-100">
 	<main class="welcome">
-		<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-			<div class="offcanvas-header p-3">
-				<h5 class="offcanvas-title" id="offcanvasExampleLabel">{{ __('green.welcome_menu') }}</h5>
-				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-			</div>
-			<div class="offcanvas-body d-flex flex-column flex-shrink-0">
-				<ul class="nav nav-pills flex-column mb-auto">
-					<li class="nav-item">
-						<a href="#" class="nav-link" aria-current="page">
-							{{ __('green.welcome_home') }}
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav-link link-dark">
-							Dashboard
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav-link link-dark">
-							Orders
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav-link link-dark">
-							Products
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav-link link-dark">
-							Customers
-						</a>
-					</li>
-					<li class="border-top my-3"></li>
-					@if (Route::has('login'))
-						@auth
-							<li>
-								<a class="nav-link link-dark" href="{{ route('home') }}"><strong>{{ Auth::user()->name }}</strong></a>
-							</li>
-							@if (Route::has('user.profile'))
-								<li><hr class="dropdown-divider"></li>
-								<li><a class="nav-link link-dark" href="{{ route('user.api_tokens') }}">{{ __('API токени') }}</a></li>
-								<li><a class="nav-link link-dark" href="{{ route('user.profile') }}">{{ __('Налаштування') }}</a></li>
-							@endif
-							<li>
-								<a class="nav-link link-dark" href="{{ route('logout') }}"
-									onclick="event.preventDefault();
-									document.getElementById('logout-form').submit();">
-									{{ __('auth.logout') }}
-								</a>
-							</li>
-							<li>
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-									@csrf
-								</form>
-							</li>
-						@else
-							<li><a href="{{ route('login') }}" class="nav-link link-dark">{{ __('auth.login') }}</a></li>
-
-							@if (Route::has('register'))
-								<li><a href="{{ route('register') }}" class="nav-link link-dark">{{ __('auth.register') }}</a></li>
-							@endif
-						@endauth
-					@endif
-				</ul>
-				<div class="lex-column mt-auto"></div>
-				<div class="text-center">
-					<span class="fs-5 fw-bold">0629 410 124</span>
-				</div>
-			</div>
-		</div>
+		@include('layouts.offcanvas')
 
 		<div class="d-flex flex-column flex-shrink-1 p-4 bg-light col-4 col-xs-2 col-sm-2 col-md-2 col-lg-2">
 			<div class="d-flex justify-content-center">
@@ -249,7 +180,7 @@
 	</main>
 
 		<div class="container px-4 pt-5" id="custom-cards">
-			<h2 class="pb-2 border-bottom">Custom cards</h2>
+			<h2 class="pb-2 border-bottom">{{ __('Новини') }}</h2>
 
 			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 			  <div class="col">
@@ -453,7 +384,7 @@
 			<path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"></path>
 		  </symbol>
 		</svg>
-		<h2 class="pb-2 border-bottom">Icon grid</h2>
+		<h2 class="pb-2 border-bottom">{{ __('Можливості') }}</h2>
 
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
 		  <div class="col d-flex align-items-start">
@@ -519,7 +450,7 @@
 
 	<!-- Scripts -->
 	@livewireScripts
-	<script src="{{ 'js/green.js' }}" defer></script>
+	<script src="{{ '/js/green.js' }}" defer></script>
 	@stack('scripts')
 	@yield('script')
 </body>

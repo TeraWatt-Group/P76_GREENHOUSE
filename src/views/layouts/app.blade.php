@@ -42,10 +42,13 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Styles -->
-    <link href="{{ 'css/green.css' }}" rel="stylesheet">
+    <link href="{{ mix('css/green.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
 <body class="d-flex flex-column h-100">
+    @include('layouts.header')
+    @include('layouts.offcanvas')
+
     <div id="app">
         <main class="py-4">
             @yield('content')
@@ -54,7 +57,7 @@
 
     <!-- Scripts -->
     @livewireScripts
-    <script src="{{ 'js/green.js' }}" defer></script>
+    <script src="{{ mix('js/green.js') }}" defer></script>
     @stack('scripts')
     @yield('script')
 </body>

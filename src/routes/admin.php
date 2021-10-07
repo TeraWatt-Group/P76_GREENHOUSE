@@ -9,6 +9,8 @@
 Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\', 'as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
 	Route::get('/', ['uses' => 'DashboardController@index', 'as' => 'index']);
 
+	Route::resource('product', ProductController::class);
+
 	// Route::resource('users', Terawatt\Greenhouse\Http\Controllers\admin\UsersController::class);
 
 	// Route::post('roles/restore/{id}', [Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'restore'])->name('roles.restore');
