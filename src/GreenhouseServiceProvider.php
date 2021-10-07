@@ -9,7 +9,6 @@ use Illuminate\Routing\Router;
 use Illuminate\Contracts\Http\Kernel;
 use Terawatt\Greenhouse\Http\Middleware\AdminAccessCheck;
 use Terawatt\Greenhouse\Facades\Greenhouse as GreenhouseFacade;
-// use Livewire;
 use Illuminate\Database\Query\Builder;
 
 class GreenhouseServiceProvider extends ServiceProvider
