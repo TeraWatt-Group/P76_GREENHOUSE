@@ -17,6 +17,7 @@ class CreateGreenTables extends Migration
             $table->bigIncrements('product_id');
             $table->string('sku', 64)->default('');
             $table->string('image', 255)->nullable();
+            $table->integer('sort_order');
             $table->date('date_available')->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();
@@ -46,6 +47,11 @@ class CreateGreenTables extends Migration
 
             $table->index('rcp_version');
             $table->foreign('product_id')->references('product_id')->on('product')->onDelete('cascade');
+        });
+        Schema::create('option', function (Blueprint $table) {
+            $table->bigIncrements('option_id');
+            $table->string('type', 32);
+            $table->integer('sort_order');
         });
 
 

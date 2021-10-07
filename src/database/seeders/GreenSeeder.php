@@ -4,15 +4,17 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use Terawatt\Greenhouse\Models\Product;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use DB;
+use Terawatt\Greenhouse\Models\Product;
+use Terawatt\Greenhouse\Models\Option;
 
 class GreenSeeder extends Seeder
 {
-    static $ADMIN_PASSWORD = 'saccade2';
-    static $ADMIN_EMAIL = 'admin@green.com';
     static $ADMIN_NAME = 'Administrator';
-    static $ADMIN_SURNAME = 'Saccade';
+    static $ADMIN_EMAIL = 'admin@green.com';
+    static $ADMIN_PASSWORD = 'saccade2';
 
     /**
      * Run the database seeds.
@@ -26,12 +28,25 @@ class GreenSeeder extends Seeder
             'name' => self::$ADMIN_NAME,
         ],[
             'name' => self::$ADMIN_NAME,
-            'password' =>  bcrypt(self::$ADMIN_PASSWORD),
             'email' => self::$ADMIN_EMAIL,
+            'password' =>  bcrypt(self::$ADMIN_PASSWORD),
         ]);
 
+        // Reset cached roles and permissions
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+
+        Role::create(['name' => 'super-admin']);
+        // Role::create(['name' => 'qr']);
+        // $role = Role::create(['name' => 'bpmn']);
+
+        // Permission::create(['name' => 'bpmn-view']);
+        // Permission::create(['name' => 'bpmn-edit']);
+        // $role->syncPermissions(['bpmn-view', 'bpmn-edit']);
+
+        $user->assignRole('super-admin');
+
         // check if table users is empty
-        if(Product::count() == 0){
+        if (Product::count() == 0) {
 
             Product::insert([
                 [
@@ -71,5 +86,39 @@ class GreenSeeder extends Seeder
             ]);
 
         } else { echo "Product table is not empty"; }
+
+        if (Option::count() == 0) {
+            Option::insert([
+                [
+                    'type' => 'text',
+                    'sort_order' => '1',
+                ],
+                [
+                    'type' => 'date',
+                    'sort_order' => '2',
+                ],
+                [
+                    'type' => 'time',
+                    'sort_order' => '3',
+                ],
+                [
+                    'type' => 'datetime',
+                    'sort_order' => '4',
+                ],
+                [
+                    'type' => 'integer',
+                    'sort_order' => '5',
+                ],
+                [
+                    'type' => 'float',
+                    'sort_order' => '6',
+                ],
+                [
+                    'type' => 'bool',
+                    'sort_order' => '7',
+                ]
+
+            ]);
+        } else { echo "Option table is not empty"; }
     }
 }

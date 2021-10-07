@@ -83,7 +83,7 @@
 			<div class="col-12 d-none d-sm-block">
 				<div class="h-100 py-3">
 					<h2 class="display-6 pb-2 border-bottom">{{ __('green.welcome_header') }}</h2>
-					<p>{{ __('green.welcome_text') }}</p>
+					<p class="fs-5">{{ __('green.welcome_text') }}</p>
 					<button class="btn btn-lg btn-success" type="button">{{ __('green.welcome_about') }}</button>
 
 					<section class="pt-5 pb-5">

@@ -13,13 +13,13 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\
 
 	Route::resource('product', ProductController::class);
 
-	// Route::post('roles/restore/{id}', [Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'restore'])->name('roles.restore');
-	// Route::delete('roles/forceDelete/{id}', [Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'forceDelete'])->name('roles.forceDelete');
-	// Route::resource('roles', Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class);
+	Route::post('roles/restore/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'restore'])->name('roles.restore');
+	Route::delete('roles/forceDelete/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'forceDelete'])->name('roles.forceDelete');
+	Route::resource('roles', RolesController::class);
 
-	// Route::post('permissions/restore/{id}', [Terawatt\Greenhouse\Http\Controllers\admin\PermissionsController::class, 'restore'])->name('permissions.restore');
-	// Route::delete('permissions/forceDelete/{id}', [Terawatt\Greenhouse\Http\Controllers\admin\PermissionsController::class, 'forceDelete'])->name('permissions.forceDelete');
-	// Route::resource('permissions', Terawatt\Greenhouse\Http\Controllers\admin\PermissionsController::class);
+	Route::post('permissions/restore/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\PermissionsController::class, 'restore'])->name('permissions.restore');
+	Route::delete('permissions/forceDelete/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\PermissionsController::class, 'forceDelete'])->name('permissions.forceDelete');
+	Route::resource('permissions', PermissionsController::class);
 
 	// Route::get('routes', [Terawatt\Greenhouse\Http\Controllers\admin\DashboardController::class, 'routes'])->name('routes');
 
