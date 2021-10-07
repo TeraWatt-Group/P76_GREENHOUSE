@@ -21,6 +21,26 @@ class CreateGreenTables extends Migration
             $table->boolean('status')->default(0);
             $table->timestamps();
         });
+        Schema::create('product_image', function (Blueprint $table) {
+            $table->bigIncrements('product_image_id');
+            $table->unsignedBigInteger('product_id');
+            $table->string('image', 255);
+            $table->integer('sort_order');
+        });
+
+
+        Schema::create('rcp', function (Blueprint $table) {
+            $table->bigIncrements('rcp_id');
+            $table->string('rcp_version', 16);
+            $table->unsignedBigInteger('product_id');
+            $table->timestamps();
+
+            $table->index('rcp_version');
+            $table->foreign('product_id')->references('product_id')->on('product')->onDelete('cascade');
+        });
+
+
+
         Schema::create('category', function (Blueprint $table) {
             $table->bigIncrements('category_id');
             $table->integer('parent_id')->default(0);
@@ -43,6 +63,8 @@ class CreateGreenTables extends Migration
     public function down()
     {
         Schema::dropIfExists('product');
+        Schema::dropIfExists('product_image');
         Schema::dropIfExists('category');
+        Schema::dropIfExists('category_description');
     }
 }

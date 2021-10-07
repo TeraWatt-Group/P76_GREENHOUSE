@@ -258,7 +258,9 @@
 					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
-						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+					  	<span class="avatar avatar-xs avatar-circle bg-success">
+                            <span class="avatar-holder">ad</span>
+                        </span>
 					  </li>
 					  <li class="d-flex align-items-center me-3">
 						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
@@ -279,11 +281,13 @@
 					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
-						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+						<span class="avatar avatar-xs avatar-circle bg-success">
+                            <span class="avatar-holder">ad</span>
+                        </span>
 					  </li>
 					  <li class="d-flex align-items-center me-3">
 						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-						<small>Pakistan</small>
+						<small>Kyiv</small>
 					  </li>
 					  <li class="d-flex align-items-center">
 						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
@@ -300,7 +304,9 @@
 					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
-						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+						<span class="avatar avatar-xs avatar-circle bg-success">
+                            <span class="avatar-holder">ad</span>
+                        </span>
 					  </li>
 					  <li class="d-flex align-items-center me-3">
 						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
@@ -323,7 +329,9 @@
 					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
-						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+						<span class="avatar avatar-xs avatar-circle bg-success">
+                            <span class="avatar-holder">ad</span>
+                        </span>
 					  </li>
 					  <li class="d-flex align-items-center me-3">
 						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
@@ -344,11 +352,13 @@
 					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
-						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+						<span class="avatar avatar-xs avatar-circle bg-success">
+                            <span class="avatar-holder">ad</span>
+                        </span>
 					  </li>
 					  <li class="d-flex align-items-center me-3">
 						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-						<small>Pakistan</small>
+						<small>Kyiv</small>
 					  </li>
 					  <li class="d-flex align-items-center">
 						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
@@ -365,7 +375,9 @@
 					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
 					<ul class="d-flex list-unstyled mt-auto">
 					  <li class="me-auto">
-						<img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+						<span class="avatar avatar-xs avatar-circle bg-success">
+                            <span class="avatar-holder">ad</span>
+                        </span>
 					  </li>
 					  <li class="d-flex align-items-center me-3">
 						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
