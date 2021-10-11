@@ -4,7 +4,7 @@ namespace Terawatt\Greenhouse\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Terawatt\Greenhouse\Models\Product;
+use App\Models\Product;
 
 class ProductController extends Controller
 {

@@ -204,149 +204,111 @@
 			<h2 class="pb-2 border-bottom">{{ __('Новини') }}</h2>
 
 			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-1.jpg');">
-				  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
-					<ul class="d-flex list-unstyled mt-auto">
-					  <li class="me-auto">
-					  	<span class="avatar avatar-xs avatar-circle bg-success">
-                            <span class="avatar-holder">ad</span>
-                        </span>
-					  </li>
-					  <li class="d-flex align-items-center me-3">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-						<small>Earth</small>
-					  </li>
-					  <li class="d-flex align-items-center">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-						<small>3d</small>
-					  </li>
-					</ul>
-				  </div>
+				<style>
+					.nav.nav-divider .nav-item + .nav-item:before {
+					    content: "•";
+					    color: inherit;
+					    padding-left: 0.65rem;
+					    padding-right: 0.75rem;
+					    opacity: 0.8;
+					}
+					.nav.nav-divider .nav-link {
+					    padding: 0;
+					    color: inherit;
+					}
+					.nav.nav-divider .nav-item {
+					    display: inline-block;
+					    vertical-align: middle;
+					}
+				</style>
+				<div class="col-sm-4">
+					<div class="card border-0">
+						<!-- Card img -->
+						<div class="position-relative">
+							<img class="card-img" src="img/unsplash-photo-1.jpg" alt="Card image">
+							<div class="card-img-overlay d-flex align-items-start flex-column p-3">
+							</div>
+						</div>
+						<div class="card-body px-0 pt-3">
+							<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">Bad habits that people in the industry need to quit</a></h4>
+							<p class="card-text">For who thoroughly her boy estimating conviction. Removed demands expense account in outward tedious do. Particular way thoroughly unaffected</p>
+							<!-- Card info -->
+							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+								<li class="nav-item">
+									<div class="nav-link">
+										<div class="d-flex align-items-center position-relative">
+										  	<span class="avatar avatar-xs avatar-circle bg-success">
+					                            <span class="avatar-holder">ad</span>
+					                        </span>
+											<span class="ms-3">by <a href="#" class="stretched-link text-reset btn-link">Bryan</a></span>
+										</div>
+									</div>
+								</li>
+								<li class="nav-item">Jun 17, 2021</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			  </div>
-
-			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-2.jpg');">
-				  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
-					<ul class="d-flex list-unstyled mt-auto">
-					  <li class="me-auto">
-						<span class="avatar avatar-xs avatar-circle bg-success">
-                            <span class="avatar-holder">ad</span>
-                        </span>
-					  </li>
-					  <li class="d-flex align-items-center me-3">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-						<small>Kyiv</small>
-					  </li>
-					  <li class="d-flex align-items-center">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-						<small>4d</small>
-					  </li>
-					</ul>
-				  </div>
+				<div class="col-sm-4">
+					<div class="card border-0">
+						<!-- Card img -->
+						<div class="position-relative">
+							<img class="card-img" src="img/unsplash-photo-2.jpg" alt="Card image">
+							<div class="card-img-overlay d-flex align-items-start flex-column p-3">
+							</div>
+						</div>
+						<div class="card-body px-0 pt-3">
+							<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">Bad habits that people in the industry need to quit</a></h4>
+							<p class="card-text">For who thoroughly her boy estimating conviction. Removed demands expense account in outward tedious do. Particular way thoroughly unaffected</p>
+							<!-- Card info -->
+							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+								<li class="nav-item">
+									<div class="nav-link">
+										<div class="d-flex align-items-center position-relative">
+										  	<span class="avatar avatar-xs avatar-circle bg-success">
+					                            <span class="avatar-holder">ad</span>
+					                        </span>
+											<span class="ms-3">by <a href="#" class="stretched-link text-reset btn-link">Bryan</a></span>
+										</div>
+									</div>
+								</li>
+								<li class="nav-item">Jun 17, 2021</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			  </div>
-
-			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-3.jpg');">
-				  <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
-					<ul class="d-flex list-unstyled mt-auto">
-					  <li class="me-auto">
-						<span class="avatar avatar-xs avatar-circle bg-success">
-                            <span class="avatar-holder">ad</span>
-                        </span>
-					  </li>
-					  <li class="d-flex align-items-center me-3">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-						<small>California</small>
-					  </li>
-					  <li class="d-flex align-items-center">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-						<small>5d</small>
-					  </li>
-					</ul>
-				  </div>
+				<div class="col-sm-4">
+					<div class="card border-0">
+						<!-- Card img -->
+						<div class="position-relative">
+							<img class="card-img" src="img/unsplash-photo-3.jpg" alt="Card image">
+							<div class="card-img-overlay d-flex align-items-start flex-column p-3">
+							</div>
+						</div>
+						<div class="card-body px-0 pt-3">
+							<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">Bad habits that people in the industry need to quit</a></h4>
+							<p class="card-text">For who thoroughly her boy estimating conviction. Removed demands expense account in outward tedious do. Particular way thoroughly unaffected</p>
+							<!-- Card info -->
+							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+								<li class="nav-item">
+									<div class="nav-link">
+										<div class="d-flex align-items-center position-relative">
+										  	<span class="avatar avatar-xs avatar-circle bg-success">
+					                            <span class="avatar-holder">ad</span>
+					                        </span>
+											<span class="ms-3">by <a href="#" class="stretched-link text-reset btn-link">Bryan</a></span>
+										</div>
+									</div>
+								</li>
+								<li class="nav-item">Jun 17, 2021</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			  </div>
-			</div>
-
-			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 pb-5">
-			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-1.jpg');">
-				  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
-					<ul class="d-flex list-unstyled mt-auto">
-					  <li class="me-auto">
-						<span class="avatar avatar-xs avatar-circle bg-success">
-                            <span class="avatar-holder">ad</span>
-                        </span>
-					  </li>
-					  <li class="d-flex align-items-center me-3">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-						<small>Earth</small>
-					  </li>
-					  <li class="d-flex align-items-center">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-						<small>3d</small>
-					  </li>
-					</ul>
-				  </div>
-				</div>
-			  </div>
-
-			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-2.jpg');">
-				  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
-					<ul class="d-flex list-unstyled mt-auto">
-					  <li class="me-auto">
-						<span class="avatar avatar-xs avatar-circle bg-success">
-                            <span class="avatar-holder">ad</span>
-                        </span>
-					  </li>
-					  <li class="d-flex align-items-center me-3">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-						<small>Kyiv</small>
-					  </li>
-					  <li class="d-flex align-items-center">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-						<small>4d</small>
-					  </li>
-					</ul>
-				  </div>
-				</div>
-			  </div>
-
-			  <div class="col">
-				<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('img/unsplash-photo-3.jpg');">
-				  <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-					<h2 class="pt-3 mt-3 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
-					<ul class="d-flex list-unstyled mt-auto">
-					  <li class="me-auto">
-						<span class="avatar avatar-xs avatar-circle bg-success">
-                            <span class="avatar-holder">ad</span>
-                        </span>
-					  </li>
-					  <li class="d-flex align-items-center me-3">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-						<small>California</small>
-					  </li>
-					  <li class="d-flex align-items-center">
-						<svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-						<small>5d</small>
-					  </li>
-					</ul>
-				  </div>
-				</div>
-			  </div>
 			</div>
 	</div>
 
-	<div class="container px-4 pt-5" id="icon-grid">
+	<div class="container px-4 pb-5" id="icon-grid">
 		<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 		  <symbol id="bootstrap" viewBox="0 0 118 94">
 			<title>Bootstrap</title>

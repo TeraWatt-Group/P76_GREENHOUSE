@@ -2,7 +2,7 @@
     <div class="row mb-3">
         <div class="col-12">
             <div class="d-flex align-content-start align-items-end">
-                <h3 class="mb-0 pr-3">{{ __('Користувачі') }}</h3>
+                <h3 class="mb-0 pr-3">{{ __('Продукти') }}</h3>
             </div>
         </div>
     </div>
@@ -16,8 +16,8 @@
         </div>
         <div class="col-6">
             <div class="d-flex justify-content-end">
-                <a role="button" aria-pressed="true" class="btn btn-primary ms-2" role="button" href="{{ route('admin.users.create') }}" aria-label="{{ __('Add') }}">
-                    {{ __('Add') }}
+                <a role="button" aria-pressed="true" class="btn btn-primary ms-2" role="button" href="{{ route('admin.product.create') }}" aria-label="{{ __('Додати') }}">
+                    {{ __('Додати') }}
                 </a>
             </div>
         </div>
@@ -34,35 +34,17 @@
                             <x-table.header class="w-0">
                                 <x-input.checkbox wire:model="selectPage" />
                             </x-table.header>
-                            <x-table.header sortable wire:click="sortBy('name')" :direction="$sorts['name'] ?? null" class="w-15">Користувач</x-table.header>
-                            <x-table.header sortable wire:click="sortBy('email')" :direction="$sorts['email'] ?? null" class="w-20">Email</x-table.header>
-                            <x-table.header sortable wire:click="sortBy('username')" :direction="$sorts['username'] ?? null" class="w-15">Ім'я</x-table.header>
-                            <x-table.header>Ролі</x-table.header>
-                            <x-table.header class="w-15">Активність</x-table.header>
+                            <x-table.header sortable wire:click="sortBy('name')" :direction="$sorts['name'] ?? null" class="w-15">{{ __('Назва') }}</x-table.header>
+                            <x-table.header class="w-85">{{ __('Опис') }}</x-table.header>
                         </x-slot>
                         <x-slot name="body">
                             @forelse ($rows as $row)
                                 <x-table.row>
                                     <x-table.cell>
-                                        @if($row->hasRole(['super-admin']))
-                                            <x-input.checkbox wire:model="selected" value="{{ $row->id }}" disabled />
-                                        @else
-                                            <x-input.checkbox wire:model="selected" value="{{ $row->id }}"/>
-                                        @endif
+                                        <x-input.checkbox wire:model="selected" value="{{ $row->product_id }}"/>
                                     </x-table.cell>
-                                    <x-table.cell><a href="{{ route('admin.users.edit', $row->id) }}" aria-label="{{ __('Edit') }}">{{ $row->fullname }}</a></x-table.cell>
-                                    <x-table.cell>{{ $row->email }}</x-table.cell>
-                                    <x-table.cell>{{ $row->username }}</x-table.cell>
-                                    <x-table.cell>
-                                        @foreach ($row->roles as $roles)
-                                            <a href="{{ route('admin.roles.edit', $roles->id) }}" class="me-1" aria-label="{{ __('Edit') }}">{{ $roles->name }}</a>
-                                        @endforeach
-                                    </x-table.cell>
-                                    <x-table.cell>
-                                        @if ($row->latest_login ?? [])
-                                            {{ $row->latest_login->expires_at }}
-                                        @endif
-                                    </x-table.cell>
+                                    <x-table.cell><a href="{{ route('admin.product.edit', $row->product_id) }}" aria-label="{{ __('Edit') }}">{{ $row->name }}</a></x-table.cell>
+                                    <x-table.cell>{{ $row->description }}</x-table.cell>
                                 </x-table.row>
                             @empty
                                 <x-table.row>

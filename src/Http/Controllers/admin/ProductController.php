@@ -4,6 +4,7 @@ namespace Terawatt\Greenhouse\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -24,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.add')
+        return view('admin.products.add')
             ->withRoles(Role::orderBy('id', 'desc')->pluck('name'));
     }
 
@@ -59,9 +60,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         try {
-            return view('admin.product.edit')
-                ->withUsers(User::findOrFail($id))
-                ->withRoles(Role::orderBy('id', 'desc')->pluck('name'));
+            return view('admin.products.edit')
+                ->withProducts(Product::findOrFail($id));
         } catch (\Throwable $e) {
             \Log::alert($e->getMessage());
             return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withInput();

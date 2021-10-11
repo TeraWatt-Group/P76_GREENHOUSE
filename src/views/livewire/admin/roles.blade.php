@@ -10,7 +10,7 @@
         <div class="col-6">
             <div class="d-flex justify-content-start">
                 <div class="input-group w-50">
-                    <x-input.input wire:model.debounce.300ms="search" type="text" class="form-control" placeholder="{{ __('Search') }}"/>
+                    <x-input.input wire:model.debounce.300ms="search" type="text" class="form-control" placeholder="{{ __('green.search') }}"/>
                 </div>
             </div>
         </div>

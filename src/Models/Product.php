@@ -1,6 +1,6 @@
 <?php
 
-namespace Terawatt\Greenhouse\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,8 +10,8 @@ class Product extends Model
 	use HasFactory;
 
 	public $table = 'product';
+    public $primaryKey = 'product_id';
 
-	// Disable Laravel's mass assignment protection
 	protected $guarded = [];
 
     public static function get_one_product()

@@ -3,7 +3,7 @@
 namespace Terawatt\Greenhouse\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Terawatt\Greenhouse\Models\Product;
+use App\Models\Product;
 
 class WelcomeController extends Controller
 {
