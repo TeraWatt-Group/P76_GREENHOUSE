@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rcp extends Model
+class ProductDescription extends Model
 {
 	use HasFactory;
 
-	public $table = 'rcp';
-	public $primaryKey = ['rcp_id', 'rcp_version'];
-	public $incrementing = false;
+	public $table = 'product_description';
+	public $primaryKey = 'product_id';
 
 	protected $guarded = [];
 }

@@ -1,4 +1,6 @@
 {
     "/js/green.js": "/js/green.js",
-    "/css/green.css": "/css/green.css"
+    "/js/filepond.js": "/js/filepond.js",
+    "/css/green.css": "/css/green.css",
+    "/css/filepond.css": "/css/filepond.css"
 }

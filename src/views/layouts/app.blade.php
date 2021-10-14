@@ -44,6 +44,10 @@
     <!-- Styles -->
     <link href="{{ mix('css/green.css') }}" rel="stylesheet">
     @livewireStyles
+    @stack('styles')
+
+    <link rel="manifest" href='/manifest.json' crossorigin="use-credentials">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body class="d-flex flex-column h-100">
     @include('layouts.header')

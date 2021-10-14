@@ -7,8 +7,9 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
-use Terawatt\Greenhouse\Models\Product;
-use Terawatt\Greenhouse\Models\Option;
+use App\Models\Product;
+use App\Models\Option;
+use App\Models\Rcp;
 
 class GreenSeeder extends Seeder
 {
@@ -35,6 +36,10 @@ class GreenSeeder extends Seeder
         // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
+        DB::statement("SET foreign_key_checks=0");
+        Role::truncate();
+        DB::statement("SET foreign_key_checks=1");
+
         Role::create(['name' => 'super-admin']);
         // Role::create(['name' => 'qr']);
         // $role = Role::create(['name' => 'bpmn']);
@@ -43,6 +48,7 @@ class GreenSeeder extends Seeder
         // Permission::create(['name' => 'bpmn-edit']);
         // $role->syncPermissions(['bpmn-view', 'bpmn-edit']);
 
+        $user->roles()->detach();
         $user->assignRole('super-admin');
 
         // check if table users is empty
@@ -120,5 +126,16 @@ class GreenSeeder extends Seeder
 
             ]);
         } else { echo "Option table is not empty"; }
+
+        Rcp::insert([
+            [
+                'rcp_version' => '1.0.0',
+                'product_id' => '1',
+            ],
+            [
+                'rcp_version' => '2.0.0',
+                'product_id' => '1',
+            ],
+        ]);
     }
 }

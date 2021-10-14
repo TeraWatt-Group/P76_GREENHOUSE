@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        return view('admin.product.index');
+        return view('admin.products.index');
     }
 
     /**
@@ -61,7 +61,7 @@ class ProductController extends Controller
     {
         try {
             return view('admin.products.edit')
-                ->withProducts(Product::findOrFail($id));
+                ->withProducts(Product::get_one_product($id));
         } catch (\Throwable $e) {
             \Log::alert($e->getMessage());
             return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withInput();

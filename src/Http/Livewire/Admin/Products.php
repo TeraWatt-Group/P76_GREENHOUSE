@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use App\Models\Product;
 use Livewire\WithPagination;
 use App\Http\Livewire\DataTable\WithSorting;
@@ -10,12 +11,13 @@ use App\Http\Livewire\DataTable\WithBulkActions;
 
 class Products extends Component
 {
-    use WithPagination, WithSorting, WithBulkActions;
+    use WithPagination, WithSorting, WithBulkActions, WithFileUploads;
 
     public string $search = '';
 
     public $showDeleteModal = false;
     public $showForceDeleteModal = false;
+    public $newImage;
 
     public function updatedSearch()
     {
@@ -36,7 +38,8 @@ class Products extends Component
     public function getRowsQueryProperty()
     {
         $query = Product::query()
-            ->leftJoin('product_description', 'product_description.product_id', 'product.product_id')
+            ->description()
+            ->rcp()
             ->search('name', $this->search);
 
         return $this->applySorting($query);

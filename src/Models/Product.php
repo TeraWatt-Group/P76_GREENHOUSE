@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ProductDescription;
 
 class Product extends Model
 {
@@ -14,10 +15,20 @@ class Product extends Model
 
 	protected $guarded = [];
 
-    public static function get_one_product()
+    public function description()
+    {
+        return $this->hasOne(ProductDescription::class);
+    }
+
+    public function rcp()
+    {
+        return $this->hasMany(Rcp::class, 'product_id');
+    }
+
+    public static function get_one_product($id)
     {
         return Product::leftJoin('product_description', 'product_description.product_id', 'product.product_id')
-        			->get();
+        			->findOrFail($id);
     }
 
     public static function get_all_product()

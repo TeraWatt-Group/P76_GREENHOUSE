@@ -12,7 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('src/resources/js/app.js', 'src/public/js/green.js')
+    // .js('src/resources/js/filepond.js', 'src/public/js')
     .sass('src/resources/sass/app.scss', 'src/public/css/green.css')
+    .sass('src/resources/sass/filepond.scss', 'src/public/css')
+    .copy('node_modules/filepond/dist/filepond.min.js', 'src/public/js/filepond.js')
     .webpackConfig(require('./webpack.config'))
     .options({ processCssUrls: false });
 
