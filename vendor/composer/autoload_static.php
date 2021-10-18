@@ -23,9 +23,11 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+        'ef65a1626449d89d0811cf9befce46f0' => __DIR__ . '/..' . '/illuminate/events/functions.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -55,6 +57,7 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\String\\' => 25,
+            'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\Process\\' => 26,
             'Symfony\\Component\\Mime\\' => 23,
             'Symfony\\Component\\HttpKernel\\' => 29,
@@ -92,18 +95,22 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         ),
         'I' => 
         array (
+            'Illuminate\\View\\' => 16,
             'Illuminate\\Validation\\' => 22,
             'Illuminate\\Translation\\' => 23,
             'Illuminate\\Support\\' => 19,
             'Illuminate\\Session\\' => 19,
+            'Illuminate\\Routing\\' => 19,
             'Illuminate\\Queue\\' => 17,
             'Illuminate\\Pipeline\\' => 20,
             'Illuminate\\Http\\' => 16,
             'Illuminate\\Filesystem\\' => 22,
+            'Illuminate\\Events\\' => 18,
             'Illuminate\\Database\\' => 20,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
             'Illuminate\\Console\\' => 19,
+            'Illuminate\\Bus\\' => 15,
             'Illuminate\\Auth\\' => 16,
         ),
         'E' => 
@@ -118,6 +125,7 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         ),
         'C' => 
         array (
+            'Collective\\Html\\' => 16,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -199,6 +207,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'Symfony\\Component\\String\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/string',
+        ),
+        'Symfony\\Component\\Routing\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/routing',
         ),
         'Symfony\\Component\\Process\\' => 
         array (
@@ -288,6 +300,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         array (
             0 => __DIR__ . '/..' . '/laravel/fortify/src',
         ),
+        'Illuminate\\View\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/view',
+        ),
         'Illuminate\\Validation\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/validation',
@@ -298,13 +314,17 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/macroable',
-            1 => __DIR__ . '/..' . '/illuminate/collections',
+            0 => __DIR__ . '/..' . '/illuminate/collections',
+            1 => __DIR__ . '/..' . '/illuminate/macroable',
             2 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Session\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/session',
+        ),
+        'Illuminate\\Routing\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/routing',
         ),
         'Illuminate\\Queue\\' => 
         array (
@@ -322,6 +342,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         array (
             0 => __DIR__ . '/..' . '/illuminate/filesystem',
         ),
+        'Illuminate\\Events\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/events',
+        ),
         'Illuminate\\Database\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/database',
@@ -337,6 +361,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'Illuminate\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/console',
+        ),
+        'Illuminate\\Bus\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/bus',
         ),
         'Illuminate\\Auth\\' => 
         array (
@@ -357,6 +385,10 @@ class ComposerStaticInitfff52b0af4ac6b7a14f20b4216a3f6b8
         'DASPRiD\\Enum\\' => 
         array (
             0 => __DIR__ . '/..' . '/dasprid/enum/src',
+        ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
         ),
         'Carbon\\' => 
         array (

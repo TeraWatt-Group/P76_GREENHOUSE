@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 
-class ProductController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        return view('admin.products.index');
+        return view('admin.category.index');
     }
 
     /**
@@ -25,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.add');
+        return view('admin.products.add')
+            ->withRoles(Role::orderBy('id', 'desc')->pluck('name'));
     }
 
     /**

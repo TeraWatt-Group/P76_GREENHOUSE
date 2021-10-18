@@ -43,8 +43,8 @@
                                     <x-table.cell>
                                         <x-input.checkbox wire:model="selected" value="{{ $row->product_id }}"/>
                                     </x-table.cell>
-                                    <x-table.cell><a href="{{ route('admin.product.edit', $row->product_id) }}" aria-label="{{ __('Edit') }}">{{ $row->name }}</a></x-table.cell>
-                                    <x-table.cell>{{ $row->description }}</x-table.cell>
+                                    <x-table.cell><a href="{{ route('admin.product.edit', $row->product_id) }}" aria-label="{{ __('Edit') }}">{{ $row->description->name }}</a></x-table.cell>
+                                    <x-table.cell>{{ $row->description->description }}</x-table.cell>
                                 </x-table.row>
                             @empty
                                 <x-table.row>
@@ -54,7 +54,6 @@
                                 </x-table.row>
                             @endforelse
                         </x-slot>
-                        <x-slot name="foot"></x-slot>
                     </x-table>
                 </div>
                 <div class="card-footer">

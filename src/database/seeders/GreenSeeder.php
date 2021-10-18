@@ -7,7 +7,10 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
+use App\Models\Category;
+use App\Models\CategoryDescription;
 use App\Models\Product;
+use App\Models\ProductDescription;
 use App\Models\Option;
 use App\Models\Rcp;
 
@@ -51,26 +54,64 @@ class GreenSeeder extends Seeder
         $user->roles()->detach();
         $user->assignRole('super-admin');
 
-        // check if table users is empty
-        if (Product::count() == 0) {
+        if (Category::count() == 0) {
+            Category::insert([
+                [
+                    'category_id' => 1,
+                    'parent_id' => 0,
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+                ],
+                [
+                    'category_id' => 2,
+                    'parent_id' => 0,
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+                ]
+            ]);
+            CategoryDescription::insert([
+                [
+                    'category_id' => 1,
+                    'name' => 'Салати',
+                    'description' => 'Салати'
+                ],
+                [
+                    'category_id' => 2,
+                    'name' => 'Мікрозелень',
+                    'description' => 'Мікрозелень'
+                ]
+            ]);
+        } else { echo "Category table is not empty\n"; }
 
+        if (Product::count() == 0) {
             Product::insert([
                 [
                     'image' => '/img/product/parsley.jpg',
                     'date_available' => '1990-01-01',
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
                 ],
                 [
                     'image' => '/img/product/redis.png',
                     'date_available' => '1990-01-01',
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
                 ],
                 [
                     'image' => '/img/product/rukkola.png',
                     'date_available' => '1990-01-01',
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+                ],
+                [
+                    'image' => '/img/product/spinach.jpeg',
+                    'date_available' => '1990-01-01',
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
                 ]
-
             ]);
 
-            DB::table('product_description')->insert([
+            ProductDescription::insert([
                 [
                     'product_id' => 1,
                     'language_id' => 1,
@@ -89,9 +130,33 @@ class GreenSeeder extends Seeder
                     'name' => 'Руккола',
                     'description' => 'Руккола',
                 ],
+                [
+                    'product_id' => 4,
+                    'language_id' => 1,
+                    'name' => 'Шпинат',
+                    'description' => 'Шпинат',
+                ],
             ]);
 
-        } else { echo "Product table is not empty"; }
+            DB::table('product_to_category')->insert([
+                [
+                    'product_id' => 1,
+                    'category_id' => 1,
+                ],
+                [
+                    'product_id' => 2,
+                    'category_id' => 1,
+                ],
+                [
+                    'product_id' => 3,
+                    'category_id' => 1,
+                ],
+                [
+                    'product_id' => 4,
+                    'category_id' => 2,
+                ],
+            ]);
+        } else { echo "Product table is not empty\n"; }
 
         if (Option::count() == 0) {
             Option::insert([
@@ -125,7 +190,7 @@ class GreenSeeder extends Seeder
                 ]
 
             ]);
-        } else { echo "Option table is not empty"; }
+        } else { echo "Option table is not empty\n"; }
 
         Rcp::insert([
             [

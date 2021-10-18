@@ -101,7 +101,7 @@
 			</button>
 			<div class="collapse" id="product-collapse">
 			  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-				<li><a href="#" class="link-dark rounded">{{ __('Категорії') }}</a></li>
+				<li><a href="{{ route('admin.category.index') }}" class="link-dark rounded">{{ __('Категорії') }}</a></li>
 				<li><a href="{{ route('admin.product.index') }}" class="link-dark rounded">{{ __('Продукти') }}</a></li>
 			  </ul>
 			</div>

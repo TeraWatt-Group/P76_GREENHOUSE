@@ -17,7 +17,7 @@ class CreateGreenTables extends Migration
             $table->bigIncrements('product_id');
             $table->string('sku', 64)->default('');
             $table->string('image', 255)->nullable();
-            $table->integer('sort_order');
+            $table->integer('sort_order')->default(0);
             $table->date('date_available')->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();
@@ -37,6 +37,25 @@ class CreateGreenTables extends Migration
             $table->string('image', 255);
             $table->integer('sort_order');
         });
+        Schema::create('category', function (Blueprint $table) {
+            $table->bigIncrements('category_id');
+            $table->integer('parent_id')->default(0);
+            $table->timestamps();
+        });
+        Schema::create('category_description', function (Blueprint $table) {
+            $table->unsignedBigInteger('category_id');
+            $table->string('name', 255);
+            $table->text('description');
+
+            $table->foreign('category_id')->references('category_id')->on('category')->onDelete('cascade');
+        });
+        Schema::create('product_to_category', function (Blueprint $table) {
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('category_id');
+
+            $table->primary(['product_id','category_id']);
+        });
+
 
 
         Schema::create('rcp', function (Blueprint $table) {
@@ -53,15 +72,7 @@ class CreateGreenTables extends Migration
             $table->string('type', 32);
             $table->integer('sort_order');
         });
-
-
-
-        Schema::create('category', function (Blueprint $table) {
-            $table->bigIncrements('category_id');
-            $table->integer('parent_id')->default(0);
-            $table->timestamps();
-        });
-        Schema::create('category_description', function (Blueprint $table) {
+        Schema::create('rcp_option', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id');
             $table->string('name', 255);
             $table->text('description');

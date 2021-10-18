@@ -11,7 +11,13 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\
 
 	Route::resource('users', UsersController::class);
 
+	Route::resource('category', CategoryController::class);
+
 	Route::resource('product', ProductController::class);
+
+	Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
+		Route::get('{product}/rcp/{rcp}/edit', ['uses' => 'RcpController@edit', 'as' => 'rcp.edit']);
+	});
 
 	Route::post('roles/restore/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'restore'])->name('roles.restore');
 	Route::delete('roles/forceDelete/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'forceDelete'])->name('roles.forceDelete');

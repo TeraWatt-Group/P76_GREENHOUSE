@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin | ' . __('admin.cars'))
-@section('description', __('admin.cars'))
+@section('title', 'Admin | ' . __('Редагувати продукт (' . $products->name . ')'))
+@section('description', __('Редагувати продукт (' . $products->name . ')'))
 
 @section('content')
 <div class="container">
@@ -11,7 +11,7 @@
 	            <ol class="breadcrumb">
 	                <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('admin.index') }}">Панель адміністратора</a></li>
 	                <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('admin.product.index') }}">{{ __('Продукти') }}</a></li>
-	                <li class="breadcrumb-item active" aria-current="page">{{ __('Продукти') }}</li>
+	                <li class="breadcrumb-item active" aria-current="page">{{ $products->name }}</li>
 	            </ol>
 	        </nav>
 	    </div>
@@ -40,40 +40,61 @@
 			<div class="col-12">
 				<nav class="nav nav-pills flex-column flex-sm-row">
 				    <button class="flex-sm-fill text-sm-center nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('Основні') }}</button>
+				    <button class="flex-sm-fill text-sm-center nav-link" id="pills-link-tab" data-bs-toggle="pill" data-bs-target="#pills-link" type="button" role="tab" aria-controls="pills-link" aria-selected="false">{{ __('Посилання') }}</button>
 				    <button class="flex-sm-fill text-sm-center nav-link" id="pills-image-tab" data-bs-toggle="pill" data-bs-target="#pills-image" type="button" role="tab" aria-controls="pills-image" aria-selected="false">{{ __('Зображення') }}</button>
 				    <button class="flex-sm-fill text-sm-center nav-link" id="pills-rcp-tab" data-bs-toggle="pill" data-bs-target="#pills-rcp" type="button" role="tab" aria-controls="pills-rcp" aria-selected="false">{{ __('Рецепти') }}</button>
 				    <button class="flex-sm-fill text-sm-center nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false">Disabled</button>
 				</nav>
 				<div class="tab-content mt-3" id="pills-tabContent">
 				    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-				    	<div class="form-group pt-3 required">
-				    		<div class="mb-3 row">
-				    		    <label for="input-name" class="col-sm-2 col-form-label">Product Name</label>
-				    		    <div class="col-sm-10">
-				    		        <input type="text" class="form-control" id="input-name" name="input-name" placeholder="Product Name" value="{{ $products->name }}">
-				    		    </div>
-				    		</div>
-				    	</div>
-				    	<div class="form-group pt-3 required">
-				    		<div class="mb-3 row">
-				    		    <label for="input-description" class="col-sm-2 col-form-label">Description</label>
-				    		    <div class="col-sm-10">
-				    		    	<input id="input-description" type="hidden" name="input-description" value="{{ $products->description }}">
-				    		        <trix-editor class="trix-content" input="input-description"></trix-editor>
-				    		    </div>
-				    		</div>
-				    	</div>
+				    	<div class="form-group row py-3 required">
+                            <label for="input-name" class="col-2 col-form-label text-md-end form-label-asterisk">Product Name</label>
+                            <div class="col-10">
+                                <input placeholder="Product Name" class="form-control" name="input-name" type="text" value="{{ $products->name }}" id="input-name">
+                            </div>
+                        </div>
+				    	<div class="form-group row py-3 required">
+                            <label for="input-description" class="col-2 col-form-label text-md-end form-label-asterisk">Description</label>
+                            <div class="col-10">
+                            	<input id="input-description" type="hidden" name="input-description" value="{{ $products->description }}">
+                                <trix-editor class="trix-content" input="input-description"></trix-editor>
+                            </div>
+                        </div>
+				    </div>
+				    <div class="tab-pane fade" id="pills-link" role="tabpanel" aria-labelledby="pills-link-tab">
+				    	Cat
 				    </div>
 				    <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">
 				    	<x-input.filepond wire:model="newImage" />
 				    </div>
 				    <div class="tab-pane fade" id="pills-rcp" role="tabpanel" aria-labelledby="pills-rcp-tab">
-				    	@forelse ($products->rcp as $rcp)
+				    	<div class="card">
+				    		<div class="card-body p-0">
+				    			<div wire:loading.delay class="preloader">
+				    			    <div class="d-flex justify-content-center align-items-center h-100"><div class="spinner-grow" role="status"></div></div>
+				    			</div>
+		    			    	<x-table>
+		    			    		<x-slot name="head">
+		    			    		    <x-table.header class="w-15">{{ __('ID') }}</x-table.header>
+		    			    		    <x-table.header class="w-15">{{ __('Версія') }}</x-table.header>
+		    			    		    <x-table.header class="w-70">{{ __('') }}</x-table.header>
+		    			    		</x-slot>
+		    			    		<x-slot name="body">
+		    				    	@forelse ($products->rcp as $rcp)
+		    				    		<x-table.row>
+		    				    			<x-table.cell>{{ $rcp->rcp_id }}</x-table.cell>
+		    				    			<x-table.cell><a href="{{ route('admin.product.rcp.edit', [$products->product_id, $rcp->rcp_id]) }}" aria-label="{{ __('Edit') }}">{{ $rcp->rcp_version }}</a></x-table.cell>
+		    				    			<x-table.cell></x-table.cell>
+		    					    	</x-table.row>
+		    				    	@empty
+		    				    	@endforelse
+		    				    	</x-slot>
+		    			    	</x-table>
+				    		</div>
+				    		<div class="card-footer">
 
-					    		{{ $rcp->rcp_version }}
-
-				    	@empty
-				    	@endforelse
+				    		</div>
+				    	</div>
 				    </div>
 				    <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab">Disabled</div>
 				</div>

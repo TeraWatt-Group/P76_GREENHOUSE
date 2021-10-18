@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ProductDescription;
 
 class Product extends Model
 {
@@ -17,7 +16,12 @@ class Product extends Model
 
     public function description()
     {
-        return $this->hasOne(ProductDescription::class);
+        return $this->hasOne(ProductDescription::class, 'product_id');
+    }
+
+    public function image()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
     }
 
     public function rcp()

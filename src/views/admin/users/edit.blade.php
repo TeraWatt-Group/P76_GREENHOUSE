@@ -91,7 +91,6 @@
                         <table id="table-fields" class="table mb-0">
                             <thead class="table-light">
                                 <tr>
-                                    <th></th>
                                     <th>Ролі</th>
                                     <th>Дії</th>
                                 </tr>
@@ -99,7 +98,6 @@
                             <tbody>
                                 @foreach ($users->roles as $key => $userRole)
                                     <tr id="role-{{ $key }}">
-                                        <td></td>
                                         <td>
                                             <select class="form-select" name="role[{{ $key }}]">
                                                 @foreach ($roles as $role)

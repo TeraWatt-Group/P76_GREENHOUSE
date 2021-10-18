@@ -38,8 +38,8 @@ class Products extends Component
     public function getRowsQueryProperty()
     {
         $query = Product::query()
-            ->description()
-            ->rcp()
+            ->with('description')
+            ->with('rcp')
             ->search('name', $this->search);
 
         return $this->applySorting($query);

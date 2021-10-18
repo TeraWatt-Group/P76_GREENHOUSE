@@ -21,7 +21,7 @@
 				@elseif ($direction === 'desc')
 					<span class="arrow-down"></span>
 				@else
-
+					<span></span>
 				@endif
 			</span>
         </div>

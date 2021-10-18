@@ -5,8 +5,9 @@ namespace Terawatt\Greenhouse\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Rcp;
 
-class ProductController extends Controller
+class RcpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.add');
+        return view('admin.products.add')
+            ->withRoles(Role::orderBy('id', 'desc')->pluck('name'));
     }
 
     /**
@@ -56,11 +58,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $rcp)
     {
         try {
-            return view('admin.products.edit')
-                ->withProducts(Product::get_one_product($id));
+            return view('admin.rcp.edit')
+                ->withProducts(Product::get_one_product($id))
+                ->withRcp(Rcp::where('rcp_id', $rcp)->first());
         } catch (\Throwable $e) {
             \Log::alert($e->getMessage());
             return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withInput();

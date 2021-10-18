@@ -52,7 +52,6 @@
                                 </x-table.row>
                             @endforelse
                         </x-slot>
-                        <x-slot name="foot"></x-slot>
                     </x-table>
                 </div>
                 <div class="card-footer">
