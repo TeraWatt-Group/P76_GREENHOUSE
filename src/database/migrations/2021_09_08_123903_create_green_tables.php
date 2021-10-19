@@ -53,18 +53,18 @@ class CreateGreenTables extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('category_id');
 
-            $table->primary(['product_id','category_id']);
+            $table->primary(['product_id', 'category_id']);
         });
 
 
 
         Schema::create('rcp', function (Blueprint $table) {
-            $table->bigIncrements('rcp_id');
+            $table->unsignedBigInteger('rcp_id');
             $table->string('rcp_version', 16);
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
 
-            $table->index('rcp_version');
+            $table->primary(['rcp_id', 'rcp_version']);
             $table->foreign('product_id')->references('product_id')->on('product')->onDelete('cascade');
         });
         Schema::create('option', function (Blueprint $table) {

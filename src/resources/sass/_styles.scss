@@ -273,6 +273,11 @@ th a:hover {
     -webkit-transition: opacity .25s ease-in-out!important;
 }
 
+.card-img {
+    height: 15vw;
+    object-fit: cover;
+}
+
 /* Trix
 ---------------------------------------------------------------------------- */
 .disabled trix-editor,

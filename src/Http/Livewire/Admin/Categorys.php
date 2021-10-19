@@ -4,12 +4,12 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Models\Product;
+use App\Models\Category;
 use Livewire\WithPagination;
 use App\Http\Livewire\DataTable\WithSorting;
 use App\Http\Livewire\DataTable\WithBulkActions;
 
-class Products extends Component
+class Categorys extends Component
 {
     use WithPagination, WithSorting, WithBulkActions, WithFileUploads;
 
@@ -37,9 +37,8 @@ class Products extends Component
 
     public function getRowsQueryProperty()
     {
-        $query = Product::query()
-            ->leftJoin('product_description', 'product_description.product_id', 'product.product_id')
-            ->with('rcp')
+        $query = Category::query()
+            ->leftJoin('category_description', 'category_description.category_id', 'category.category_id')
             ->search('name', $this->search);
 
         return $this->applySorting($query);
@@ -56,7 +55,7 @@ class Products extends Component
             $this->selectPageRows();
         }
 
-        return view('livewire.admin.products', [
+        return view('livewire.admin.categorys', [
             'rows' => $this->rows,
         ]);
     }

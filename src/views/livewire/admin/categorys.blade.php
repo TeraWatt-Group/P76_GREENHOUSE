@@ -2,7 +2,7 @@
     <div class="row mb-3">
         <div class="col-12">
             <div class="d-flex align-content-start align-items-end">
-                <h3 class="mb-0 pr-3">{{ __('Продукти') }}</h3>
+                <h3 class="mb-0 pr-3">{{ __('Категорії') }}</h3>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
         </div>
         <div class="col-6">
             <div class="d-flex justify-content-end">
-                <a role="button" aria-pressed="true" class="btn btn-primary ms-2" role="button" href="{{ route('admin.product.create') }}" aria-label="{{ __('Додати') }}">
+                <a role="button" aria-pressed="true" class="btn btn-primary ms-2" role="button" href="{{ route('admin.category.create') }}" aria-label="{{ __('Додати') }}">
                     {{ __('Додати') }}
                 </a>
             </div>
@@ -41,9 +41,9 @@
                             @forelse ($rows as $row)
                                 <x-table.row>
                                     <x-table.cell>
-                                        <x-input.checkbox wire:model="selected" value="{{ $row->product_id }}"/>
+                                        <x-input.checkbox wire:model="selected" value="{{ $row->category_id }}"/>
                                     </x-table.cell>
-                                    <x-table.cell><a href="{{ route('admin.product.edit', $row->product_id) }}" aria-label="{{ __('Edit') }}">{{ $row->name }}</a></x-table.cell>
+                                    <x-table.cell><a href="{{ route('admin.category.edit', $row->category_id) }}" aria-label="{{ __('Edit') }}">{{ $row->name }}</a></x-table.cell>
                                     <x-table.cell>{{ $row->description }}</x-table.cell>
                                 </x-table.row>
                             @empty

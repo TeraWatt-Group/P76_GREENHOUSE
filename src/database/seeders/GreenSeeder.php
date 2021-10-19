@@ -67,6 +67,12 @@ class GreenSeeder extends Seeder
                     'parent_id' => 0,
                     'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                     'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+                ],
+                [
+                    'category_id' => 3,
+                    'parent_id' => 0,
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
                 ]
             ]);
             CategoryDescription::insert([
@@ -79,6 +85,11 @@ class GreenSeeder extends Seeder
                     'category_id' => 2,
                     'name' => 'Мікрозелень',
                     'description' => 'Мікрозелень'
+                ],
+                [
+                    'category_id' => 3,
+                    'name' => 'Петрушка',
+                    'description' => 'Петрушка'
                 ]
             ]);
         } else { echo "Category table is not empty\n"; }
@@ -115,8 +126,8 @@ class GreenSeeder extends Seeder
                 [
                     'product_id' => 1,
                     'language_id' => 1,
-                    'name' => 'Петрушка кучерявая',
-                    'description' => 'Петрушка кучерявая',
+                    'name' => 'Петрушка кучерява',
+                    'description' => 'Петрушка кучерява',
                 ],
                 [
                     'product_id' => 2,
@@ -141,7 +152,7 @@ class GreenSeeder extends Seeder
             DB::table('product_to_category')->insert([
                 [
                     'product_id' => 1,
-                    'category_id' => 1,
+                    'category_id' => 3,
                 ],
                 [
                     'product_id' => 2,
@@ -194,10 +205,12 @@ class GreenSeeder extends Seeder
 
         Rcp::insert([
             [
+                'rcp_id' => '1',
                 'rcp_version' => '1.0.0',
                 'product_id' => '1',
             ],
             [
+                'rcp_id' => '2',
                 'rcp_version' => '2.0.0',
                 'product_id' => '1',
             ],

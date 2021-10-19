@@ -17,20 +17,29 @@
     </div>
 
     @if ($product->isNotEmpty())
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-5 pb-5">
+        <div class="row">
+            @php($old_category = '')
             @foreach ($product as $prod)
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-dark bg-light border-none" style="background-image: url({{ $prod->image }});">
-                        <div class="card-body">
-                            <div class="d-flex flex-column h-100 p-4 pb-3 text-dark text-shadow-1">
-<!--                                 <h2 class="pt-3 mt-1 mb-4 display-6 lh-1 fw-bold">{{ $prod->name }}</h2>
-                                <p>{{ $prod->description }}</p> -->
+                @if ($old_category == '' || ($old_category != $prod->category))
+                    <div class="h1 mb-3">
+                        {{ $prod->category }}
+                    </div>
+                @else
+                @endif
+                <div class="col-4 mb-3">
+                    <div class="card border-0">
+                        <div class="position-relative">
+                            <img class="card-img" src="{{ $prod->image }}" alt="Card image">
+                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                             </div>
+                        </div>
+                        <div class="card-body text-center px-0 pt-3">
                             <a href="{{ route('green.product.show', $prod->product_id) }}" class="stretched-link" aria-label="index"></a>
+                            <h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">{{ $prod->name }}</a></h4>
                         </div>
                     </div>
-                    <h2 class="pt-1 mt-1 mb-4 fs-3 lh-1 fw-bold text-center">{{ $prod->name }}</h2>
                 </div>
+                @php($old_category = $prod->category)
             @endforeach
         </div>
     @else

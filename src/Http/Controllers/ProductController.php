@@ -4,6 +4,7 @@ namespace Terawatt\Greenhouse\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -11,7 +12,12 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         return view('green.product.index')
-            ->withProduct(Product::get_all_product());
+            ->withProduct(Category::select(\DB::raw('category_description.name as category, product.product_id as product_id, product_description.name as name, product.image as image'))
+                                ->leftJoin('category_description', 'category_description.category_id', 'category.category_id')
+                                ->leftJoin('product_to_category', 'product_to_category.category_id', 'category.category_id')
+                                ->leftJoin('product', 'product.product_id', 'product_to_category.product_id')
+                                ->leftJoin('product_description', 'product_description.product_id', 'product.product_id')
+                                ->get());
     }
 
     /**

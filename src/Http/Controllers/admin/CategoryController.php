@@ -4,7 +4,7 @@ namespace Terawatt\Greenhouse\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        return view('admin.category.index');
+        return view('admin.categorys.index');
     }
 
     /**

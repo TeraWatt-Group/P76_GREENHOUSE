@@ -91,9 +91,6 @@
 		    				    	</x-slot>
 		    			    	</x-table>
 				    		</div>
-				    		<div class="card-footer">
-
-				    		</div>
 				    	</div>
 				    </div>
 				    <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab">Disabled</div>
