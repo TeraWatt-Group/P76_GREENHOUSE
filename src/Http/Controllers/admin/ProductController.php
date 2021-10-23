@@ -5,6 +5,7 @@ namespace Terawatt\Greenhouse\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\CategoryDescription;
 
 class ProductController extends Controller
 {
@@ -60,7 +61,8 @@ class ProductController extends Controller
     {
         try {
             return view('admin.products.edit')
-                ->withProducts(Product::get_one_product($id));
+                ->withProducts(Product::get_one_product($id))
+                ->withCategory(CategoryDescription::all()->pluck('name', 'category_id'));
         } catch (\Throwable $e) {
             \Log::alert($e->getMessage());
             return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withInput();
@@ -77,13 +79,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $user = User::findOrFail($id);
-
-            if (!is_null($request->role)) {
-                $request->role = array_unique($request->role);
-            }
-
-            $user->syncRoles($request->role);
+            dd($request->product);
 
             return redirect()->route('admin.product.index')->with('flash.banner', __('Success!'));
         } catch (\Throwable $e) {

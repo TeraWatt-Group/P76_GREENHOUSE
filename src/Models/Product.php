@@ -24,6 +24,11 @@ class Product extends Model
         return $this->hasMany(ProductImage::class, 'product_id');
     }
 
+    public function category()
+    {
+        return $this->hasOne(ProductToCategory::class, 'product_id');
+    }
+
     public function rcp()
     {
         return $this->hasMany(Rcp::class, 'product_id');

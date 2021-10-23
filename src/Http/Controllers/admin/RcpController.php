@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Rcp;
+use App\Models\Option;
+use App\Models\RcpOption;
 
 class RcpController extends Controller
 {
+    public function __construct()
+    {
+        $this->columns = [];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +22,7 @@ class RcpController extends Controller
      */
     public function index(Request $request)
     {
-        return view('admin.products.index');
+        return view('admin.rcp.index');
     }
 
     /**
@@ -26,8 +32,8 @@ class RcpController extends Controller
      */
     public function create()
     {
-        return view('admin.products.add')
-            ->withRoles(Role::orderBy('id', 'desc')->pluck('name'));
+        return view('admin.rcp.add')
+            ->withOptions(Option::orderBy('option_id', 'desc')->pluck('type'));
     }
 
     /**
@@ -63,8 +69,10 @@ class RcpController extends Controller
         try {
             return view('admin.rcp.edit')
                 ->withProducts(Product::get_one_product($id))
-                ->withRcp(Rcp::where('rcp_id', $rcp)->first());
+                ->withRcp(Rcp::where('rcp_id', $rcp)->with('options')->first())
+                ->withOptions(Option::orderBy('option_id')->pluck('type', 'option_id'));
         } catch (\Throwable $e) {
+            dd($e);
             \Log::alert($e->getMessage());
             return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withInput();
         }
@@ -80,18 +88,36 @@ class RcpController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $user = User::findOrFail($id);
+            if(isset($request->column)) {
+                $validator = $request->validate([
+                    'rcp_id' => 'required',
+                    'rcp_version' => 'required',
+                    'column.*.name' => 'required|string|distinct',
+                    'column.*.option_id' => 'required|string',
+                    'column.*.value' => 'required|string',
+                ]);
 
-            if (!is_null($request->role)) {
-                $request->role = array_unique($request->role);
+                foreach ($request->column as $key => $value) {
+                    $this->columns[] = [
+                        'rcp_id' => $request->rcp_id,
+                        'rcp_version' => $request->rcp_version,
+                        'name' => $value['name'],
+                        'tag_name' => \Str::upper(\Str::slug($value['name'], '_')),
+                        'option_id' => $value['option_id'],
+                        'value' => $value['value'],
+                    ];
+                };
+
+                \DB::transaction(function () use ($request) {
+                    RcpOption::where('rcp_id', $request->rcp_id)->delete();
+                    RcpOption::insert($this->columns);
+                });
             }
 
-            $user->syncRoles($request->role);
-
-            return redirect()->route('admin.product.index')->with('flash.banner', __('Success!'));
+            return redirect()->route('admin.product.edit', $id)->with('flash.banner', __('Success!'));
         } catch (\Throwable $e) {
             \Log::alert($e->getMessage());
-            return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withInput();
+            return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withErrors(method_exists($e, 'errors') ? $e->errors() : '')->withInput();
         }
     }
 

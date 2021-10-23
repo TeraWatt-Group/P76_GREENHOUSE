@@ -39,6 +39,8 @@ class Products extends Component
     {
         $query = Product::query()
             ->leftJoin('product_description', 'product_description.product_id', 'product.product_id')
+            // ->with('description')
+            ->with('category')
             ->with('rcp')
             ->search('name', $this->search);
 

@@ -10,8 +10,13 @@ class Rcp extends Model
 	use HasFactory;
 
 	public $table = 'rcp';
-	public $primaryKey = ['rcp_id', 'rcp_version'];
+	// public $primaryKey = ['rcp_id', 'rcp_version'];
 	public $incrementing = false;
 
 	protected $guarded = [];
+
+	public function options()
+	{
+	    return $this->hasMany(RcpOption::class, 'rcp_id', 'rcp_id');
+	}
 }

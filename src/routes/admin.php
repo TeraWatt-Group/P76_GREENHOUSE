@@ -17,6 +17,9 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\
 
 	Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
 		Route::get('{product}/rcp/{rcp}/edit', ['uses' => 'RcpController@edit', 'as' => 'rcp.edit']);
+		Route::get('{product}/rcp/create', ['uses' => 'RcpController@create', 'as' => 'rcp.create']);
+		Route::post('{product}/rcp', ['uses' => 'RcpController@store', 'as' => 'rcp.store']);
+		Route::put('{product}/rcp/{rcp}', ['uses' => 'RcpController@update', 'as' => 'rcp.update']);
 	});
 
 	Route::post('roles/restore/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'restore'])->name('roles.restore');

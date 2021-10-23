@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Option extends Model
+class RcpOption extends Model
 {
 	use HasFactory;
 
-	public $table = 'option';
-	public $primaryKey = 'option_id';
+	public $table = 'rcp_option';
+	public $primaryKey = 'rcp_option_id';
 
 	protected $guarded = [];
 }

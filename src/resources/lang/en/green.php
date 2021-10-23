@@ -22,5 +22,7 @@ return [
     'welcome_about' => 'About',
 
     'search' => 'Search',
+    'back' => 'Back',
+    'save' => 'Save',
 
 ];

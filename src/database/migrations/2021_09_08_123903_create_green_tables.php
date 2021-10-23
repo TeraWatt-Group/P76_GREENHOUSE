@@ -61,6 +61,7 @@ class CreateGreenTables extends Migration
         Schema::create('rcp', function (Blueprint $table) {
             $table->unsignedBigInteger('rcp_id');
             $table->string('rcp_version', 16);
+            $table->text('rcp_description');
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
 
@@ -73,11 +74,17 @@ class CreateGreenTables extends Migration
             $table->integer('sort_order');
         });
         Schema::create('rcp_option', function (Blueprint $table) {
-            $table->unsignedBigInteger('category_id');
+            $table->bigIncrements('rcp_option_id');
+            $table->unsignedBigInteger('rcp_id');
+            $table->string('rcp_version', 16);
+            $table->unsignedBigInteger('option_id');
             $table->string('name', 255);
-            $table->text('description');
+            $table->string('tag_name', 255);
+            $table->string('value', 255);
+            $table->boolean('required')->default(1);
 
-            $table->foreign('category_id')->references('category_id')->on('category')->onDelete('cascade');
+            $table->foreign('rcp_id')->references('rcp_id')->on('rcp')->onDelete('cascade');
+            $table->foreign('option_id')->references('option_id')->on('option')->onDelete('cascade');
         });
     }
 

@@ -23,9 +23,7 @@
 	        </div>
 	    </div>
 	</div>
-	<form method="PUT" action="{{ route('admin.product.update', $products->product_id) }}" accept-charset="UTF-8" role="form">
-		@csrf
-		<input name="id" type="hidden" value="{{ $products->product_id }}">
+	{!! Form::model($products, ['role' => 'form', 'url' => route('admin.product.update', $products->product_id), 'method' => 'PUT']) !!}
 		<div class="row">
             <div class="col-12 mb-3">
                 <div class="d-flex justify-content-end">
@@ -48,26 +46,42 @@
 				<div class="tab-content mt-3" id="pills-tabContent">
 				    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 				    	<div class="form-group row py-3 required">
-                            <label for="input-name" class="col-2 col-form-label text-md-end form-label-asterisk">Product Name</label>
+                            <label for="product[name]" class="col-2 col-form-label text-md-end form-label-asterisk">Product Name</label>
                             <div class="col-10">
-                                <input placeholder="Product Name" class="form-control" name="input-name" type="text" value="{{ $products->name }}" id="input-name">
+                                <input placeholder="Product Name" class="form-control" name="product[name]" type="text" value="{{ $products->name }}" id="product[name]">
                             </div>
                         </div>
 				    	<div class="form-group row py-3 required">
-                            <label for="input-description" class="col-2 col-form-label text-md-end form-label-asterisk">Description</label>
+                            <label for="product[description]" class="col-2 col-form-label text-md-end form-label-asterisk">Description</label>
                             <div class="col-10">
-                            	<input id="input-description" type="hidden" name="input-description" value="{{ $products->description }}">
-                                <trix-editor class="trix-content" input="input-description"></trix-editor>
+                            	<input id="product[description]" type="hidden" name="product[description]" value="{{ $products->description }}">
+                                <trix-editor class="trix-content" input="product[description]"></trix-editor>
                             </div>
                         </div>
 				    </div>
 				    <div class="tab-pane fade" id="pills-link" role="tabpanel" aria-labelledby="pills-link-tab">
-				    	Cat
+				    	{!! Form::select('product[category]', $category, $products->category->category_id, ['class' => 'form-control']) !!}
 				    </div>
 				    <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">
 				    	<x-input.filepond wire:model="newImage" />
 				    </div>
 				    <div class="tab-pane fade" id="pills-rcp" role="tabpanel" aria-labelledby="pills-rcp-tab">
+				    	<div class="row mb-3">
+				    	    <div class="col-6">
+				    	        <div class="d-flex justify-content-start">
+				    	            <div class="input-group w-50">
+				    	                <x-input.input wire:model.debounce.300ms="search" type="text" class="form-control" placeholder="{{ __('green.search') }}"/>
+				    	            </div>
+				    	        </div>
+				    	    </div>
+				    	    <div class="col-6">
+				    	        <div class="d-flex justify-content-end">
+				    	            <a role="button" aria-pressed="true" class="btn btn-primary ms-2" role="button" href="{{ route('admin.product.rcp.create', $products->product_id) }}" aria-label="{{ __('Додати') }}">
+				    	                {{ __('Додати') }}
+				    	            </a>
+				    	        </div>
+				    	    </div>
+				    	</div>
 				    	<div class="card">
 				    		<div class="card-body p-0">
 				    			<div wire:loading.delay class="preloader">
@@ -75,9 +89,9 @@
 				    			</div>
 		    			    	<x-table>
 		    			    		<x-slot name="head">
-		    			    		    <x-table.header class="w-15">{{ __('ID') }}</x-table.header>
+		    			    		    <x-table.header class="w-5">{{ __('ID') }}</x-table.header>
 		    			    		    <x-table.header class="w-15">{{ __('Версія') }}</x-table.header>
-		    			    		    <x-table.header class="w-70">{{ __('') }}</x-table.header>
+		    			    		    <x-table.header class="w-80">{{ __('Опис') }}</x-table.header>
 		    			    		</x-slot>
 		    			    		<x-slot name="body">
 		    				    	@forelse ($products->rcp as $rcp)
@@ -85,6 +99,7 @@
 		    				    			<x-table.cell>{{ $rcp->rcp_id }}</x-table.cell>
 		    				    			<x-table.cell><a href="{{ route('admin.product.rcp.edit', [$products->product_id, $rcp->rcp_id]) }}" aria-label="{{ __('Edit') }}">{{ $rcp->rcp_version }}</a></x-table.cell>
 		    				    			<x-table.cell></x-table.cell>
+		    				    			<x-table.cell>{{ $rcp->rcp_description }}</x-table.cell>
 		    					    	</x-table.row>
 		    				    	@empty
 		    				    	@endforelse
@@ -97,7 +112,7 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	{!! Form::close() !!}
 </div>
 @endsection
 
