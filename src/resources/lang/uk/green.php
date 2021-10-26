@@ -14,8 +14,11 @@ return [
     */
 
     'welcome_menu' => 'Меню',
-    'welcome_home' => 'Головна',
+    'welcome_about_us' => 'Про нас',
+    'welcome_technologies' => 'Технології',
     'welcome_product' => 'Продукти',
+    'welcome_blog' => 'Блог',
+    'welcome_contacts' => 'Контакти',
 
     'welcome_header' => 'Теплиця для домашнього використання',
     'welcome_text' => 'Технологія для вирощування зелені, овочів в домашніх умовах. Свіжа, смачна і корисна продукція круглий рік.',

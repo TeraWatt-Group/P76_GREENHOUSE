@@ -14,8 +14,11 @@ return [
     */
 
     'welcome_menu' => 'Меню',
-    'welcome_home' => 'Главная',
+    'welcome_about_us' => 'Про нас',
+    'welcome_technologies' => 'Технологии',
     'welcome_product' => 'Продукты',
+    'welcome_blog' => 'Блог',
+    'welcome_contacts' => 'Контакты',
 
     'welcome_header' => 'Теплица для домашнего использования',
     'welcome_text' => 'Технология для выращивания зелени, овощей в домашних условиях. Свежая, вкусная и полезная продукция круглый год.',

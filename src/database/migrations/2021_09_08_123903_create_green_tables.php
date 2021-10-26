@@ -61,7 +61,7 @@ class CreateGreenTables extends Migration
         Schema::create('rcp', function (Blueprint $table) {
             $table->unsignedBigInteger('rcp_id');
             $table->string('rcp_version', 16);
-            $table->text('rcp_description');
+            $table->text('rcp_description')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
 
@@ -85,6 +85,48 @@ class CreateGreenTables extends Migration
 
             $table->foreign('rcp_id')->references('rcp_id')->on('rcp')->onDelete('cascade');
             $table->foreign('option_id')->references('option_id')->on('option')->onDelete('cascade');
+        });
+
+
+
+        Schema::create('items', function (Blueprint $table) {
+            $table->bigIncrements('itemid');
+            $table->string('name', 255)->default('');
+            $table->string('key_', 2048)->default('');
+            $table->string('delay', 1024)->default(0);
+            $table->string('history', 255)->default(0);
+            $table->integer('value_type')->default(0);
+            $table->integer('status')->default(0);
+            $table->string('units', 255)->default('');   // препроцесор обработки (локализированный??? англ, укр, рус)
+            $table->uuid('uuid');
+        });
+        Schema::create('items_value_type', function (Blueprint $table) {
+            $table->unsignedBigInteger('value_typeid');
+            $table->string('name', 32);
+        });
+        Schema::create('history', function (Blueprint $table) {
+            $table->unsignedBigInteger('itemid')->index();
+            $table->integer('clock')->index()->default(0);
+            $table->double('value')->default(0);
+            // $table->integer('ns')->default(0);
+        });
+        Schema::create('history_str', function (Blueprint $table) {
+            $table->unsignedBigInteger('itemid')->index();
+            $table->integer('clock')->index()->default(0);
+            $table->string('value', 255)->default(0);
+            // $table->integer('ns')->default(0);
+        });
+        Schema::create('history_text', function (Blueprint $table) {
+            $table->unsignedBigInteger('itemid')->index();
+            $table->integer('clock')->index()->default(0);
+            $table->text('value');
+            // $table->integer('ns')->default(0);
+        });
+        Schema::create('history_uint', function (Blueprint $table) {
+            $table->unsignedBigInteger('itemid')->index();
+            $table->integer('clock')->index()->default(0);
+            $table->unsignedBigInteger('value')->default(0);
+            // $table->integer('ns')->default(0);
         });
     }
 

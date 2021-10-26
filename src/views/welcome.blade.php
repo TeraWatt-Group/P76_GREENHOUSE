@@ -112,9 +112,7 @@
 													<div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
 														<div class="card text-end">
 														  <img src="{{ $prod->image }}" class="card-img" alt="{{ $prod->name }}">
-														  <div class="card-img-overlay">
-															  <h5 class="card-title"></h5>
-														  </div>
+														  <div class="card-img-overlay"></div>
 														  <a href="#" class="stretched-link" aria-label="index"></a>
 														</div>
 													</div>
@@ -124,72 +122,6 @@
 												@endif
 											@endforeach
 										@endif
-										<!-- <div class="carousel-item active">
-											<div class="row">
-												<div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
-													<div class="card text-end">
-													  <img src="img/pawel-czerwinski-QY9LOl9eZ9w-unsplash.jpg" class="card-img" alt="...">
-													  <div class="card-img-overlay">
-														  <h5 class="card-title"></h5>
-													  </div>
-													  <a href="#" class="stretched-link" aria-label="index"></a>
-													</div>
-												</div>
-												<div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
-													<div class="card text-end">
-													  <img src="img/sarah-dorweiler-2s9aHF4eCjI-unsplash.jpg" class="card-img" alt="...">
-													  <div class="card-img-overlay">
-														  <h5 class="card-title"></h5>
-													  </div>
-													  <a href="#" class="stretched-link" aria-label="index"></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="carousel-item">
-											<div class="row">
-												<div class="col-md-6 mb-2">
-													<div class="card text-end">
-													  <img src="img/sarah-dorweiler-m2J105CzEAU-unsplash.jpg" class="card-img" alt="...">
-													  <div class="card-img-overlay">
-														  <h5 class="card-title"></h5>
-													  </div>
-													  <a href="#" class="stretched-link" aria-label="index"></a>
-													</div>
-												</div>
-												<div class="col-md-6 mb-2">
-													<div class="card text-end">
-													  <img src="img/sarah-dorweiler-2s9aHF4eCjI-unsplash.jpg" class="card-img" alt="...">
-													  <div class="card-img-overlay">
-														  <h5 class="card-title"></h5>
-													  </div>
-													  <a href="#" class="stretched-link" aria-label="index"></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="carousel-item">
-											<div class="row">
-												<div class="col-md-6 mb-2">
-													<div class="card text-end">
-													  <img src="img/pawel-czerwinski-QY9LOl9eZ9w-unsplash.jpg" class="card-img" alt="...">
-													  <div class="card-img-overlay">
-														  <h5 class="card-title"></h5>
-													  </div>
-													  <a href="#" class="stretched-link" aria-label="index"></a>
-													</div>
-												</div>
-												<div class="col-md-6 mb-2">
-													<div class="card text-end">
-													  <img src="img/sarah-dorweiler-2s9aHF4eCjI-unsplash.jpg" class="card-img" alt="...">
-													  <div class="card-img-overlay">
-														  <h5 class="card-title"></h5>
-													  </div>
-													  <a href="#" class="stretched-link" aria-label="index"></a>
-													</div>
-												</div>
-											</div>
-										</div> -->
 									</div>
 								</div>
 							</div>
@@ -230,7 +162,7 @@
 							</div>
 						</div>
 						<div class="card-body px-0 pt-3">
-							<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">Bad habits that people in the industry need to quit</a></h4>
+							<h3 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">Bad habits that people in the industry need to quit</a></h3>
 							<p class="card-text">For who thoroughly her boy estimating conviction. Removed demands expense account in outward tedious do. Particular way thoroughly unaffected</p>
 							<!-- Card info -->
 							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
@@ -258,7 +190,7 @@
 							</div>
 						</div>
 						<div class="card-body px-0 pt-3">
-							<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">Bad habits that people in the industry need to quit</a></h4>
+							<h3 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">Bad habits that people in the industry need to quit</a></h3>
 							<p class="card-text">For who thoroughly her boy estimating conviction. Removed demands expense account in outward tedious do. Particular way thoroughly unaffected</p>
 							<!-- Card info -->
 							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
@@ -286,7 +218,7 @@
 							</div>
 						</div>
 						<div class="card-body px-0 pt-3">
-							<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">Bad habits that people in the industry need to quit</a></h4>
+							<h3 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">Bad habits that people in the industry need to quit</a></h3>
 							<p class="card-text">For who thoroughly her boy estimating conviction. Removed demands expense account in outward tedious do. Particular way thoroughly unaffected</p>
 							<!-- Card info -->
 							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
@@ -373,56 +305,56 @@
 		  <div class="col d-flex align-items-start">
 			<svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"></use></svg>
 			<div>
-			  <h4 class="fw-bold mb-0">Featured title</h4>
+			  <h3 class="fw-bold mb-0">Featured title</h3>
 			  <p>Paragraph of text beneath the heading to explain the heading.</p>
 			</div>
 		  </div>
 		  <div class="col d-flex align-items-start">
 			<svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"></use></svg>
 			<div>
-			  <h4 class="fw-bold mb-0">Featured title</h4>
+			  <h3 class="fw-bold mb-0">Featured title</h3>
 			  <p>Paragraph of text beneath the heading to explain the heading.</p>
 			</div>
 		  </div>
 		  <div class="col d-flex align-items-start">
 			<svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"></use></svg>
 			<div>
-			  <h4 class="fw-bold mb-0">Featured title</h4>
+			  <h3 class="fw-bold mb-0">Featured title</h3>
 			  <p>Paragraph of text beneath the heading to explain the heading.</p>
 			</div>
 		  </div>
 		  <div class="col d-flex align-items-start">
 			<svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#home"></use></svg>
 			<div>
-			  <h4 class="fw-bold mb-0">Featured title</h4>
+			  <h3 class="fw-bold mb-0">Featured title</h3>
 			  <p>Paragraph of text beneath the heading to explain the heading.</p>
 			</div>
 		  </div>
 		  <div class="col d-flex align-items-start">
 			<svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#speedometer2"></use></svg>
 			<div>
-			  <h4 class="fw-bold mb-0">Featured title</h4>
+			  <h3 class="fw-bold mb-0">Featured title</h3>
 			  <p>Paragraph of text beneath the heading to explain the heading.</p>
 			</div>
 		  </div>
 		  <div class="col d-flex align-items-start">
 			<svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#toggles2"></use></svg>
 			<div>
-			  <h4 class="fw-bold mb-0">Featured title</h4>
+			  <h3 class="fw-bold mb-0">Featured title</h3>
 			  <p>Paragraph of text beneath the heading to explain the heading.</p>
 			</div>
 		  </div>
 		  <div class="col d-flex align-items-start">
 			<svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#geo-fill"></use></svg>
 			<div>
-			  <h4 class="fw-bold mb-0">Featured title</h4>
+			  <h3 class="fw-bold mb-0">Featured title</h3>
 			  <p>Paragraph of text beneath the heading to explain the heading.</p>
 			</div>
 		  </div>
 		  <div class="col d-flex align-items-start">
 			<svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#tools"></use></svg>
 			<div>
-			  <h4 class="fw-bold mb-0">Featured title</h4>
+			  <h3 class="fw-bold mb-0">Featured title</h3>
 			  <p>Paragraph of text beneath the heading to explain the heading.</p>
 			</div>
 		  </div>

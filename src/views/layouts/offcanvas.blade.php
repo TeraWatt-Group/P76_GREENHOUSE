@@ -6,8 +6,13 @@
 	<div class="offcanvas-body d-flex flex-column flex-shrink-0">
 		<ul class="nav nav-pills flex-column mb-auto">
 			<li class="nav-item">
-				<a href="{{ route('welcome') }}" class="nav-link" aria-current="page">
-					{{ __('green.welcome_home') }}
+				<a href="{{ route('green.about') }}" class="nav-link" aria-current="page">
+					{{ __('green.welcome_about_us') }}
+				</a>
+			</li>
+			<li>
+				<a href="{{ route('green.technologies') }}" class="nav-link link-dark">
+					{{ __('green.welcome_technologies') }}
 				</a>
 			</li>
 			<li>
@@ -16,18 +21,13 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" class="nav-link link-dark">
-					Orders
+				<a href="{{ route('green.blog.index') }}" class="nav-link link-dark">
+					{{ __('green.welcome_blog') }}
 				</a>
 			</li>
 			<li>
-				<a href="#" class="nav-link link-dark">
-					Products
-				</a>
-			</li>
-			<li>
-				<a href="#" class="nav-link link-dark">
-					Customers
+				<a href="{{ route('green.contacts') }}" class="nav-link link-dark">
+					{{ __('green.welcome_contacts') }}
 				</a>
 			</li>
 			<li class="border-top my-3"></li>
@@ -39,9 +39,11 @@
 					<li>
 						<a class="nav-link link-dark" href="{{ route('admin.index') }}">{{ __('Панель адміністратора') }}</a>
 					</li>
+					<li><hr class="dropdown-divider"></li>
+					<li>
+						<a class="nav-link link-dark" href="{{ route('user.greenhouse') }}">{{ __('Мої теплиці') }}</a>
+					</li>
 					@if (Route::has('user.profile'))
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="nav-link link-dark" href="{{ route('user.api_tokens') }}">{{ __('API токени') }}</a></li>
 						<li><a class="nav-link link-dark" href="{{ route('user.profile') }}">{{ __('Налаштування') }}</a></li>
 					@endif
 					<li>
@@ -67,7 +69,7 @@
 		</ul>
 		<div class="lex-column mt-auto"></div>
 		<div class="text-center">
-			<span class="fs-5 fw-bold">0629 410 124</span>
+			<span class="fs-5 fw-bold">+380629410124</span>
 		</div>
 	</div>
 </div>

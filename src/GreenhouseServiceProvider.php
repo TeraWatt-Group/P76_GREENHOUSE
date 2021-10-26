@@ -56,6 +56,7 @@ class GreenhouseServiceProvider extends ServiceProvider
             __DIR__.'/resources/lang' => resource_path('lang'),
             __DIR__.'/database/migrations' => database_path('migrations'),
             __DIR__.'/database/seeders' => database_path('seeders'),
+            __DIR__.'/database/factories' => database_path('factories'),
             __DIR__.'/views' => resource_path('views'),
             __DIR__.'/public' => public_path('/'),
         ], 'terawatt-greenhouse');
