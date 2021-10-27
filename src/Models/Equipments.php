@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Equipment extends Model
+class Equipments extends Model
 {
 	use HasFactory;
 
-	public $table = 'equipment';
-    public $primaryKey = 'equipment_id';
+	public $table = 'equipments';
+    public $primaryKey = 'equipmentid';
 
     protected $fillable = [
         'sku',
@@ -21,6 +21,6 @@ class Equipment extends Model
 
     public function description()
     {
-        return $this->hasOne(EquipmentDescription::class, 'product_id');
+        return $this->hasOne(EquipmentsDescription::class, 'equipmentid');
     }
 }

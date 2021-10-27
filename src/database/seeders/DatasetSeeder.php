@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB;
-use App\Models\Equipment;
+use App\Models\Equipments;
 use App\Models\Items;
 use App\Models\History;
 use App\Models\History_uint;
@@ -36,25 +36,55 @@ class DatasetSeeder extends Seeder
             ],
         ]);
 
-        if (Equipment::count() == 0) {
-            Equipment::insert([
+        if (Equipments::count() == 0) {
+            Equipments::insert([
                 [
-                    'equipment_id' => 1,
+                    'equipmentid' => 1,
+                    'status' => 1,
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'uuid' => \Str::uuid(),
+                ],
+                [
+                    'equipmentid' => 2,
+                    'status' => 1,
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'uuid' => \Str::uuid(),
+                ],
+                [
+                    'equipmentid' => 3,
                     'status' => 1,
                     'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                     'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
                     'uuid' => \Str::uuid(),
                 ]
             ]);
-            DB::table('equipment_description')->insert([
+            DB::table('equipments_description')->insert([
                 [
-                    'equipment_id' => 1,
+                    'equipmentid' => 1,
                     'language_id' => 1,
-                    'name' => 'Теплица №1',
-                    'version' => '1.0.0',
+                    'name' => 'Теплиця №1',
+                ],
+                [
+                    'equipmentid' => 2,
+                    'language_id' => 1,
+                    'name' => 'Теплиця №2',
+                ],
+                [
+                    'equipmentid' => 3,
+                    'language_id' => 1,
+                    'name' => 'Теплиця №3',
                 ]
             ]);
-        } else { echo "Equipment table is not empty\n"; }
+            DB::table('users_equipments')->insert([
+                [
+                    'uequipmentid' => 1,
+                    'userid' => 1,
+                    'equipmentid' => 1,
+                ]
+            ]);
+        } else { echo "Equipments table is not empty\n"; }
 
         if (Items::count() == 0) {
             Items::insert([
@@ -63,7 +93,7 @@ class DatasetSeeder extends Seeder
                     'equipmentid' => 1,
                     'name' => 'Температура',
                     'key_' => \Str::slug('Температура', '_'),
-                    'delay' => '5m',
+                    'delay' => '15s',
                     'history' => '4w',
                     'value_type' => 0,
                     'status' => 1,
@@ -75,7 +105,7 @@ class DatasetSeeder extends Seeder
                     'equipmentid' => 1,
                     'name' => 'Вологість',
                     'key_' => \Str::slug('Вологість', '_'),
-                    'delay' => '5m',
+                    'delay' => '15s',
                     'history' => '4w',
                     'value_type' => 0,
                     'status' => 1,
@@ -87,7 +117,7 @@ class DatasetSeeder extends Seeder
                     'equipmentid' => 1,
                     'name' => 'CO2',
                     'key_' => \Str::slug('CO2', '_'),
-                    'delay' => '5m',
+                    'delay' => '15s',
                     'history' => '4w',
                     'value_type' => 3,
                     'status' => 1,
@@ -112,13 +142,21 @@ class DatasetSeeder extends Seeder
         History::truncate();
 
         History::factory()
-            ->count(10080)
+            ->count(1612)
+            // ->count(161280)
             ->withItem(1)
             ->create();
 
         History::factory()
-            ->count(10080)
+            ->count(1612)
+            // ->count(161280)
             ->withItem(2)
+            ->create();
+
+        History::factory()
+            ->count(1612)
+            // ->count(161280)
+            ->withItem(3)
             ->create();
 
         // History_uint::factory()

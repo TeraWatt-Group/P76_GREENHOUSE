@@ -57,8 +57,8 @@ class CreateGreenTables extends Migration
         });
 
 
-        Schema::create('equipment', function (Blueprint $table) {
-            $table->bigIncrements('equipment_id');
+        Schema::create('equipments', function (Blueprint $table) {
+            $table->bigIncrements('equipmentid');
             $table->string('sku', 64)->default('');
             $table->string('image', 255)->nullable();
             $table->integer('sort_order')->default(0);
@@ -66,15 +66,23 @@ class CreateGreenTables extends Migration
             $table->timestamps();
             $table->uuid('uuid');
         });
-        Schema::create('equipment_description', function (Blueprint $table) {
-            $table->unsignedBigInteger('equipment_id');
+        Schema::create('equipments_description', function (Blueprint $table) {
+            $table->unsignedBigInteger('equipmentid');
             $table->integer('language_id');
             $table->string('name', 255);
             $table->text('description')->nullable();
-            $table->text('version');
 
             $table->index('language_id');
-            $table->foreign('equipment_id')->references('equipment_id')->on('equipment')->onDelete('cascade');
+            $table->foreign('equipmentid')->references('equipmentid')->on('equipments')->onDelete('cascade');
+        });
+        Schema::create('users_equipments', function (Blueprint $table) {
+            $table->bigIncrements('uequipmentid');
+            $table->unsignedBigInteger('userid');
+            $table->unsignedBigInteger('equipmentid');
+
+            $table->index(['userid', 'equipmentid']);
+            $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('equipmentid')->references('equipmentid')->on('equipments')->onDelete('cascade');
         });
 
 
@@ -121,7 +129,7 @@ class CreateGreenTables extends Migration
             $table->string('units', 255)->default('');   // препроцесор обработки (локализированный??? англ, укр, рус)
             $table->uuid('uuid');
 
-            $table->foreign('equipmentid')->references('equipment_id')->on('equipment')->onDelete('cascade');
+            $table->foreign('equipmentid')->references('equipmentid')->on('equipments')->onDelete('cascade');
         });
         Schema::create('items_value_type', function (Blueprint $table) {
             $table->unsignedBigInteger('value_typeid');
@@ -150,6 +158,20 @@ class CreateGreenTables extends Migration
             $table->integer('clock')->index()->default(0);
             $table->unsignedBigInteger('value')->default(0);
             // $table->integer('ns')->default(0);
+        });
+
+        Schema::create('events', function (Blueprint $table) {
+            $table->bigIncrements('eventid');
+            $table->unsignedBigInteger('userid');
+            $table->unsignedBigInteger('equipmentid');
+            $table->integer('clock')->index()->default(0);
+            $table->string('type', 20);
+            $table->boolean('status')->nullable();
+            $table->string('esc_period', 255)->default('1m');
+
+            $table->index(['userid', 'equipmentid']);
+            $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('equipmentid')->references('equipmentid')->on('equipments')->onDelete('cascade');
         });
     }
 

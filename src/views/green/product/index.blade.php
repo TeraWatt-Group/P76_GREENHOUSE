@@ -15,7 +15,25 @@
             </nav>
         </div>
     </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="d-flex align-content-start align-items-end">
+                <h3 class="mb-0 pr-3">{{ __('Продукти') }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-6">
+            <div class="d-flex justify-content-start">
 
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="d-flex justify-content-end">
+
+            </div>
+        </div>
+    </div>
     @if ($product->isNotEmpty())
         <div class="row">
             @php($old_category = '')
