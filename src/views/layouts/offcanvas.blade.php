@@ -6,7 +6,7 @@
 	<div class="offcanvas-body d-flex flex-column flex-shrink-0">
 		<ul class="nav nav-pills flex-column mb-auto">
 			<li class="nav-item">
-				<a href="{{ route('green.about') }}" class="nav-link" aria-current="page">
+				<a href="{{ route('green.about') }}" class="nav-link link-dark">
 					{{ __('green.welcome_about_us') }}
 				</a>
 			</li>
@@ -30,7 +30,7 @@
 					{{ __('green.welcome_contacts') }}
 				</a>
 			</li>
-			<li class="border-top my-3"></li>
+			<li><hr class="dropdown-divider"></li>
 			@if (Route::has('login'))
 				@auth
 					<li>

@@ -26,7 +26,7 @@ class CreateGreenTables extends Migration
             $table->unsignedBigInteger('product_id');
             $table->integer('language_id');
             $table->string('name', 255);
-            $table->text('description');
+            $table->text('description')->nullable();
 
             $table->index('language_id');
             $table->foreign('product_id')->references('product_id')->on('product')->onDelete('cascade');
@@ -45,7 +45,7 @@ class CreateGreenTables extends Migration
         Schema::create('category_description', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id');
             $table->string('name', 255);
-            $table->text('description');
+            $table->text('description')->nullable();
 
             $table->foreign('category_id')->references('category_id')->on('category')->onDelete('cascade');
         });
@@ -57,11 +57,31 @@ class CreateGreenTables extends Migration
         });
 
 
+        Schema::create('equipment', function (Blueprint $table) {
+            $table->bigIncrements('equipment_id');
+            $table->string('sku', 64)->default('');
+            $table->string('image', 255)->nullable();
+            $table->integer('sort_order')->default(0);
+            $table->boolean('status')->default(0);
+            $table->timestamps();
+            $table->uuid('uuid');
+        });
+        Schema::create('equipment_description', function (Blueprint $table) {
+            $table->unsignedBigInteger('equipment_id');
+            $table->integer('language_id');
+            $table->string('name', 255);
+            $table->text('description')->nullable();
+            $table->text('version');
+
+            $table->index('language_id');
+            $table->foreign('equipment_id')->references('equipment_id')->on('equipment')->onDelete('cascade');
+        });
+
 
         Schema::create('rcp', function (Blueprint $table) {
             $table->unsignedBigInteger('rcp_id');
             $table->string('rcp_version', 16);
-            $table->text('rcp_description')->nullable();
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
 
@@ -91,6 +111,7 @@ class CreateGreenTables extends Migration
 
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('itemid');
+            $table->unsignedBigInteger('equipmentid');
             $table->string('name', 255)->default('');
             $table->string('key_', 2048)->default('');
             $table->string('delay', 1024)->default(0);
@@ -99,6 +120,8 @@ class CreateGreenTables extends Migration
             $table->integer('status')->default(0);
             $table->string('units', 255)->default('');   // препроцесор обработки (локализированный??? англ, укр, рус)
             $table->uuid('uuid');
+
+            $table->foreign('equipmentid')->references('equipment_id')->on('equipment')->onDelete('cascade');
         });
         Schema::create('items_value_type', function (Blueprint $table) {
             $table->unsignedBigInteger('value_typeid');

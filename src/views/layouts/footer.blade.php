@@ -6,13 +6,11 @@
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-start mb-md-0">
-                <li><a href="#" class="nav-link px-2 link-dark">{{ __('green.welcome_home') }}</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">{{ __('green.welcome_product') }}</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">Privacy</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+                <li><a href="{{ route('green.about') }}" class="nav-link px-2 link-dark">{{ __('green.welcome_about_us') }}</a></li>
+                <li><a href="{{ route('green.technologies') }}" class="nav-link px-2 link-dark">{{ __('green.welcome_technologies') }}</a></li>
+                <li><a href="{{ route('green.product.index') }}" class="nav-link px-2 link-dark">{{ __('green.welcome_product') }}</a></li>
+                <li><a href="{{ route('green.blog.index') }}" class="nav-link px-2 link-dark">{{ __('green.welcome_blog') }}</a></li>
+                <li><a href="{{ route('green.contacts') }}" class="nav-link px-2 link-dark">{{ __('green.welcome_contacts') }}</a></li>
             </ul>
 
             <div class="col-md-3 text-end">
