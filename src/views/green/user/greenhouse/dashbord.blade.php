@@ -35,7 +35,7 @@
             </div>
             <div class="col-12 mb-3">
                 <div class="d-flex justify-content-end">
-                    <a role="button" aria-pressed="true" class="btn btn-danger ms-2" role="button" href="{{ route('admin.users.create') }}" aria-label="{{ __('Stop') }}">
+                    <a role="button" aria-pressed="true" class="btn btn-danger ms-2" role="button" href="#" aria-label="{{ __('Stop') }}">
                         {{ __('Stop') }}
                     </a>
                 </div>
