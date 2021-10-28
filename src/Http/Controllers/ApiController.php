@@ -19,7 +19,7 @@ class ApiController extends Controller
 		    	if (!$validated) {
 		    		header('WWW-Authenticate: Basic realm="Test Complex"');
 		    		header('HTTP/1.0 401 Unauthorized');
-		    		return response()->json(['status'=>'ERROR', 'data'=> 'Not autorized!']);
+		    		return response()->json(['status' => 'ERROR', 'data' => 'Not autorized!'], 401);
 		    		die;
 		    	} else {
 		    		if (isset($_GET)) {
@@ -39,18 +39,18 @@ class ApiController extends Controller
 	    					]
 		    			];
 
-		    			return response()->json($outputArray);
+		    			return response()->json($outputArray, 200);
 		    		}
 		    	}
 		    } else {
 		    	header('WWW-Authenticate: Basic realm="Test Complex"');
 		    	header('HTTP/1.0 401 Unauthorized');
-		    	return response()->json(['status'=>'ERROR', 'data'=> 'Not autorized!']);
+		    	return response()->json(['status' => 'ERROR', 'data' => 'Not autorized!'], 401);
 		    	die;
 		    }
 		} catch (\Throwable $e) {
 		    \Log::alert($e->getMessage());
-		    return response()->json(['status'=>'ERROR', 'data'=> $e->getMessage()]);
+		    return response()->json(['status' => 'ERROR', 'data' => $e->getMessage()], 500);
 		}
 	}
 }

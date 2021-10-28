@@ -22,3 +22,8 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers', 'prefi
         })->name('api_user');
     });
 });
+
+Route::fallback(function(){
+    return response()->json([
+        'status' => 'ERROR', 'data' => 'Page Not Found.'], 404);
+});
