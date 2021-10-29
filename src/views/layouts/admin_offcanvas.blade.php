@@ -79,7 +79,7 @@
 						<li><a href="{{ route('admin.index') }}" class="link-dark rounded">Overview</a></li>
 						<li><a href="#" class="link-dark rounded">Weekly</a></li>
 						<li><a href="#" class="link-dark rounded">Monthly</a></li>
-						<li><a href="#" class="link-dark rounded">Annually</a></li>
+						<li><a href="{{ route('admin.logs') }}" class="link-dark rounded">{{ __('Logs') }}</a></li>
 					</ul>
 				</div>
 			</li>

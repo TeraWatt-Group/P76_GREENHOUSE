@@ -29,16 +29,17 @@ class ApiController extends Controller
 		    			$outputArray = [
 		    				'status'=>'OK',
 							'data_recieved' => json_encode($parsedData),
-	    					'headers' => json_encode(getallheaders()),
-	    					// 'timestamp' => $headers[timestamp],
+	    					// 'headers' => json_encode(getallheaders()),
+	    					'timestamp' => $headers['timestamp'],
 	    					'server_time' => time(),
-	    					'command' => [
-	    						'svet1'=>'on',
-	    						'wait'=>5,
-	    						'svet2'=>'off'
-	    					]
+	    					// 'command' => [
+	    					// 	'svet1'=>'on',
+	    					// 	'wait'=>5,
+	    					// 	'svet2'=>'off'
+	    					// ]
 		    			];
 
+		    			\Log::debug($outputArray);
 		    			return response()->json($outputArray, 200);
 		    		}
 		    	}

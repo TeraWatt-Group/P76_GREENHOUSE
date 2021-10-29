@@ -47,5 +47,5 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\
     // Route::resource('languages', Terawatt\Greenhouse\Http\Controllers\admin\LanguageController::class);
     // Route::post('languages/sync', [Terawatt\Greenhouse\Http\Controllers\admin\LanguageController::class, 'sync'])->name('languages.sync');
 
-	// Route::get('logs', [Terawatt\Greenhouse\Http\Controllers\admin\LogsController::class, 'index'])->name('logs');
+	Route::get('logs', [Terawatt\Greenhouse\Http\Controllers\admin\LogsController::class, 'index'])->name('logs');
 });

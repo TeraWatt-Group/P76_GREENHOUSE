@@ -65,6 +65,8 @@ class GreenhouseServiceProvider extends ServiceProvider
         // $kernel->pushMiddleware(AdminAccessCheck::class);
 
         // Livewire::component('gerren::admin.users', UserComponent::class);
+
+        $this->loadHelpers();
     }
 
     protected function registerRoutes()
@@ -84,5 +86,15 @@ class GreenhouseServiceProvider extends ServiceProvider
             // 'middleware' => ['admin'],
             'middleware' => ['web'],
         ];
+    }
+
+    /**
+     * Load helpers.
+     */
+    protected function loadHelpers()
+    {
+        foreach (glob(__DIR__.'/Helpers/*.php') as $filename) {
+            require_once $filename;
+        }
     }
 }

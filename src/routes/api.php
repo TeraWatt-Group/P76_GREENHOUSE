@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers', 'prefix' => 'api'], function () {
     Route::group(['prefix' => 'v1'], function () {
-        Route::post('greenhouse', ['uses' => 'ApiController@index', 'as' => 'greenhouse']);
+        Route::get('greenhouse', ['uses' => 'ApiController@index', 'as' => 'greenhouse']);
         Route::get('/user', function (Request $request) {
             return $request->user();
         })->name('api_user');
@@ -24,6 +24,5 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers', 'prefi
 });
 
 Route::fallback(function(){
-    return response()->json([
-        'status' => 'ERROR', 'data' => 'Page Not Found.'], 404);
+    return response()->json(['status' => 'ERROR', 'data' => 'Page Not Found.'], 404);
 });
