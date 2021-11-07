@@ -76,28 +76,6 @@
         <div class="col-6 col-sm-6 col-md-4 mb-3">
             <div class="card text-center">
                 <div class="card-body">
-                    <h4 class="card-title">Вологість</h4>
-                    <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" class="text-primary" style="height: 40px;"><path fill="currentColor" d="M205.22 22.09C201.21 7.53 188.61 0 175.97 0c-12.35 0-24.74 7.2-29.19 22.09C100.01 179.85 0 222.72 0 333.91 0 432.35 78.72 512 176 512s176-79.65 176-178.09c0-111.75-99.79-153.34-146.78-311.82zM176 480c-79.4 0-144-65.54-144-146.09 0-48.36 23-81.32 54.84-126.94 29.18-41.81 65.34-93.63 89.18-170.91 23.83 77.52 60.06 129.31 89.3 171.08C297.06 252.52 320 285.3 320 333.91 320 414.46 255.4 480 176 480zm0-64c-44.12 0-80-35.89-80-80 0-8.84-7.16-16-16-16s-16 7.16-16 16c0 61.75 50.25 112 112 112 8.84 0 16-7.16 16-16s-7.16-16-16-16z" class=""></path></svg>
-                </div>
-                <a href="#" class="stretched-link" aria-label="index"></a>
-                <h3>
-                    <b><span class="pct-counter" id="wet">65.5</span> %</b>
-                </h3>
-                <div class="col-12 py-3 px-3" style="min-height: 60px;">
-                    <div class="progress mb-1" style="height: 5px;">
-                        <div class="wet-progress-bar progress-bar" role="progressbar" style="width: 65.5%;" aria-valuenow="65.5" aria-valuemin="60" aria-valuemax="85"></div>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <span class="text-small">60</span>
-                        <span class="text-small"></span>
-                        <span class="text-small">85</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-sm-6 col-md-4 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
                     <h4 class="card-title">CO<small>2</small></h4>
                     <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="text-secondary" style="height: 40px;"><path fill="currentColor" d="M571.7 238.8c2.8-9.9 4.3-20.2 4.3-30.8 0-61.9-50.1-112-112-112-16.7 0-32.9 3.6-48 10.8-31.6-45-84.3-74.8-144-74.8-94.4 0-171.7 74.5-175.8 168.2C39.2 220.2 0 274.3 0 336c0 79.6 64.4 144 144 144h368c70.7 0 128-57.2 128-128 0-47-25.8-90.8-68.3-113.2zM512 448H144c-61.9 0-112-50.1-112-112 0-56.8 42.2-103.7 97-111-.7-5.6-1-11.3-1-17 0-79.5 64.5-144 144-144 60.3 0 111.9 37 133.4 89.6C420 137.9 440.8 128 464 128c44.2 0 80 35.8 80 80 0 18.5-6.3 35.6-16.9 49.2C573 264.4 608 304.1 608 352c0 53-43 96-96 96z" class=""></path></svg>
                 </div>
@@ -141,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-8 mb-3">
+        <div class="col-sm-12 col-md-12 mb-3">
             <div class="card text-center h-100">
                 <div class="card-header">
                     Повідомлення про помилки
@@ -205,9 +183,6 @@
             document.getElementById('temperature').innerHTML = completed_data.FIRST;
             document.getElementsByClassName('temperature-progress-bar').item(0).setAttribute('aria-valuenow',completed_data.FIRST);
             document.getElementsByClassName('temperature-progress-bar').item(0).setAttribute('style','width:'+Number(((completed_data.FIRST - 16) * 100) / (30 - 16))+'%');
-            document.getElementById('wet').innerHTML = completed_data.WET;
-            document.getElementsByClassName('wet-progress-bar').item(0).setAttribute('aria-valuenow',completed_data.WET);
-            document.getElementsByClassName('wet-progress-bar').item(0).setAttribute('style','width:'+Number(((completed_data.WET - 60) * 100) / (85 - 60))+'%');
             document.getElementById('co').innerHTML = completed_data.PPM;
             document.getElementsByClassName('co-progress-bar').item(0).setAttribute('aria-valuenow',completed_data.PPM);
             document.getElementsByClassName('co-progress-bar').item(0).setAttribute('style','width:'+Number(((completed_data.PPM - 300) * 100) / (1500 - 300))+'%');

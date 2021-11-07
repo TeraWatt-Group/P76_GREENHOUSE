@@ -365,7 +365,7 @@
 
 	<!-- Scripts -->
 	@livewireScripts
-	<script src="{{ '/js/green.js' }}" defer></script>
+	<script src="{{ mix('/js/green.js') }}" defer></script>
 	@stack('scripts')
 	@yield('script')
 </body>

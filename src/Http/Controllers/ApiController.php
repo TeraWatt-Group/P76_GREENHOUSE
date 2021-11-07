@@ -39,7 +39,7 @@ class ApiController extends Controller
 	    					// ]
 		    			];
 
-		    			\Log::debug($outputArray);
+		    			\Log::debug(json_decode ($outputArray));
 		    			return response()->json($outputArray, 200);
 		    		}
 		    	}
