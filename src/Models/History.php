@@ -12,10 +12,4 @@ class History extends Model
 	public $table = 'history';
 	public $incrementing = false;
 	public $timestamps = false;
-
-	protected $fillable = [
-        'itemsid',
-        'clock',
-        'value',
-    ];
 }

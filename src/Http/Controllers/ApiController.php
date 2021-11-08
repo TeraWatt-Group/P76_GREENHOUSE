@@ -24,12 +24,12 @@ class ApiController extends Controller
 		    		die;
 		    	} else {
 		    		if (isset($_GET)) {
-		    			$parsedData = json_decode(file_get_contents('php://input'), true);
+		    			$parsedData = json_decode((string)file_get_contents('php://input'), true);
 
 		    			$headers = getallheaders();
 		    			$outputArray = [
 		    				'status'=>'OK',
-							'data_recieved' => json_decode($parsedData),
+							'data_recieved' => $parsedData,
 	    					'headers' => $headers,
 	    					'timestamp' => $headers['timestamp'],
 	    					'server_time' => time(),
@@ -40,12 +40,12 @@ class ApiController extends Controller
 		    			    	[
 		    			    		'itemid' => 1,
 		    			    		'clock' => $outputArray['server_time'],
-		    			    		'value' => $outputArray['data_recieved']->FIRST,
+		    			    		'value' => $outputArray['data_recieved']['FIRST'],
 		    			    	],
 		    			    	[
 		    			    		'itemid' => 2,
 		    			    		'clock' => $outputArray['server_time'],
-		    			    		'value' => $outputArray['data_recieved']->SECOND,
+		    			    		'value' => $outputArray['data_recieved']['SECOND'],
 		    			    	]
 		    			    ]);
 		    			});

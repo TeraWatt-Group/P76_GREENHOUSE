@@ -4,6 +4,7 @@
 @section('description', __('green.welcome_about_us'))
 
 @section('content')
+{{dd($history)}}
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -26,7 +27,7 @@
     <div class="row">
         @if (true)
             <div class="col-12 mb-3">
-                <p class="fs-5 text-muted mb-0">{{ __('Виконано замовлення') }}</p>
+                <p class="fs-5 text-muted mb-0">{{ __('Замовлення виконано') }}</p>
                 <div class="d-flex justify-content-end">
                     <div class="w-100 progress mb-1" style="height: 30px;">
                         <div class="temperature-progress-bar progress-bar bg-success" role="progressbar" style="width: 62%;" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"><span class="fs-5">62%</span></div>

@@ -5,6 +5,8 @@ namespace Terawatt\Greenhouse\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Equipments;
+use App\Models\Items;
+use App\Models\History;
 
 class ProfileController extends Controller
 {
@@ -21,6 +23,8 @@ class ProfileController extends Controller
 
 	public function show($equipmentid)
 	{
+		$items = Items::where('equipmentid', $equipmentid)->pluck('itemid');
+
 	    return view('green.user.greenhouse.dashbord')
 	    	->withEquipment(Equipments::select()
 	    						->leftJoin('equipments_description', 'equipments_description.equipmentid', 'equipments.equipmentid')
@@ -28,6 +32,8 @@ class ProfileController extends Controller
 						            $join->on('users_equipments.equipmentid', 'equipments.equipmentid')
 						                 ->where('users_equipments.userid', \Auth::id())
 						                 ->where('equipments.equipmentid', $equipmentid);
-						        })->first());
+						        })->first())
+	    	->withItems($items)
+	    	->withHistory(History::leftJoin('items', 'items.itemid', 'history.itemid')->whereIn('history.itemid', $items)->where('history.clock', '>', time()-1)->orderBy('history.clock', 'desc')->get());
 	}
 }
