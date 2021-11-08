@@ -103,18 +103,6 @@ class DatasetSeeder extends Seeder
                 [
                     'itemid' => 2,
                     'equipmentid' => 1,
-                    'name' => 'Вологість',
-                    'key_' => \Str::slug('Вологість', '_'),
-                    'delay' => '15s',
-                    'history' => '4w',
-                    'value_type' => 0,
-                    'status' => 1,
-                    'units' => '%',
-                    'uuid' => \Str::uuid(),
-                ],
-                [
-                    'itemid' => 3,
-                    'equipmentid' => 1,
                     'name' => 'CO2',
                     'key_' => \Str::slug('CO2', '_'),
                     'delay' => '15s',
@@ -125,7 +113,7 @@ class DatasetSeeder extends Seeder
                     'uuid' => \Str::uuid(),
                 ],
                 [
-                    'itemid' => 4,
+                    'itemid' => 3,
                     'equipmentid' => 1,
                     'name' => 'Світло',
                     'key_' => \Str::slug('Світло', '_'),
@@ -141,23 +129,23 @@ class DatasetSeeder extends Seeder
 
         History::truncate();
 
-        History::factory()
-            ->count(1612)
-            // ->count(161280)
-            ->withItem(1)
-            ->create();
+        // History::factory()
+        //     ->count(1612)
+        //     // ->count(161280)
+        //     ->withItem(1)
+        //     ->create();
 
-        History::factory()
-            ->count(1612)
-            // ->count(161280)
-            ->withItem(2)
-            ->create();
+        // History::factory()
+        //     ->count(1612)
+        //     // ->count(161280)
+        //     ->withItem(2)
+        //     ->create();
 
-        History::factory()
-            ->count(1612)
-            // ->count(161280)
-            ->withItem(3)
-            ->create();
+        // History::factory()
+        //     ->count(1612)
+        //     // ->count(161280)
+        //     ->withItem(3)
+        //     ->create();
 
         // History_uint::factory()
         //     ->count(9999)

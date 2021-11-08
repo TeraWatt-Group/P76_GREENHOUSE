@@ -4,6 +4,7 @@ namespace Terawatt\Greenhouse\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\History;
 
 class ApiController extends Controller
 {
@@ -28,18 +29,28 @@ class ApiController extends Controller
 		    			$headers = getallheaders();
 		    			$outputArray = [
 		    				'status'=>'OK',
-							'data_recieved' => json_encode($parsedData),
-	    					// 'headers' => json_encode(getallheaders()),
+							'data_recieved' => json_decode($parsedData),
+	    					'headers' => $headers,
 	    					'timestamp' => $headers['timestamp'],
 	    					'server_time' => time(),
-	    					// 'command' => [
-	    					// 	'svet1'=>'on',
-	    					// 	'wait'=>5,
-	    					// 	'svet2'=>'off'
-	    					// ]
 		    			];
 
-		    			\Log::debug(json_decode ($outputArray));
+		    			\DB::transaction(function () use ($outputArray) {
+		    			    History::insert([
+		    			    	[
+		    			    		'itemid' => 1,
+		    			    		'clock' => $outputArray['server_time'],
+		    			    		'value' => $outputArray['data_recieved']->FIRST,
+		    			    	],
+		    			    	[
+		    			    		'itemid' => 2,
+		    			    		'clock' => $outputArray['server_time'],
+		    			    		'value' => $outputArray['data_recieved']->SECOND,
+		    			    	]
+		    			    ]);
+		    			});
+
+		    			// \Log::debug($outputArray['data_recieved']['payload']);
 		    			return response()->json($outputArray, 200);
 		    		}
 		    	}
