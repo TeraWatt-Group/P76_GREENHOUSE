@@ -24,8 +24,8 @@
 	        </div>
 	    </div>
 	</div>
-	{!! Form::model($rcp, ['role' => 'form', 'url' => route('admin.product.rcp.update', [$products->product_id, $rcp->rcp_id]), 'method' => 'PUT']) !!}
-	    {{ Form::hidden('rcp_id', $rcp->rcp_id) }}
+	{!! Form::model($rcp, ['role' => 'form', 'url' => route('admin.product.rcp.update', [$products->product_id, $rcp->rcpid]), 'method' => 'PUT']) !!}
+	    {{ Form::hidden('rcpid', $rcp->rcpid) }}
 	    <div class="row">
 	        <div class="col-12 mb-3">
 	            <div class="d-flex justify-content-end">

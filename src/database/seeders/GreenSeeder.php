@@ -199,18 +199,17 @@ class GreenSeeder extends Seeder
                     'type' => 'bool',
                     'sort_order' => '7',
                 ]
-
             ]);
         } else { echo "Option table is not empty\n"; }
 
         Rcp::insert([
             [
-                'rcp_id' => '1',
+                'rcpid' => '1',
                 'rcp_version' => '1.0.0',
                 'product_id' => '1',
             ],
             [
-                'rcp_id' => '2',
+                'rcpid' => '2',
                 'rcp_version' => '2.0.0',
                 'product_id' => '1',
             ],

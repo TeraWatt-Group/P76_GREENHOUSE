@@ -7,6 +7,7 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers', 'middl
     Route::group(['prefix' => 'green', 'as' => 'green.'], function () {
     	Route::get('about', ['uses' => 'AboutController@index', 'as' => 'about']);
     	Route::get('technologies', ['uses' => 'TechnologiesController@index', 'as' => 'technologies']);
+    	Route::resource('equipment', EquipmentController::class)->only(['index', 'show']);
     	Route::resource('product', ProductController::class)->only(['index', 'show']);
     	Route::resource('blog', BlogController::class)->only(['index', 'show']);
     	Route::get('contacts', ['uses' => 'ContactsController@index', 'as' => 'contacts']);

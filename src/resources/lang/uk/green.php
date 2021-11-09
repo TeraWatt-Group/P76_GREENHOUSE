@@ -16,6 +16,7 @@ return [
     'welcome_menu' => 'Меню',
     'welcome_about_us' => 'Про нас',
     'welcome_technologies' => 'Технології',
+    'welcome_equipment' => 'Теплиці',
     'welcome_product' => 'Продукти',
     'welcome_blog' => 'Блог',
     'welcome_contacts' => 'Контакти',

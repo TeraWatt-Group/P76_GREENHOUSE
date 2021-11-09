@@ -4,7 +4,6 @@
 @section('description', __('green.welcome_about_us'))
 
 @section('content')
-{{dd($history)}}
 <div class="container">
     <div class="row">
         <div class="col-12">

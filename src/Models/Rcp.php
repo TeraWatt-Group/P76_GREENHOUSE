@@ -17,6 +17,6 @@ class Rcp extends Model
 
 	public function options()
 	{
-	    return $this->hasMany(RcpOption::class, 'rcp_id', 'rcp_id');
+	    return $this->hasMany(RcpOption::class, 'rcpid', 'rcpid');
 	}
 }

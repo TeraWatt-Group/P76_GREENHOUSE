@@ -69,7 +69,7 @@ class RcpController extends Controller
         try {
             return view('admin.rcp.edit')
                 ->withProducts(Product::get_one_product($id))
-                ->withRcp(Rcp::where('rcp_id', $rcp)->with('options')->first())
+                ->withRcp(Rcp::where('rcpid', $rcp)->with('options')->first())
                 ->withOptions(Option::orderBy('option_id')->pluck('type', 'option_id'));
         } catch (\Throwable $e) {
             dd($e);
@@ -90,7 +90,7 @@ class RcpController extends Controller
         try {
             if(isset($request->column)) {
                 $validator = $request->validate([
-                    'rcp_id' => 'required',
+                    'rcpid' => 'required',
                     'rcp_version' => 'required',
                     'column.*.name' => 'required|string|distinct',
                     'column.*.option_id' => 'required|string',
@@ -99,7 +99,7 @@ class RcpController extends Controller
 
                 foreach ($request->column as $key => $value) {
                     $this->columns[] = [
-                        'rcp_id' => $request->rcp_id,
+                        'rcpid' => $request->rcpid,
                         'rcp_version' => $request->rcp_version,
                         'name' => $value['name'],
                         'tag_name' => \Str::upper(\Str::slug($value['name'], '_')),
@@ -109,7 +109,7 @@ class RcpController extends Controller
                 };
 
                 \DB::transaction(function () use ($request) {
-                    RcpOption::where('rcp_id', $request->rcp_id)->delete();
+                    RcpOption::where('rcpid', $request->rcpid)->delete();
                     RcpOption::insert($this->columns);
                 });
             }

@@ -41,23 +41,14 @@ class DatasetSeeder extends Seeder
                 [
                     'equipmentid' => 1,
                     'status' => 1,
-                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                    'uuid' => \Str::uuid(),
                 ],
                 [
                     'equipmentid' => 2,
                     'status' => 1,
-                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                    'uuid' => \Str::uuid(),
                 ],
                 [
                     'equipmentid' => 3,
                     'status' => 1,
-                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                    'uuid' => \Str::uuid(),
                 ]
             ]);
             DB::table('equipments_description')->insert([
@@ -82,6 +73,9 @@ class DatasetSeeder extends Seeder
                     'uequipmentid' => 1,
                     'userid' => 1,
                     'equipmentid' => 1,
+                    'status' => 1,
+                    'created_at' => time(),
+                    'uuid' => \Str::uuid(),
                 ]
             ]);
         } else { echo "Equipments table is not empty\n"; }

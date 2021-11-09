@@ -63,8 +63,6 @@ class CreateGreenTables extends Migration
             $table->string('image', 255)->nullable();
             $table->integer('sort_order')->default(0);
             $table->boolean('status')->default(0);
-            $table->timestamps();
-            $table->uuid('uuid');
         });
         Schema::create('equipments_description', function (Blueprint $table) {
             $table->unsignedBigInteger('equipmentid');
@@ -79,6 +77,9 @@ class CreateGreenTables extends Migration
             $table->bigIncrements('uequipmentid');
             $table->unsignedBigInteger('userid');
             $table->unsignedBigInteger('equipmentid');
+            $table->boolean('status')->default(0);
+            $table->integer('created_at');
+            $table->uuid('uuid');
 
             $table->index(['userid', 'equipmentid']);
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
@@ -87,13 +88,13 @@ class CreateGreenTables extends Migration
 
 
         Schema::create('rcp', function (Blueprint $table) {
-            $table->unsignedBigInteger('rcp_id');
+            $table->unsignedBigInteger('rcpid');
             $table->string('rcp_version', 16);
             $table->text('description')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
 
-            $table->primary(['rcp_id', 'rcp_version']);
+            $table->primary(['rcpid', 'rcp_version']);
             $table->foreign('product_id')->references('product_id')->on('product')->onDelete('cascade');
         });
         Schema::create('option', function (Blueprint $table) {
@@ -103,7 +104,7 @@ class CreateGreenTables extends Migration
         });
         Schema::create('rcp_option', function (Blueprint $table) {
             $table->bigIncrements('rcp_option_id');
-            $table->unsignedBigInteger('rcp_id');
+            $table->unsignedBigInteger('rcpid');
             $table->string('rcp_version', 16);
             $table->unsignedBigInteger('option_id');
             $table->string('name', 255);
@@ -111,7 +112,7 @@ class CreateGreenTables extends Migration
             $table->string('value', 255);
             $table->boolean('required')->default(1);
 
-            $table->foreign('rcp_id')->references('rcp_id')->on('rcp')->onDelete('cascade');
+            $table->foreign('rcpid')->references('rcpid')->on('rcp')->onDelete('cascade');
             $table->foreign('option_id')->references('option_id')->on('option')->onDelete('cascade');
         });
 
@@ -172,6 +173,20 @@ class CreateGreenTables extends Migration
             $table->index(['userid', 'equipmentid']);
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('equipmentid')->references('equipmentid')->on('equipments')->onDelete('cascade');
+        });
+
+        Schema::create('orders', function (Blueprint $table) {
+            $table->bigIncrements('orderid');
+            $table->unsignedBigInteger('uequipmentid');
+            $table->unsignedBigInteger('rcpid');
+            $table->integer('start');
+            $table->integer('end');
+
+            $table->boolean('status');
+
+            $table->index(['uequipmentid', 'rcpid']);
+            $table->foreign('uequipmentid')->references('uequipmentid')->on('users_equipments')->onDelete('cascade');
+            $table->foreign('rcpid')->references('rcpid')->on('rcp')->onDelete('cascade');
         });
     }
 

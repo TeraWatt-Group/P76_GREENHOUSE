@@ -96,8 +96,8 @@
 		    			    		<x-slot name="body">
 		    				    	@forelse ($products->rcp as $rcp)
 		    				    		<x-table.row>
-		    				    			<x-table.cell>{{ $rcp->rcp_id }}</x-table.cell>
-		    				    			<x-table.cell><a href="{{ route('admin.product.rcp.edit', [$products->product_id, $rcp->rcp_id]) }}" aria-label="{{ __('Edit') }}">{{ $rcp->rcp_version }}</a></x-table.cell>
+		    				    			<x-table.cell>{{ $rcp->rcpid }}</x-table.cell>
+		    				    			<x-table.cell><a href="{{ route('admin.product.rcp.edit', [$products->product_id, $rcp->rcpid]) }}" aria-label="{{ __('Edit') }}">{{ $rcp->rcp_version }}</a></x-table.cell>
 		    				    			<x-table.cell></x-table.cell>
 		    				    			<x-table.cell>{{ $rcp->rcp_description }}</x-table.cell>
 		    					    	</x-table.row>

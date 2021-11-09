@@ -23,8 +23,6 @@ class ProfileController extends Controller
 
 	public function show($equipmentid)
 	{
-		$items = Items::where('equipmentid', $equipmentid)->pluck('itemid');
-
 	    return view('green.user.greenhouse.dashbord')
 	    	->withEquipment(Equipments::select()
 	    						->leftJoin('equipments_description', 'equipments_description.equipmentid', 'equipments.equipmentid')
@@ -33,7 +31,18 @@ class ProfileController extends Controller
 						                 ->where('users_equipments.userid', \Auth::id())
 						                 ->where('equipments.equipmentid', $equipmentid);
 						        })->first())
-	    	->withItems($items)
-	    	->withHistory(History::leftJoin('items', 'items.itemid', 'history.itemid')->whereIn('history.itemid', $items)->where('history.clock', '>', time()-1)->orderBy('history.clock', 'desc')->get());
+	    	->withHistory(History::select()
+	    						->join('items', function ($join) use ($equipmentid) {
+						            $join->on('items.itemid', 'history.itemid')
+						                 ->where('items.equipmentid', $equipmentid);
+						        })
+						        ->where('history.clock', '>', time()-3)
+						        ->orderBy('history.clock', 'desc')
+						        ->get());
+	}
+
+	public function create()
+	{
+		return view('green.user.greenhouse.create');
 	}
 }

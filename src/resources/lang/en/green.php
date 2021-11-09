@@ -16,6 +16,7 @@ return [
     'welcome_menu' => 'Menu',
     'welcome_about_us' => 'About',
     'welcome_technologies' => 'Technologies',
+    'welcome_equipment' => 'Greenhouses',
     'welcome_product' => 'Products',
     'welcome_blog' => 'Blog',
     'welcome_contacts' => 'Contacts',
