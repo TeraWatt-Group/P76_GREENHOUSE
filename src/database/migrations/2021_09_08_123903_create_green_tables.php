@@ -13,8 +13,8 @@ class CreateGreenTables extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
-            $table->bigIncrements('product_id');
+        Schema::create('products', function (Blueprint $table) {
+            $table->bigIncrements('productid');
             $table->string('sku', 64)->default('');
             $table->string('image', 255)->nullable();
             $table->integer('sort_order')->default(0);
@@ -23,17 +23,17 @@ class CreateGreenTables extends Migration
             $table->timestamps();
         });
         Schema::create('product_description', function (Blueprint $table) {
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('productid');
             $table->integer('language_id');
             $table->string('name', 255);
             $table->text('description')->nullable();
 
             $table->index('language_id');
-            $table->foreign('product_id')->references('product_id')->on('product')->onDelete('cascade');
+            $table->foreign('productid')->references('productid')->on('products')->onDelete('cascade');
         });
         Schema::create('product_image', function (Blueprint $table) {
             $table->bigIncrements('product_image_id');
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('productid');
             $table->string('image', 255);
             $table->integer('sort_order')->default(0);
         });
@@ -50,10 +50,10 @@ class CreateGreenTables extends Migration
             $table->foreign('category_id')->references('category_id')->on('category')->onDelete('cascade');
         });
         Schema::create('product_to_category', function (Blueprint $table) {
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('productid');
             $table->unsignedBigInteger('category_id');
 
-            $table->primary(['product_id', 'category_id']);
+            $table->primary(['productid', 'category_id']);
         });
 
 
@@ -91,11 +91,11 @@ class CreateGreenTables extends Migration
             $table->unsignedBigInteger('rcpid');
             $table->string('rcp_version', 16);
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('productid');
             $table->timestamps();
 
             $table->primary(['rcpid', 'rcp_version']);
-            $table->foreign('product_id')->references('product_id')->on('product')->onDelete('cascade');
+            $table->foreign('productid')->references('productid')->on('products')->onDelete('cascade');
         });
         Schema::create('option', function (Blueprint $table) {
             $table->bigIncrements('option_id');
@@ -177,15 +177,19 @@ class CreateGreenTables extends Migration
 
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('orderid');
+            $table->unsignedBigInteger('userid');
             $table->unsignedBigInteger('uequipmentid');
+            $table->unsignedBigInteger('productid');
             $table->unsignedBigInteger('rcpid');
             $table->integer('start');
             $table->integer('end');
 
             $table->boolean('status');
 
-            $table->index(['uequipmentid', 'rcpid']);
+            $table->index(['userid', 'uequipmentid', 'rcpid']);
+            $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('uequipmentid')->references('uequipmentid')->on('users_equipments')->onDelete('cascade');
+            $table->foreign('productid')->references('productid')->on('products')->onDelete('cascade');
             $table->foreign('rcpid')->references('rcpid')->on('rcp')->onDelete('cascade');
         });
     }

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin | ' . __('Редагувати продукт (' . $products->name . ')'))
-@section('description', __('Редагувати продукт (' . $products->name . ')'))
+@section('title', 'Admin | ' . __('Редагувати продукт (' . $products->descriptions->name . ')'))
+@section('description', __('Редагувати продукт (' . $products->descriptions->name . ')'))
 
 @section('content')
 <div class="container">
@@ -11,7 +11,7 @@
 	            <ol class="breadcrumb">
 	                <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('admin.index') }}">Панель адміністратора</a></li>
 	                <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('admin.product.index') }}">{{ __('Продукти') }}</a></li>
-	                <li class="breadcrumb-item active" aria-current="page">{{ $products->name }}</li>
+	                <li class="breadcrumb-item active" aria-current="page">{{ $products->descriptions->name }}</li>
 	            </ol>
 	        </nav>
 	    </div>
@@ -19,11 +19,11 @@
 	<div class="row mb-2">
 	    <div class="col-12">
 	        <div class="d-flex justify-content-start">
-	            <h3 class="mb-0 pr-3">{{ __('Редагувати продукт (' . $products->name . ')') }}</h3>
+	            <h3 class="mb-0 pr-3">{{ __('Редагувати продукт (' . $products->descriptions->name . ')') }}</h3>
 	        </div>
 	    </div>
 	</div>
-	{!! Form::model($products, ['role' => 'form', 'url' => route('admin.product.update', $products->product_id), 'method' => 'PUT']) !!}
+	{!! Form::model($products, ['role' => 'form', 'url' => route('admin.product.update', $products->productid), 'method' => 'PUT']) !!}
 		<div class="row">
             <div class="col-12 mb-3">
                 <div class="d-flex justify-content-end">
@@ -48,13 +48,13 @@
 				    	<div class="form-group row py-3 required">
                             <label for="product[name]" class="col-2 col-form-label text-md-end form-label-asterisk">Product Name</label>
                             <div class="col-10">
-                                <input placeholder="Product Name" class="form-control" name="product[name]" type="text" value="{{ $products->name }}" id="product[name]">
+                                <input placeholder="Product Name" class="form-control" name="product[name]" type="text" value="{{ $products->descriptions->name }}" id="product[name]">
                             </div>
                         </div>
 				    	<div class="form-group row py-3 required">
                             <label for="product[description]" class="col-2 col-form-label text-md-end form-label-asterisk">Description</label>
                             <div class="col-10">
-                            	<input id="product[description]" type="hidden" name="product[description]" value="{{ $products->description }}">
+                            	<input id="product[description]" type="hidden" name="product[description]" value="{{ $products->descriptions->description }}">
                                 <trix-editor class="trix-content" input="product[description]"></trix-editor>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
 				    	    </div>
 				    	    <div class="col-6">
 				    	        <div class="d-flex justify-content-end">
-				    	            <a role="button" aria-pressed="true" class="btn btn-primary ms-2" role="button" href="{{ route('admin.product.rcp.create', $products->product_id) }}" aria-label="{{ __('Додати') }}">
+				    	            <a role="button" aria-pressed="true" class="btn btn-primary ms-2" role="button" href="{{ route('admin.product.rcp.create', $products->productid) }}" aria-label="{{ __('Додати') }}">
 				    	                {{ __('Додати') }}
 				    	            </a>
 				    	        </div>
@@ -97,7 +97,7 @@
 		    				    	@forelse ($products->rcp as $rcp)
 		    				    		<x-table.row>
 		    				    			<x-table.cell>{{ $rcp->rcpid }}</x-table.cell>
-		    				    			<x-table.cell><a href="{{ route('admin.product.rcp.edit', [$products->product_id, $rcp->rcpid]) }}" aria-label="{{ __('Edit') }}">{{ $rcp->rcp_version }}</a></x-table.cell>
+		    				    			<x-table.cell><a href="{{ route('admin.product.rcp.edit', [$products->productid, $rcp->rcpid]) }}" aria-label="{{ __('Edit') }}">{{ $rcp->rcp_version }}</a></x-table.cell>
 		    				    			<x-table.cell></x-table.cell>
 		    				    			<x-table.cell>{{ $rcp->rcp_description }}</x-table.cell>
 		    					    	</x-table.row>

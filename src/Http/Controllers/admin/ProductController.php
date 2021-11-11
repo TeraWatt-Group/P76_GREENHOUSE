@@ -61,7 +61,7 @@ class ProductController extends Controller
     {
         try {
             return view('admin.products.edit')
-                ->withProducts(Product::get_one_product($id))
+                ->withProducts(Product::get_one($id))
                 ->withCategory(CategoryDescription::all()->pluck('name', 'category_id'));
         } catch (\Throwable $e) {
             \Log::alert($e->getMessage());

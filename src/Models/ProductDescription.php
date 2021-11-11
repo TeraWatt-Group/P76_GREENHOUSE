@@ -10,7 +10,7 @@ class ProductDescription extends Model
 	use HasFactory;
 
 	public $table = 'product_description';
-	public $primaryKey = 'product_id';
+	public $primaryKey = 'productid';
 
 	protected $guarded = [];
 }

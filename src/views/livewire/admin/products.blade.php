@@ -41,9 +41,9 @@
                             @forelse ($rows as $row)
                                 <x-table.row>
                                     <x-table.cell>
-                                        <x-input.checkbox wire:model="selected" value="{{ $row->product_id }}"/>
+                                        <x-input.checkbox wire:model="selected" value="{{ $row->productid }}"/>
                                     </x-table.cell>
-                                    <x-table.cell><a href="{{ route('admin.product.edit', $row->product_id) }}" aria-label="{{ __('Edit') }}">{{ $row->name }}</a></x-table.cell>
+                                    <x-table.cell><a href="{{ route('admin.product.edit', $row->productid) }}" aria-label="{{ __('Edit') }}">{{ $row->name }}</a></x-table.cell>
                                     <x-table.cell>{{ $row->description }}</x-table.cell>
                                 </x-table.row>
                             @empty

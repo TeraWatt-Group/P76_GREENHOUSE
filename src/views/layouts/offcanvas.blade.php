@@ -45,7 +45,10 @@
 						<a class="nav-link link-dark" href="{{ route('admin.index') }}">{{ __('Панель адміністратора') }}</a>
 					</li>
 					<li>
-						<a class="nav-link link-dark" href="{{ route('user.greenhouse') }}">{{ __('Мої теплиці') }}</a>
+						<a class="nav-link link-dark" href="{{ route('user.greenhouse.index') }}">{{ __('Мої теплиці') }}</a>
+					</li>
+					<li>
+						<a class="nav-link link-dark" href="{{ route('user.greenhouse.orders') }}">{{ __('Мої замовлення') }}</a>
 					</li>
 					<li><hr class="dropdown-divider"></li>
 					@if (Route::has('user.profile'))

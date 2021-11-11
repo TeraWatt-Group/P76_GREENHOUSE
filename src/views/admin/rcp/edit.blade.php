@@ -11,7 +11,7 @@
 	            <ol class="breadcrumb">
 	                <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('admin.index') }}">Панель адміністратора</a></li>
 	                <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('admin.product.index') }}">{{ __('Продукти') }}</a></li>
-	                <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('admin.product.edit', $products->product_id) }}">{{ $products->name }}</a></li>
+	                <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('admin.product.edit', $products->productid) }}">{{ $products->name }}</a></li>
 	                <li class="breadcrumb-item active" aria-current="page">{{ __('Рецепт ') . $rcp->rcp_version }}</li>
 	            </ol>
 	        </nav>
@@ -24,12 +24,12 @@
 	        </div>
 	    </div>
 	</div>
-	{!! Form::model($rcp, ['role' => 'form', 'url' => route('admin.product.rcp.update', [$products->product_id, $rcp->rcpid]), 'method' => 'PUT']) !!}
+	{!! Form::model($rcp, ['role' => 'form', 'url' => route('admin.product.rcp.update', [$products->productid, $rcp->rcpid]), 'method' => 'PUT']) !!}
 	    {{ Form::hidden('rcpid', $rcp->rcpid) }}
 	    <div class="row">
 	        <div class="col-12 mb-3">
 	            <div class="d-flex justify-content-end">
-	                <a href="{{ route('admin.product.edit', $products->product_id) }}" aria-pressed="true" class="btn btn-secondary" role="button" aria-label="{{ __('green.back') }}">
+	                <a href="{{ route('admin.product.edit', $products->productid) }}" aria-pressed="true" class="btn btn-secondary" role="button" aria-label="{{ __('green.back') }}">
 	                    {{ __('green.back') }}
 	                </a>
 	                {!! Form::button(__('green.save'), ['type' => 'submit', 'class' => 'btn btn-success ms-2', 'aria-label' => __('green.save')]) !!}

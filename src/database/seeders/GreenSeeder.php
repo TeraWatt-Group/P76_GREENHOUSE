@@ -124,25 +124,25 @@ class GreenSeeder extends Seeder
 
             ProductDescription::insert([
                 [
-                    'product_id' => 1,
+                    'productid' => 1,
                     'language_id' => 1,
                     'name' => 'Петрушка кучерява',
                     'description' => 'Петрушка кучерява',
                 ],
                 [
-                    'product_id' => 2,
+                    'productid' => 2,
                     'language_id' => 1,
                     'name' => 'Редис',
                     'description' => 'Редис',
                 ],
                 [
-                    'product_id' => 3,
+                    'productid' => 3,
                     'language_id' => 1,
                     'name' => 'Руккола',
                     'description' => 'Руккола',
                 ],
                 [
-                    'product_id' => 4,
+                    'productid' => 4,
                     'language_id' => 1,
                     'name' => 'Шпинат',
                     'description' => 'Шпинат',
@@ -152,61 +152,61 @@ class GreenSeeder extends Seeder
             DB::table('product_image')->insert([
                 [
                     'product_image_id' => 1,
-                    'product_id' => 1,
+                    'productid' => 1,
                     'image' => '/img/product/parsley.jpeg',
                 ],
                 [
                     'product_image_id' => 2,
-                    'product_id' => 1,
+                    'productid' => 1,
                     'image' => '/img/product/parsley.jpeg',
                 ],
                 [
                     'product_image_id' => 3,
-                    'product_id' => 2,
+                    'productid' => 2,
                     'image' => '/img/product/redis.png',
                 ],
                 [
                     'product_image_id' => 4,
-                    'product_id' => 2,
+                    'productid' => 2,
                     'image' => '/img/product/redis.png',
                 ],
                 [
                     'product_image_id' => 5,
-                    'product_id' => 3,
+                    'productid' => 3,
                     'image' => '/img/product/rukkola.png',
                 ],
                 [
                     'product_image_id' => 6,
-                    'product_id' => 3,
+                    'productid' => 3,
                     'image' => '/img/product/rukkola.png',
                 ],
                 [
                     'product_image_id' => 7,
-                    'product_id' => 4,
+                    'productid' => 4,
                     'image' => '/img/product/spinach.jpeg',
                 ],
                 [
                     'product_image_id' => 8,
-                    'product_id' => 4,
+                    'productid' => 4,
                     'image' => '/img/product/spinach.jpeg',
                 ],
             ]);
 
             DB::table('product_to_category')->insert([
                 [
-                    'product_id' => 1,
+                    'productid' => 1,
                     'category_id' => 3,
                 ],
                 [
-                    'product_id' => 2,
+                    'productid' => 2,
                     'category_id' => 1,
                 ],
                 [
-                    'product_id' => 3,
+                    'productid' => 3,
                     'category_id' => 1,
                 ],
                 [
-                    'product_id' => 4,
+                    'productid' => 4,
                     'category_id' => 2,
                 ],
             ]);
@@ -249,12 +249,12 @@ class GreenSeeder extends Seeder
             [
                 'rcpid' => '1',
                 'rcp_version' => '1.0.0',
-                'product_id' => '1',
+                'productid' => '1',
             ],
             [
                 'rcpid' => '2',
                 'rcp_version' => '2.0.0',
-                'product_id' => '1',
+                'productid' => '1',
             ],
         ]);
     }

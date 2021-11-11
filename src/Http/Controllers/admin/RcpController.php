@@ -68,7 +68,7 @@ class RcpController extends Controller
     {
         try {
             return view('admin.rcp.edit')
-                ->withProducts(Product::get_one_product($id))
+                ->withProducts(Product::get_one($id))
                 ->withRcp(Rcp::where('rcpid', $rcp)->with('options')->first())
                 ->withOptions(Option::orderBy('option_id')->pluck('type', 'option_id'));
         } catch (\Throwable $e) {

@@ -9,29 +9,29 @@ class Product extends Model
 {
 	use HasFactory;
 
-	public $table = 'product';
-    public $primaryKey = 'product_id';
+	public $table = 'products';
+    public $primaryKey = 'productid';
 
 	protected $guarded = [];
 
     public function descriptions()
     {
-        return $this->hasOne(ProductDescription::class, 'product_id');
+        return $this->hasOne(ProductDescription::class, 'productid');
     }
 
     public function images()
     {
-        return $this->hasMany(ProductImage::class, 'product_id');
+        return $this->hasMany(ProductImage::class, 'productid');
     }
 
     public function category()
     {
-        return $this->hasOne(ProductToCategory::class, 'product_id');
+        return $this->hasOne(ProductToCategory::class, 'productid');
     }
 
     public function rcp()
     {
-        return $this->hasMany(Rcp::class, 'product_id');
+        return $this->hasMany(Rcp::class, 'productid');
     }
 
     public static function get_one($id)
@@ -43,17 +43,17 @@ class Product extends Model
 
     public static function get_all_product()
     {
-        return Product::select(\DB::raw('product.product_id as product_id, product.image as image, product_description.name as name, product_description.description as description, category_description.name as category'))
-                    ->leftJoin('product_description', 'product_description.product_id', 'product.product_id')
-                    ->leftJoin('product_to_category', 'product_to_category.product_id', 'product.product_id')
+        return Product::select(\DB::raw('products.productid as productid, products.image as image, product_description.name as name, product_description.description as description, category_description.name as category'))
+                    ->leftJoin('product_description', 'product_description.productid', 'products.productid')
+                    ->leftJoin('product_to_category', 'product_to_category.productid', 'products.productid')
                     ->leftJoin('category_description', 'category_description.category_id', 'product_to_category.category_id')
-        			->orderBy('product.sort_order')
+        			->orderBy('products.sort_order')
                     ->get();
     }
 
     public static function get_product_image()
     {
-        return Product::leftJoin('product_image', 'product_image.product_id', '=', 'product.product_id')
+        return Product::leftJoin('product_image', 'product_image.productid', '=', 'products.productid')
                     ->get();
     }
 }

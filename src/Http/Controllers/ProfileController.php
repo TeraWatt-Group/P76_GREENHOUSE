@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Equipments;
 use App\Models\Items;
 use App\Models\History;
+use App\Models\Orders;
 
 class ProfileController extends Controller
 {
@@ -19,6 +20,16 @@ class ProfileController extends Controller
 						            $join->on('users_equipments.equipmentid', 'equipments.equipmentid')
 						                 ->where('users_equipments.userid', \Auth::id());
 						        })->get());
+	}
+
+	public function orders(Request $request)
+	{
+	    return view('green.user.greenhouse.orders.index')
+	    	->withOrders(Orders::select()
+	    					->with('products')
+	    					->where('userid', \Auth::id())
+	    					->orderBy('start', 'desc')
+	    					->get());
 	}
 
 	public function show($equipmentid)
@@ -39,5 +50,10 @@ class ProfileController extends Controller
 						        ->where('history.clock', '>', time()-3)
 						        ->orderBy('history.clock', 'desc')
 						        ->get());
+	}
+
+	public function create()
+	{
+		return view('green.user.greenhouse.orders.create');
 	}
 }

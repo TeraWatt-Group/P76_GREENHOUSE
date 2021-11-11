@@ -38,7 +38,7 @@ class Products extends Component
     public function getRowsQueryProperty()
     {
         $query = Product::query()
-            ->leftJoin('product_description', 'product_description.product_id', 'product.product_id')
+            ->leftJoin('product_description', 'product_description.productid', 'products.productid')
             // ->with('description')
             ->with('category')
             ->with('rcp')

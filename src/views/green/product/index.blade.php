@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="card-body text-center px-0 pt-3">
-                            <a href="{{ route('green.product.show', $prod->product_id) }}" class="stretched-link" aria-label="index"></a>
+                            <a href="{{ route('green.product.show', $prod->productid) }}" class="stretched-link" aria-label="index"></a>
                             <h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">{{ $prod->name }}</a></h4>
                         </div>
                     </div>

@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.products.add')
+        return view('admin.categorys.add')
             ->withRoles(Role::orderBy('id', 'desc')->pluck('name'));
     }
 
@@ -60,8 +60,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         try {
-            return view('admin.products.edit')
-                ->withProducts(Product::get_one_product($id));
+            return view('admin.categorys.edit')
+                ->withCategory(Category::findOrFail($id));
         } catch (\Throwable $e) {
             \Log::alert($e->getMessage());
             return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withInput();

@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('home') }}">Головна</a></li>
-                    <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('user.greenhouse') }}">{{ __('Мої теплиці') }}</a></li>
+                    <li class="breadcrumb-item"><a class="link-secondary" href="{{ route('user.greenhouse.index') }}">{{ __('Мої теплиці') }}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $equipment->name }}</li>
                 </ol>
             </nav>
