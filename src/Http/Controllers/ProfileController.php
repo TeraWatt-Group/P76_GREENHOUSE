@@ -40,9 +40,4 @@ class ProfileController extends Controller
 						        ->orderBy('history.clock', 'desc')
 						        ->get());
 	}
-
-	public function create()
-	{
-		return view('green.user.greenhouse.create');
-	}
 }

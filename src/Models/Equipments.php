@@ -19,8 +19,14 @@ class Equipments extends Model
         'status',
     ];
 
-    public function description()
+    public function descriptions()
     {
         return $this->hasOne(EquipmentsDescription::class, 'equipmentid');
+    }
+
+    public static function get_one($id)
+    {
+        return Equipments::with('descriptions')
+                    ->findOrFail($id);
     }
 }

@@ -35,7 +35,7 @@ class CreateGreenTables extends Migration
             $table->bigIncrements('product_image_id');
             $table->unsignedBigInteger('product_id');
             $table->string('image', 255);
-            $table->integer('sort_order');
+            $table->integer('sort_order')->default(0);
         });
         Schema::create('category', function (Blueprint $table) {
             $table->bigIncrements('category_id');
@@ -100,7 +100,7 @@ class CreateGreenTables extends Migration
         Schema::create('option', function (Blueprint $table) {
             $table->bigIncrements('option_id');
             $table->string('type', 32);
-            $table->integer('sort_order');
+            $table->integer('sort_order')->default(0);
         });
         Schema::create('rcp_option', function (Blueprint $table) {
             $table->bigIncrements('rcp_option_id');

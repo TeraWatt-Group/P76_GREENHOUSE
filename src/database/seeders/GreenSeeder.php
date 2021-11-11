@@ -149,6 +149,49 @@ class GreenSeeder extends Seeder
                 ],
             ]);
 
+            DB::table('product_image')->insert([
+                [
+                    'product_image_id' => 1,
+                    'product_id' => 1,
+                    'image' => '/img/product/parsley.jpeg',
+                ],
+                [
+                    'product_image_id' => 2,
+                    'product_id' => 1,
+                    'image' => '/img/product/parsley.jpeg',
+                ],
+                [
+                    'product_image_id' => 3,
+                    'product_id' => 2,
+                    'image' => '/img/product/redis.png',
+                ],
+                [
+                    'product_image_id' => 4,
+                    'product_id' => 2,
+                    'image' => '/img/product/redis.png',
+                ],
+                [
+                    'product_image_id' => 5,
+                    'product_id' => 3,
+                    'image' => '/img/product/rukkola.png',
+                ],
+                [
+                    'product_image_id' => 6,
+                    'product_id' => 3,
+                    'image' => '/img/product/rukkola.png',
+                ],
+                [
+                    'product_image_id' => 7,
+                    'product_id' => 4,
+                    'image' => '/img/product/spinach.jpeg',
+                ],
+                [
+                    'product_image_id' => 8,
+                    'product_id' => 4,
+                    'image' => '/img/product/spinach.jpeg',
+                ],
+            ]);
+
             DB::table('product_to_category')->insert([
                 [
                     'product_id' => 1,

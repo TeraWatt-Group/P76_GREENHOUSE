@@ -34,5 +34,25 @@
             </div>
         </div>
     </div>
+    @if ($equipments->isNotEmpty())
+        <div class="row">
+            @foreach ($equipments as $equipment)
+                <div class="col-4 mb-3">
+                    <div class="card border-0">
+                        <div class="position-relative">
+                            <img class="card-img" src="{{ $equipment->image }}" alt="Card image">
+                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                            </div>
+                        </div>
+                        <div class="card-body text-center px-0 pt-3">
+                            <a href="{{ route('green.equipment.show', $equipment->equipmentid) }}" class="stretched-link" aria-label="index"></a>
+                            <h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">{{ $equipment->name }}</a></h4>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @else
+    @endif
 </div>
 @endsection

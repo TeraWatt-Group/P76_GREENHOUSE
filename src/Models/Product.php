@@ -14,12 +14,12 @@ class Product extends Model
 
 	protected $guarded = [];
 
-    public function description()
+    public function descriptions()
     {
         return $this->hasOne(ProductDescription::class, 'product_id');
     }
 
-    public function image()
+    public function images()
     {
         return $this->hasMany(ProductImage::class, 'product_id');
     }
@@ -34,9 +34,10 @@ class Product extends Model
         return $this->hasMany(Rcp::class, 'product_id');
     }
 
-    public static function get_one_product($id)
+    public static function get_one($id)
     {
-        return Product::leftJoin('product_description', 'product_description.product_id', 'product.product_id')
+        return Product::with('descriptions')
+                    ->with('images')
         			->findOrFail($id);
     }
 

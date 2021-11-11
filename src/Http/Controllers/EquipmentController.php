@@ -13,4 +13,16 @@ class EquipmentController extends Controller
         return view('green.equipment.index')
             ->withEquipments(Equipments::select()->get());
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Process  $process
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return view('green.equipment.show')
+            ->withEquipment(Equipments::get_one($id));
+    }
 }

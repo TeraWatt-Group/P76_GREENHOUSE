@@ -71,7 +71,7 @@ class ProductController extends Controller
     public function show($id)
     {
         return view('green.product.show')
-            ->withProduct(Product::get_one_product($id));
+            ->withProduct(Product::get_one($id));
     }
 
     /**

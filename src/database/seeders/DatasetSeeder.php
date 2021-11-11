@@ -40,14 +40,17 @@ class DatasetSeeder extends Seeder
             Equipments::insert([
                 [
                     'equipmentid' => 1,
+                    'image' => '/img/equipment/greenhouse.png',
                     'status' => 1,
                 ],
                 [
                     'equipmentid' => 2,
+                    'image' => '/img/equipment/greenhouse.png',
                     'status' => 1,
                 ],
                 [
                     'equipmentid' => 3,
+                    'image' => '/img/equipment/greenhouse.png',
                     'status' => 1,
                 ]
             ]);

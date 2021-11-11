@@ -296,3 +296,22 @@ th a:hover {
 trix-editor.disabled {
   pointer-events: none;
 }
+
+/* Thumbnail
+---------------------------------------------------------------------------- */
+.thumbnail img {
+    opacity: 0;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+}
+.thumbnail img.active {
+    opacity: 1;
+}
+.thumbnails {
+    cursor: pointer;
+}
+.thumbnails.selected>img {
+    -webkit-box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    -moz-box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}

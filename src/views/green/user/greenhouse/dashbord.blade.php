@@ -105,16 +105,16 @@
                 <h3>
                     <b><span class="pct-counter">ВКЛ</span></b>
                 </h3>
-                <div class="col-12 px-3" style="min-height: 60px;">
+                <div class="col-12 py-3 px-3" style="min-height: 60px;">
+                    <div class="progress mb-1" style="height: 5px;">
+                        <div class="co-progress-bar progress-bar" role="progressbar" style="width: 12.5%;" aria-valuenow="3" aria-valuemin="0" aria-valuemax="24"></div>
+                        <div class="co-progress-bar progress-bar bg-info" role="progressbar" style="width: 79.17%;" aria-valuenow="19" aria-valuemin="0" aria-valuemax="24"></div>
+                        <div class="co-progress-bar progress-bar" role="progressbar" style="width: 8.33%;" aria-valuenow="24" aria-valuemin="0" aria-valuemax="24"></div>
+                    </div>
                     <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-end flex-column">
-                            <div class="mx-auto"><h5 class="fw-bold text-secondary">Вкл</h5></div>
-                            <div class="mx-auto"><h4 class="fw-bold text-secondary">03:00</h4></div>
-                        </div>
-                        <div class="d-flex align-items-end flex-column">
-                            <div class="mx-auto"><h5 class="fw-bold text-secondary">Вимк</h5></div>
-                            <div class="mx-auto"><h4 class="fw-bold text-secondary">22:00</h4></div>
-                        </div>
+                        <span class="text-small">00г</span>
+                        <span class="text-small">03:00-22:00</span>
+                        <span class="text-small">24г</span>
                     </div>
                 </div>
             </div>
