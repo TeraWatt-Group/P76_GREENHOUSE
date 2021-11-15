@@ -20,9 +20,8 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers', 'middl
 		Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
 			Route::group(['prefix' => 'greenhouse', 'as' => 'greenhouse.'], function () {
 				Route::get('/', ['uses' => 'ProfileController@greenhouse', 'as' => 'index']);
-				Route::get('/orders', ['uses' => 'ProfileController@orders', 'as' => 'orders']);
-				Route::get('/orders/create', ['uses' => 'ProfileController@create', 'as' => 'orders.create']);
-				Route::get('/{equipmentid}', ['uses' => 'ProfileController@show', 'as' => 'show']);
+				Route::resource('orders', ProfileController::class)->only(['index', 'create', 'store', 'destroy']);
+				Route::get('{equipmentid}', ['uses' => 'ProfileController@show', 'as' => 'show']);
 		    });
 
 		    // Route::get('api-tokens', [App\Http\Controllers\ProfileController::class, 'api_tokens'])->name('api_tokens');

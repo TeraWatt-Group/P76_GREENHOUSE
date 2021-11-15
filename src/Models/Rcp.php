@@ -19,4 +19,9 @@ class Rcp extends Model
 	{
 	    return $this->hasMany(RcpOption::class, 'rcpid', 'rcpid');
 	}
+
+	public static function by_product($productid)
+	{
+	    return Rcp::where('productid', $productid)->pluck('rcp_version', 'rcpid');
+	}
 }

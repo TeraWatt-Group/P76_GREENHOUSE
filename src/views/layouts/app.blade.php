@@ -54,6 +54,8 @@
     @include('layouts.offcanvas')
 
     <div id="app">
+        <x-banner />
+
         <main class="py-4">
             @yield('content')
         </main>

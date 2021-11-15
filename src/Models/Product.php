@@ -41,7 +41,7 @@ class Product extends Model
         			->findOrFail($id);
     }
 
-    public static function get_all_product()
+    public static function get_all()
     {
         return Product::select(\DB::raw('products.productid as productid, products.image as image, product_description.name as name, product_description.description as description, category_description.name as category'))
                     ->leftJoin('product_description', 'product_description.productid', 'products.productid')

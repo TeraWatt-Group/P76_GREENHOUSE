@@ -30,8 +30,8 @@
         </div>
         <div class="col-6">
             <div class="d-flex justify-content-end">
-                <a role="button" aria-pressed="true" class="btn btn-primary ms-2" role="button" href="{{ route('user.greenhouse.orders.create') }}" aria-label="{{ __('Add') }}">
-                    {{ __('Add') }}
+                <a role="button" aria-pressed="true" class="btn btn-primary ms-2" role="button" href="{{ route('user.greenhouse.orders.create') }}" aria-label="{{ __('Додати') }}">
+                    {{ __('Додати') }}
                 </a>
             </div>
         </div>
@@ -40,28 +40,30 @@
 	<x-table>
 		<x-slot name="head">
 		    <x-table.header>Номер</x-table.header>
-		    <x-table.header>Продукт</x-table.header>
 		    <x-table.header>Теплиця</x-table.header>
+		    <x-table.header>Продукт</x-table.header>
+		    <x-table.header>Рецепт</x-table.header>
 		    <x-table.header class="w-15">Статус</x-table.header>
 		</x-slot>
 		<x-slot name="body">
 			@forelse ($orders as $order)
 			    <x-table.row>
 			        <x-table.cell><b>{{ 'GREEN' . $order->orderid }}</b></x-table.cell>
-			        <x-table.cell>{{ $order->products->name }}</x-table.cell>
 			        <x-table.cell>{{ $order->equipments->name }}</x-table.cell>
+			        <x-table.cell>{{ $order->products->name }}</x-table.cell>
+			        <x-table.cell>{{ $order->rcps->rcp_version }}</x-table.cell>
 			        <x-table.cell>
 			        	@switch($order->status)
 						    @case(0)
-						        First case...
+						        <span class="badge bg-danger p-1">{{ __('Зупинено') }}</span>
 						        @break
 
 						    @case(1)
-						        Second case...
+						        <span class="badge bg-success p-1">{{ __('Виконано') }}</span>
 						        @break
 
 						    @default
-						        Default case...
+						        <span class="badge bg-primary p-1">{{ __('В роботі') }}</span>
 						@endswitch
 			        </x-table.cell>
 			    </x-table.row>

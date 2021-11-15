@@ -15,6 +15,6 @@ class WelcomeController extends Controller
     public function index()
     {
         return view('welcome')
-            ->withProduct(Product::get_all_product());
+            ->withProduct(Product::get_all());
     }
 }

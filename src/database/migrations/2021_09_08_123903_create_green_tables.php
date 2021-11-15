@@ -184,7 +184,7 @@ class CreateGreenTables extends Migration
             $table->integer('start');
             $table->integer('end');
 
-            $table->boolean('status');
+            $table->boolean('status')->nullable();
 
             $table->index(['userid', 'uequipmentid', 'rcpid']);
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');

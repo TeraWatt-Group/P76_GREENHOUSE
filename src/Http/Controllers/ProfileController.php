@@ -5,9 +5,10 @@ namespace Terawatt\Greenhouse\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Equipments;
-use App\Models\Items;
-use App\Models\History;
+use App\Models\Product;
+use App\Models\Rcp;
 use App\Models\Orders;
+use App\Models\History;
 
 class ProfileController extends Controller
 {
@@ -22,11 +23,12 @@ class ProfileController extends Controller
 						        })->get());
 	}
 
-	public function orders(Request $request)
+	public function index(Request $request)
 	{
 	    return view('green.user.greenhouse.orders.index')
 	    	->withOrders(Orders::select()
 	    					->with('products')
+	    					->with('rcps')
 	    					->where('userid', \Auth::id())
 	    					->orderBy('start', 'desc')
 	    					->get());
@@ -54,6 +56,31 @@ class ProfileController extends Controller
 
 	public function create()
 	{
-		return view('green.user.greenhouse.orders.create');
+		return view('green.user.greenhouse.orders.add')
+			->withEquipment(Equipments::select()
+								->leftJoin('equipments_description', 'equipments_description.equipmentid', 'equipments.equipmentid')
+	    						->join('users_equipments', function ($join) {
+						            $join->on('users_equipments.equipmentid', 'equipments.equipmentid')
+						                 ->where('users_equipments.userid', \Auth::id());
+						        })->pluck('name', 'equipmentid'))
+			->withProducts(Product::get_all()->pluck('name', 'productid'))
+			->withRcp(Rcp::where('productid', 1)->pluck('rcp_version', 'rcpid'));
+	}
+
+	public function store(Request $request)
+	{
+		try {
+
+
+			return redirect()->route('user.greenhouse.orders.index')->with('flash.banner', __('Success!'));
+        } catch (\Throwable $e) {
+            \Log::alert($e->getMessage());
+            return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withInput();
+        }
+	}
+
+	public function destroy($id)
+	{
+
 	}
 }

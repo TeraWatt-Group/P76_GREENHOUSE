@@ -154,4 +154,32 @@ class RcpController extends Controller
 
         return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => ' ']);
     }
+
+    public function get_version(Request $request)
+    {
+        try {
+            $json = [];
+            if ($request->ajax()) {
+                if (isset($request->productid)) {
+                    $json['status'] = 'OK';
+                    $json['data_recieved'] = Rcp::by_product($request->productid);
+                    return response()->json($json);
+                }
+
+                $json['status'] = 'ERROR';
+                $json['data_recieved'] = 'Request parameters empty!';
+                return response()->json($json);
+            }
+
+            $json['status'] = 'ERROR';
+            $json['data_recieved'] = 'Not ajax request!';
+            return response()->json($json);
+        } catch (\Throwable $e) {
+            \Log::alert($e->getMessage());
+
+            $json['status'] = 'ERROR';
+            $json['data_recieved'] = $e->getMessage();
+            return response()->json($json);
+        }
+    }
 }
