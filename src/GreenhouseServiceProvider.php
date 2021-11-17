@@ -26,10 +26,6 @@ class GreenhouseServiceProvider extends ServiceProvider
         $this->app->singleton('greenhouse', function () {
             return new Greenhouse();
         });
-
-        // $this->app->singleton('GreenhouseGuard', function () {
-        //     return config('auth.defaults.guard', 'web');
-        // });
     }
 
     /**
@@ -42,6 +38,8 @@ class GreenhouseServiceProvider extends ServiceProvider
         Builder::macro('search', function($field, $string) {
             return $string ? $this->where($field, 'like', '%' . $string . '%') : $this;
         });
+
+        $router->pushMiddlewareToGroup('admin', AdminAccessCheck::class);
 
         //
         $this->registerRoutes();
@@ -61,11 +59,6 @@ class GreenhouseServiceProvider extends ServiceProvider
             __DIR__.'/public' => public_path('/'),
         ], 'terawatt-greenhouse');
 
-        // $kernel = $this->app->make(Kernel::class);
-        // $kernel->pushMiddleware(AdminAccessCheck::class);
-
-        // Livewire::component('gerren::admin.users', UserComponent::class);
-
         $this->loadHelpers();
     }
 
@@ -83,7 +76,7 @@ class GreenhouseServiceProvider extends ServiceProvider
     {
         return [
             'prefix' => config('green.app_admin_prefix'),
-            // 'middleware' => ['admin'],
+            'middleware' => ['admin'],
             'middleware' => ['web'],
         ];
     }

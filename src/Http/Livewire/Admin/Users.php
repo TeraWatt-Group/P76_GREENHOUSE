@@ -27,7 +27,7 @@ class Users extends Component
     {
         (clone $this->rowsQuery)
             ->unless($this->selectAll, fn($query) => $query->whereKey($this->selected))
-            ->whereDoesntHave('roles', fn($query) => $query->where('name', 'super-admin'))
+            // ->whereDoesntHave('roles', fn($query) => $query->where('name', 'super-admin'))
             ->delete();
 
         $this->resetSelected();
@@ -37,7 +37,6 @@ class Users extends Component
     public function getRowsQueryProperty()
     {
         $query = User::query()
-            ->with('roles')
             ->with('latest_login')
             ->search('name', $this->search);
 

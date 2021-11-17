@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use DB;
 use App\Models\Category;
 use App\Models\CategoryDescription;
@@ -34,25 +32,8 @@ class GreenSeeder extends Seeder
             'name' => self::$ADMIN_NAME,
             'email' => self::$ADMIN_EMAIL,
             'password' =>  bcrypt(self::$ADMIN_PASSWORD),
+            'status' =>  User::ADMIN_TYPE,
         ]);
-
-        // Reset cached roles and permissions
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-
-        DB::statement("SET foreign_key_checks=0");
-        Role::truncate();
-        DB::statement("SET foreign_key_checks=1");
-
-        Role::create(['name' => 'super-admin']);
-        // Role::create(['name' => 'qr']);
-        // $role = Role::create(['name' => 'bpmn']);
-
-        // Permission::create(['name' => 'bpmn-view']);
-        // Permission::create(['name' => 'bpmn-edit']);
-        // $role->syncPermissions(['bpmn-view', 'bpmn-edit']);
-
-        $user->roles()->detach();
-        $user->assignRole('super-admin');
 
         if (Category::count() == 0) {
             Category::insert([

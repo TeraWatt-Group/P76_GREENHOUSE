@@ -6,7 +6,7 @@
 |--------------------------------------------------------------------------
 */
 
-Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\', 'as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\', 'as' => 'admin.', 'middleware' => ['auth', 'verified', 'admin']], function () {
 	Route::get('/', ['uses' => 'DashboardController@index', 'as' => 'index']);
 
 	Route::resource('users', UsersController::class);
@@ -21,14 +21,6 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\
 		Route::post('{product}/rcp', ['uses' => 'RcpController@store', 'as' => 'rcp.store']);
 		Route::put('{product}/rcp/{rcp}', ['uses' => 'RcpController@update', 'as' => 'rcp.update']);
 	});
-
-	Route::post('roles/restore/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'restore'])->name('roles.restore');
-	Route::delete('roles/forceDelete/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\RolesController::class, 'forceDelete'])->name('roles.forceDelete');
-	Route::resource('roles', RolesController::class);
-
-	Route::post('permissions/restore/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\PermissionsController::class, 'restore'])->name('permissions.restore');
-	Route::delete('permissions/forceDelete/{id}', [\Terawatt\Greenhouse\Http\Controllers\admin\PermissionsController::class, 'forceDelete'])->name('permissions.forceDelete');
-	Route::resource('permissions', PermissionsController::class);
 
 	// Route::get('routes', [Terawatt\Greenhouse\Http\Controllers\admin\DashboardController::class, 'routes'])->name('routes');
 

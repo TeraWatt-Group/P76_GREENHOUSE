@@ -74,59 +74,28 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <table id="table-fields" class="table mb-0">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>Ролі</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <hr>
+                        <div class="form-group row px-3">
+                            {!! Form::label('status', 'Группа', ['class' => 'col-3 col-form-label text-md-end form-label-asterisk']) !!}
 
-                            </tbody>
-                            <tfoot class="table-light">
-                                <tr>
-                                    <td></td>
-                                    <td class="text-end">
-                                        <button type="button" onclick="addColumn();" class="btn btn-primary" aria-label="{{ __('Add') }}">{{ __('Add') }}</button>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                            <div class="col-6">
+                                <select class="form-select" name="status">
+                                    @foreach ($roles as $key => $role)
+                                            <option value="{{ $role }}">{{ $key }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('status'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('status') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-3"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     {!! Form::close() !!}
 </div>
-@endsection
-
-@section('script')
-<template id="table-field-tpl">
-    <tr id="role-__index__">
-        <td>
-            <select name="role[__index__]" class="form-select">
-                @foreach ($roles as $role)
-                    <option value="{{ $role }}">{{ $role }}</option>';
-                @endforeach
-            </select>
-        </td>
-        <td class="text-end"><button type="button" onclick="document.getElementById('role-__index__').remove()" data-toggle="tooltip" title="Remove" class="btn btn-link">{{ __('Remove') }}</button></td>
-    </tr>
-</template>
-<script>
-var table_row = 0;
-function addColumn() {
-    document.querySelector('#table-fields tbody').insertAdjacentHTML("beforeend", document.getElementById('table-field-tpl').innerHTML.replace(/__index__/g, table_row));
-    table_row++;
-}
-</script>
 @endsection

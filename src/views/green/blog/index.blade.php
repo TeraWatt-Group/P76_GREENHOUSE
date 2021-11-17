@@ -9,7 +9,7 @@
 	    <div class="col-12">
 	        <nav aria-label="breadcrumb">
 	            <ol class="breadcrumb">
-	            	<li class="breadcrumb-item"><a class="link-secondary" href="{{ route('welcome') }}">{{ __('Головга') }}</a></li>
+	            	<li class="breadcrumb-item"><a class="link-secondary" href="{{ route('welcome') }}">{{ __('Головна') }}</a></li>
 	                <li class="breadcrumb-item active" aria-current="page">{{ __('green.welcome_blog') }}</li>
 	            </ol>
 	        </nav>

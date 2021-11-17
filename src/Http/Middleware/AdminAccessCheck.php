@@ -16,15 +16,9 @@ class AdminAccessCheck
      */
     public function handle($request, Closure $next)
     {
-        // auth()->setDefaultDriver(app('GreenhouseGuard'));
-
-        // if (!Auth::guest()) {
-            // dd(auth()->check());
-        // }
-
-        // if (auth()->check() && auth()->user()->can('super-admin')) {
+        if (auth()->check() && auth()->user()->isAdmin()) {
             return $next($request);
-        // }
-        // abort(404);
+        }
+        abort(404);
     }
 }

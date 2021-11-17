@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use Spatie\Permission\Models\Role;
 use DB;
 
 class UsersController extends Controller
@@ -29,7 +28,7 @@ class UsersController extends Controller
     public function create()
     {
         return view('admin.users.add')
-            ->withRoles(Role::orderBy('id', 'desc')->pluck('name'));
+            ->withRoles(User::TYPES);
     }
 
     /**
@@ -65,7 +64,7 @@ class UsersController extends Controller
         try {
             return view('admin.users.edit')
                 ->withUsers(User::findOrFail($id))
-                ->withRoles(Role::orderBy('id', 'desc')->pluck('name'));
+                ->withRoles(User::TYPES);
         } catch (\Throwable $e) {
             \Log::alert($e->getMessage());
             return redirect()->back()->with(['flash.bannerStyle' => 'danger', 'flash.banner' => $e->getMessage()])->withInput();

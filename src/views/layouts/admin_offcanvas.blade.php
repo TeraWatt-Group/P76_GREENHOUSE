@@ -90,8 +90,6 @@
 			<div class="collapse" id="user-collapse">
 			  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 				<li><a href="{{ route('admin.users.index') }}" class="link-dark rounded">{{ __('Користувачі') }}</a></li>
-				<li><a href="{{ route('admin.roles.index') }}" class="link-dark rounded">{{ __('Ролі') }}</a></li>
-				<li><a href="{{ route('admin.permissions.index') }}" class="link-dark rounded">{{ __('Дозволи') }}</a></li>
 			  </ul>
 			</div>
 			</li>
