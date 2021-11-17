@@ -162,7 +162,7 @@ class RcpController extends Controller
             if ($request->ajax()) {
                 if (isset($request->productid)) {
                     $json['status'] = 'OK';
-                    $json['data_recieved'] = Rcp::by_product($request->productid);
+                    $json['data_recieved']['rcp'] = Rcp::by_product($request->productid);
                     return response()->json($json);
                 }
 

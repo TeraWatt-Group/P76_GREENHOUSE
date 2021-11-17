@@ -12,18 +12,26 @@ class Orders extends Model
 	public $table = 'orders';
 	public $primaryKey = 'orderid';
 
+	protected $guarded = [];
+
 	public function equipments()
 	{
-	    return $this->hasOne(EquipmentsDescription::class, 'equipmentid');
+	    return $this->hasOne(UserEquipments::class, 'uequipmentid', 'uequipmentid')
+	    	->leftJoin('equipments_description', 'equipments_description.equipmentid', '=', 'users_equipments.equipmentid');
 	}
 
 	public function products()
 	{
-	    return $this->hasOne(ProductDescription::class, 'productid');
+	    return $this->hasOne(ProductDescription::class, 'productid', 'productid');
 	}
 
 	public function rcps()
 	{
-	    return $this->hasOne(Rcp::class, 'rcpid');
+	    return $this->hasOne(Rcp::class, 'rcpid', 'rcpid');
+	}
+
+	public static function in_progres($userid)
+	{
+		return Orders::where('status', 0)->where('userid', $userid)->count();
 	}
 }

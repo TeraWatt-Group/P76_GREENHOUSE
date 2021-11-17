@@ -41,9 +41,11 @@
 					<li>
 						<a class="nav-link link-dark" href="{{ route('home') }}"><strong>{{ Auth::user()->name }}</strong></a>
 					</li>
-					<li>
-						<a class="nav-link link-dark" href="{{ route('admin.index') }}">{{ __('Панель адміністратора') }}</a>
-					</li>
+					@can('super-admin')
+						<li>
+							<a class="nav-link link-dark" href="{{ route('admin.index') }}">{{ __('Панель адміністратора') }}</a>
+						</li>
+					@endcan
 					<li>
 						<a class="nav-link link-dark" href="{{ route('user.greenhouse.index') }}">{{ __('Мої теплиці') }}</a>
 					</li>

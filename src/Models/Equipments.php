@@ -12,12 +12,7 @@ class Equipments extends Model
 	public $table = 'equipments';
     public $primaryKey = 'equipmentid';
 
-    protected $fillable = [
-        'sku',
-        'image',
-        'sort_order',
-        'status',
-    ];
+    protected $guarded = [];
 
     public function descriptions()
     {

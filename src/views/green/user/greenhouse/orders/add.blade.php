@@ -43,9 +43,9 @@
     <div class="row">
         <div class="col-12">
         	<div class="form-group row py-3">
-        	    {!! Form::label('equipment', __('equipment'), ['class' => 'col-3 col-form-label text-md-start'], false) !!}
+        	    {!! Form::label('equipment', __('Обладнання'), ['class' => 'col-3 col-form-label text-md-start'], false) !!}
         	    <div class="col-6">
-        	        {!! Form::select('equipment', $equipment, 0, ['class' => 'form-control']) !!}
+        	        {!! Form::select('equipment', $equipment, 0, ['id' => 'equipment-select', 'class' => 'form-control']) !!}
         	        @if ($errors->has('equipment'))
         	            <span class="invalid-feedback" role="alert">
         	            <strong>{{ $errors->first('equipment') }}</strong>
@@ -54,9 +54,9 @@
         	    </div>
         	</div>
         	<div class="form-group row py-3">
-        	    {!! Form::label('products', __('products'), ['class' => 'col-3 col-form-label text-md-start'], false) !!}
+        	    {!! Form::label('products', __('Продукт'), ['class' => 'col-3 col-form-label text-md-start'], false) !!}
         	    <div class="col-6">
-        	        {!! Form::select('products', $products, 0, ['id' => 'products', 'class' => 'form-control']) !!}
+        	        {!! Form::select('products', $products, 0, ['id' => 'product-select', 'class' => 'form-control']) !!}
         	        @if ($errors->has('products'))
         	            <span class="invalid-feedback" role="alert">
         	            <strong>{{ $errors->first('products') }}</strong>
@@ -65,9 +65,9 @@
         	    </div>
         	</div>
         	<div class="form-group row py-3">
-        	    {!! Form::label('rcp', __('rcp'), ['class' => 'col-3 col-form-label text-md-start'], false) !!}
+        	    {!! Form::label('rcp', __('Рецепт'), ['class' => 'col-3 col-form-label text-md-start'], false) !!}
         	    <div class="col-6">
-        	        {!! Form::select('rcp', $rcp, 0, ['id' => 'rcp', 'class' => 'form-control']) !!}
+        	        {!! Form::select('rcp', $rcp, 0, ['id' => 'rcp-select', 'class' => 'form-control']) !!}
         	        @if ($errors->has('rcp'))
         	            <span class="invalid-feedback" role="alert">
         	            <strong>{{ $errors->first('rcp') }}</strong>
@@ -80,32 +80,38 @@
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	{{ Form::open(['url' => route('user.greenhouse.orders.store'), 'method' => 'POST']) }}
-	    <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Додати нове замовлення</h5>
-		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <div class="modal-body">
-		        <form>
-		          <div class="mb-3">
-		            <label for="recipient-name" class="col-form-label">Recipient:</label>
-		            <input type="text" class="form-control" id="recipient-name">
-		          </div>
-		          <div class="mb-3">
-		            <label for="message-text" class="col-form-label">Message:</label>
-		            <textarea class="form-control" id="message-text"></textarea>
-		          </div>
-		        </form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		        <button type="submit" class="btn btn-primary">Send message</button>
-		      </div>
-		    </div>
+    <div class="modal-dialog">
+	    <div class="modal-content">
+	    	{{ Form::open(['url' => route('user.greenhouse.orders.store'), 'method' => 'POST']) }}
+	        <div class="modal-header">
+	        	<h5 class="modal-title" id="exampleModalLabel">Додати нове замовлення</h5>
+	        	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	        </div>
+	        <div class="modal-body">
+	            <div class="mb-3">
+	            	<label for="equipment-name" class="col-form-label">{{ __('Обладнання') }}</label>
+	            	<input type="text" class="form-control" id="equipment-name" disabled>
+	            	<input name="equipment" type="hidden" id="equipment">
+	            </div>
+	            <div class="mb-3">
+	            	<label for="message-text" class="col-form-label">{{ __('Продукт') }}</label>
+	            	<input type="text" class="form-control" id="product-name" disabled>
+	            	<input name="product" type="hidden" id="product">
+	            </div>
+	            <div class="mb-3">
+	            	<label for="message-text" class="col-form-label">{{ __('Рецепт') }}</label>
+	            	<input type="text" class="form-control" id="rcp-name" disabled>
+	            	<input name="rcp" type="hidden" id="rcp">
+	            </div>
+	            <p>{{ __('Після натиснення кнопки "Зберегти" Ваше замовлення буде прийнято і вибраний рецепт почне свою роботу.') }}</p>
+	        </div>
+	        <div class="modal-footer">
+	        	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Скасувати') }}</button>
+	        	<button type="submit" class="btn btn-primary">{{ __('Зберегти') }}</button>
+	        </div>
+	        {{ Form::close() }}
 	    </div>
-  	{{ Form::close() }}
+    </div>
 </div>
 @endsection
 
@@ -113,23 +119,33 @@
 <script type="text/javascript">
 	var exampleModal = document.getElementById('exampleModal')
 	exampleModal.addEventListener('show.bs.modal', function (event) {
-	  // Button that triggered the modal
-	  var button = event.relatedTarget
-	  // Extract info from data-bs-* attributes
-	  var recipient = button.getAttribute('data-bs-whatever')
-	  // If necessary, you could initiate an AJAX request here
-	  // and then do the updating in a callback.
-	  //
-	  // Update the modal's content.
-	  var modalTitle = exampleModal.querySelector('.modal-title')
-	  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+		var e = document.getElementById("equipment-select")
+		var eValue = e.options[e.selectedIndex].value
+		var eText = e.options[e.selectedIndex].text
+		var p = document.getElementById("product-select")
+		var pValue = p.options[p.selectedIndex].value
+		var pText = p.options[p.selectedIndex].text
+		var r = document.getElementById("rcp-select")
+		var rValue = r.options[r.selectedIndex].value
+		var rText = r.options[r.selectedIndex].text
 
-	  modalTitle.textContent = 'New message to ' + recipient
-	  modalBodyInput.value = recipient
+	    var modalBodyEquipment = exampleModal.querySelector('.modal-body #equipment')
+	    var modalBodyEquipmentName = exampleModal.querySelector('.modal-body #equipment-name')
+	    var modalBodyProduct = exampleModal.querySelector('.modal-body #product')
+	    var modalBodyProductName = exampleModal.querySelector('.modal-body #product-name')
+	    var modalBodyRcp = exampleModal.querySelector('.modal-body #rcp')
+	    var modalBodyRcpName = exampleModal.querySelector('.modal-body #rcp-name')
+
+	    modalBodyEquipment.value = eValue
+	    modalBodyEquipmentName.value = eText
+	    modalBodyProduct.value = pValue
+	    modalBodyProductName.value = pText
+	    modalBodyRcp.value = rValue
+	    modalBodyRcpName.value = rText
 	})
 </script>
 <script>
-	document.getElementById('products').addEventListener('change', function() {
+	document.getElementById('product-select').addEventListener('change', function() {
 	    axi.rcp(this.value);
 	});
     var axi = {
@@ -140,15 +156,14 @@
 				}
 			})
 			.then(function (response) {
-				var rcp = document.getElementById('rcp');
+				var rcp = document.getElementById('rcp-select');
 				rcp.options.length=0;
 
-				var keys = Object.keys(response.data.data_recieved);
+				var keys = Object.keys(response.data.data_recieved.rcp);
 
 				if (keys.length > 0) {
 					for (var i = 0, len = keys.length; i < len; i++) {
-					    // console.log(response.data.data_recieved[keys[i]]);
-					    rcp.options[i]=new Option(response.data.data_recieved[keys[i]], keys[i]);
+					    rcp.options[i]=new Option(response.data.data_recieved.rcp[keys[i]], keys[i]);
 					}
 					rcp.disabled = false;
 				} else {

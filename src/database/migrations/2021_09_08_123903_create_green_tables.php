@@ -183,8 +183,7 @@ class CreateGreenTables extends Migration
             $table->unsignedBigInteger('rcpid');
             $table->integer('start');
             $table->integer('end');
-
-            $table->boolean('status')->nullable();
+            $table->boolean('status');
 
             $table->index(['userid', 'uequipmentid', 'rcpid']);
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
