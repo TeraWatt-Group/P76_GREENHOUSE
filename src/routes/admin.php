@@ -11,8 +11,9 @@ Route::group(['namespace' => '\\Terawatt\\Greenhouse\\Http\\Controllers\\admin\\
 
 	Route::resource('users', UsersController::class);
 
-	Route::resource('category', CategoryController::class);
+	Route::resource('equipment', EquipmentController::class);
 
+	Route::resource('category', CategoryController::class);
 	Route::resource('product', ProductController::class);
 
 	Route::group(['prefix' => 'product', 'as' => 'product.'], function () {

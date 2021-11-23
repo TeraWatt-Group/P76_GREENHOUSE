@@ -94,6 +94,17 @@
 			</div>
 			</li>
 			<li class="mb-1">
+			<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#equip-collapse" aria-expanded="false">
+			  {{ __('Обладнання') }}
+			</button>
+			<div class="collapse" id="equip-collapse">
+			  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+				<li><a href="#" class="link-dark rounded">{{ __('Категорії') }}</a></li>
+				<li><a href="{{ route('admin.equipment.index') }}" class="link-dark rounded">{{ __('Обладнання') }}</a></li>
+			  </ul>
+			</div>
+			</li>
+			<li class="mb-1">
 			<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#product-collapse" aria-expanded="false">
 			  {{ __('Продукти') }}
 			</button>
@@ -101,17 +112,6 @@
 			  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 				<li><a href="{{ route('admin.category.index') }}" class="link-dark rounded">{{ __('Категорії') }}</a></li>
 				<li><a href="{{ route('admin.product.index') }}" class="link-dark rounded">{{ __('Продукти') }}</a></li>
-			  </ul>
-			</div>
-			</li>
-			<li class="mb-1">
-			<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#equip-collapse" aria-expanded="false">
-			  {{ __('Обладнання') }}
-			</button>
-			<div class="collapse" id="equip-collapse">
-			  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-				<li><a href="#" class="link-dark rounded">{{ __('Категорії') }}</a></li>
-				<li><a href="#" class="link-dark rounded">{{ __('Обладнання') }}</a></li>
 			  </ul>
 			</div>
 			</li>

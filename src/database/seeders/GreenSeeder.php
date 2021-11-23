@@ -32,7 +32,7 @@ class GreenSeeder extends Seeder
             'name' => self::$ADMIN_NAME,
             'email' => self::$ADMIN_EMAIL,
             'password' =>  bcrypt(self::$ADMIN_PASSWORD),
-            'status' =>  User::ADMIN_TYPE,
+            'status' =>  User::TYPES['ADMIN_TYPE'],
         ]);
 
         if (Category::count() == 0) {
