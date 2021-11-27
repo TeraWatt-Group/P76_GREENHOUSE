@@ -47,5 +47,5 @@
         "post-install-cmd" : [
             "@php artisan vendor:publish --force --all"
         ]
-    },
+    }
 }
