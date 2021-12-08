@@ -1,8 +1,8 @@
 {
     "name": "terawatt/greenhouse",
     "description": "GREENHOUSE",
+    "type": "package",
     "license": "MIT",
-    "type": "project",
     "keywords": [
         "software",
         "greenhouse",
@@ -17,8 +17,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Terawatt\\Greenhouse\\": "src/"
+            "Terawatt\\Greenhouse\\": "./src"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     },
     "require": {
         "php": "^7.2.5|^8.0",
@@ -33,18 +36,5 @@
                 "Terawatt\\Greenhouse\\GreenhouseServiceProvider"
             ]
         }
-    },
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@php artisan key:generate"
-        ],
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
-        ],
-        "post-install-cmd" : [
-            "@php artisan vendor:publish --force --all"
-        ]
     }
 }
