@@ -51,12 +51,12 @@ class GreenhouseServiceProvider extends ServiceProvider
             __DIR__.'/Models' => app_path('Models'),
             __DIR__.'/../stubs/FortifyServiceProvider.php' => app_path('Providers/FortifyServiceProvider.php'),
             __DIR__.'/config/green.php' => config_path('green.php'),
-            __DIR__.'/resources/lang' => resource_path('lang'),
+            __DIR__.'/../resources/lang' => resource_path('lang'),
             __DIR__.'/database/migrations' => database_path('migrations'),
             __DIR__.'/database/seeders' => database_path('seeders'),
             __DIR__.'/database/factories' => database_path('factories'),
             __DIR__.'/views' => resource_path('views'),
-            __DIR__.'/public' => public_path('/'),
+            __DIR__.'/../public' => public_path('/'),
         ], 'terawatt-greenhouse');
 
         $this->loadHelpers();
